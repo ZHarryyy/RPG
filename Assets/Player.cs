@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
 
     private int facingDir = 1;
     private bool facingRight = true;
+
+    private float groundCheckDistance;
 
     private void Start()
     {
@@ -62,5 +65,10 @@ public class Player : MonoBehaviour
     {
         if(rb.velocity.x > 0 && !facingRight) Flip();
         else if(rb.velocity.x < 0 && facingRight) Flip();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance));
     }
 }

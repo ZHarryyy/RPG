@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,7 +13,10 @@ public class Player : MonoBehaviour
     private int facingDir = 1;
     private bool facingRight = true;
 
-    private float groundCheckDistance;
+    [Header("Collision info")]
+    [SerializeField] private float groundCheckDistance;
+    [SerializeField] private LayerMask whatIsGround;
+    private bool isGrounded;
 
     private void Start()
     {
@@ -28,6 +30,12 @@ public class Player : MonoBehaviour
         CheckInput();
         FlipController();
         AnimatorControllers();
+        CollisionChecks();
+    }
+
+    private void CollisionChecks()
+    {
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
     private void CheckInput()
@@ -44,7 +52,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if(isGrounded) rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     private void AnimatorControllers()

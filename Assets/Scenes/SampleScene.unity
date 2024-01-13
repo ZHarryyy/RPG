@@ -246,8 +246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909b401b385e94515b87fc2ccff51761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 4
+  jumpForce: 7
+  groundCheckDistance: 1.4
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!70 &1230835676
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -549,7 +553,7 @@ GameObject:
   - component: {fileID: 1731820293}
   - component: {fileID: 1731820292}
   - component: {fileID: 1731820294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,8 +703,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909b401b385e94515b87fc2ccff51761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 4
+  jumpForce: 7
+  groundCheckDistance: 1.4
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!50 &1752474206
 Rigidbody2D:
   serializedVersion: 4

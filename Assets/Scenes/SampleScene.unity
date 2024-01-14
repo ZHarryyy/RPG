@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 1265090335}
   - component: {fileID: 1265090336}
   - component: {fileID: 1265090337}
+  - component: {fileID: 1265090338}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -439,6 +440,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1265090338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265090334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcef3f5c0d5204434b897eaa6acc8b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581704951
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +463,7 @@ GameObject:
   - component: {fileID: 1581704952}
   - component: {fileID: 1581704953}
   - component: {fileID: 1581704954}
+  - component: {fileID: 1581704955}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -545,6 +559,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1581704955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581704951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcef3f5c0d5204434b897eaa6acc8b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1731820291
 GameObject:
   m_ObjectHideFlags: 0

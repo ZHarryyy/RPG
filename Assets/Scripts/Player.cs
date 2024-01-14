@@ -60,7 +60,7 @@ public class Player : Entity
             StartAttackEvent();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) Jump();
+        if(Input.GetKeyDown(KeyCode.Space)) Jump();
 
         if(Input.GetKeyDown(KeyCode.LeftShift)) DashAbility();
     }

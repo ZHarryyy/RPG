@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerAnimEvents : MonoBehaviour
 {
-    private Player player;
+    private PlayerTemp player;
 
     private void Start()
     {
-        player = GetComponentInParent<Player>();
+        player = GetComponentInParent<PlayerTemp>();
     }
 
     private void AnimationTrigger()

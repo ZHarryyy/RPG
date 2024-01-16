@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerMoveState : PlayerState
 {
     public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -21,6 +19,8 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
-        if(Input.GetKeyDown(KeyCode.N)) stateMachine.ChangeState(player.idleState);
+        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
+
+        if(xInput == 0) stateMachine.ChangeState(player.idleState);
     }
 }

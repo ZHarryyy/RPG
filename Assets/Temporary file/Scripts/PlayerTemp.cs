@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerTemp : Entity
+public class PlayerTemp : EntityTemp
 {
     [Header("Move info")]
     [SerializeField] private float moveSpeed;

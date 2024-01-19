@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5115738716945191164}
   - component: {fileID: 145284877798166980}
   m_Layer: 0
-  m_Name: Tile Set
+  m_Name: Medieval_Castle_TileSet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

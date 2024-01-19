@@ -1,10 +1,7 @@
-public class SkeletonIdleState : EnemyState
+public class SkeletonIdleState : SkeletonGroundedState
 {
-    private Enemy_Skeleton enemy;
-
-    public SkeletonIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_enemy, _stateMachine, _animBoolName)
+    public SkeletonIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName, _enemy)
     {
-        this.enemy = _enemy;
     }
 
     public override void Enter()
@@ -18,11 +15,9 @@ public class SkeletonIdleState : EnemyState
     {
         base.Update();
 
-        if(stateTimer < 0) stateMachine.ChangeState(enemy.moveState);
-        
-        if(stateTimer < 0 && !enemy.IsGroundDetected())
+        if(stateTimer < 0)
         {
-            enemy.Flip();
+            if(!enemy.IsGroundDetected()) enemy.Flip();
             stateMachine.ChangeState(enemy.moveState);
         }
     }

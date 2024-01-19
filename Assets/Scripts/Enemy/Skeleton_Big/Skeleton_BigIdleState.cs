@@ -1,10 +1,7 @@
-public class Skeleton_BigIdleState : EnemyState
+public class Skeleton_BigIdleState : Skeleton_BigGroundedState
 {
-    private Enemy_Skeleton_Big enemy;
-
-    public Skeleton_BigIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton_Big _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
+    public Skeleton_BigIdleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Skeleton_Big _enemy) : base(_enemyBase, _stateMachine, _animBoolName, _enemy)
     {
-        this.enemy = _enemy;
     }
 
     public override void Enter()
@@ -18,11 +15,9 @@ public class Skeleton_BigIdleState : EnemyState
     {
         base.Update();
 
-        if(stateTimer < 0) stateMachine.ChangeState(enemy.moveState);
-                
-        if(stateTimer < 0 && !enemy.IsGroundDetected())
+        if(stateTimer < 0)
         {
-            enemy.Flip();
+            if(!enemy.IsGroundDetected()) enemy.Flip();
             stateMachine.ChangeState(enemy.moveState);
         }
     }

@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 569925803}
   - component: {fileID: 569925802}
   - component: {fileID: 569925804}
+  - component: {fileID: 569925805}
   m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
@@ -415,6 +416,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &569925805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569925801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c843c7df7e054390bf60794e1d9fbe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1176968817
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +562,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   idleTime: 2
   attackDistance: 1.5
+  attackCooldown: 0.4
+  lastTimeAttacked: 0
 --- !u!50 &1185567902
 Rigidbody2D:
   serializedVersion: 4
@@ -7238,8 +7253,8 @@ Tilemap:
   - first: {x: -21, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 21
-      m_TileSpriteIndex: 21
+      m_TileIndex: 27
+      m_TileSpriteIndex: 27
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7348,8 +7363,8 @@ Tilemap:
   - first: {x: -4, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 28
-      m_TileSpriteIndex: 28
+      m_TileIndex: 26
+      m_TileSpriteIndex: 26
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7539,7 +7554,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9b2c70d7a83c24ebfa2c38dcf752c6b8, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 5cdbd3d6628874de1986e788bce0b259, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 6cb0eda466ad4407ea1f94a494bc949a, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: a15651a91716b40dca5a643b6e26499f, type: 2}
@@ -7549,11 +7564,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 026cc4df0e9324a149bb4b72982237ba, type: 2}
   - m_RefCount: 52
     m_Data: {fileID: 11400000, guid: 151610746aa124de4a64c3fa540c0715, type: 2}
-  - m_RefCount: 277
+  - m_RefCount: 278
     m_Data: {fileID: 11400000, guid: 7e3d5eb0bd4664b778ecd99ee710eb43, type: 2}
-  - m_RefCount: 47
+  - m_RefCount: 48
     m_Data: {fileID: 11400000, guid: 6e10e7796f7f84528ad6722fc2e1ed3c, type: 2}
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: eebdde524610546188c8909cdfbba802, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -7598,7 +7613,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 90d10d4ec25a7e54f9becdea0c8dfef1, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 21300000, guid: e5db2e6269cab6942b3c1a074c187b31, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 7f1c70acd3a44df4594d7d5a99659736, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: a3036aee198b81844b0cd72f1d750767, type: 3}
@@ -7608,11 +7623,11 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 5cb467aafc67c8f4e9963f2054de8f6b, type: 3}
   - m_RefCount: 52
     m_Data: {fileID: 21300000, guid: a0f92ffd401f6ed44bd416e2e52add54, type: 3}
-  - m_RefCount: 277
+  - m_RefCount: 278
     m_Data: {fileID: 21300000, guid: afdae31bc81d124438bb1f81eae6040c, type: 3}
-  - m_RefCount: 47
+  - m_RefCount: 48
     m_Data: {fileID: 21300000, guid: 4be2c34154b4b20429143bf5a0400d64, type: 3}
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: 26075e6099ebb844aaf0a6405ebb02f6, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 678
@@ -8270,6 +8285,8 @@ MonoBehaviour:
   moveSpeed: 3
   idleTime: 2
   attackDistance: 2
+  attackCooldown: 0.8
+  lastTimeAttacked: 0
 --- !u!50 &2024049139
 Rigidbody2D:
   serializedVersion: 4
@@ -8385,6 +8402,7 @@ GameObject:
   - component: {fileID: 2135827427}
   - component: {fileID: 2135827426}
   - component: {fileID: 2135827428}
+  - component: {fileID: 2135827429}
   m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
@@ -8480,6 +8498,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2135827429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135827425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64507e410c7314b29be85c4392b6980e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &173919313628627322
 PrefabInstance:
   m_ObjectHideFlags: 0

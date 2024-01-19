@@ -24,9 +24,7 @@ public class Skeleton_BigBattleState : EnemyState
 
         if(enemy.IsPlayerDetected().distance < enemy.attackDistance)
         {
-            Debug.Log("I ATTACK");
-            enemy.ZeroVelocity();
-            return;
+            if(CanAttack()) stateMachine.ChangeState(enemy.attackState);
         }
 
         if(player.position.x > enemy.transform.position.x) moveDir = 1;
@@ -38,5 +36,16 @@ public class Skeleton_BigBattleState : EnemyState
     public override void Exit()
     {
         base.Exit();
+    }
+
+    private bool CanAttack()
+    {
+        if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+        {
+            enemy.lastTimeAttacked = Time.time;
+            return true;
+        }
+
+        return false;
     }
 }

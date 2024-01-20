@@ -22,15 +22,31 @@ public class SkeletonBattleState : EnemyState
     {
         base.Update();
 
-        if(enemy.IsPlayerDetected().distance < enemy.attackDistance)
+        if(enemy.IsPlayerDetected())
         {
-            if(CanAttack()) stateMachine.ChangeState(enemy.attackState);
+            stateTimer = enemy.battleTime;
+
+            if(enemy.IsPlayerDetected().distance < enemy.attackDistance)
+            {
+                if(CanAttack()) stateMachine.ChangeState(enemy.attackState);
+            }
+        }
+        else
+        {
+            if(stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 10) stateMachine.ChangeState(enemy.idleState);
         }
 
         if(player.position.x > enemy.transform.position.x) moveDir = 1;
         else if(player.position.x < enemy.transform.position.x) moveDir = -1;
 
-        enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
+        if(enemy.IsGroundDetected())
+        {
+            enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
+        }
+        else
+        {
+            stateMachine.ChangeState(enemy.idleState);
+        }
     }
 
     public override void Exit()

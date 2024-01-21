@@ -47,6 +47,8 @@ public class SkeletonBattleState : EnemyState
         {
             stateMachine.ChangeState(enemy.idleState);
         }
+
+        if(enemy.IsWallDetected()) stateMachine.ChangeState(enemy.idleState);
     }
 
     public override void Exit()

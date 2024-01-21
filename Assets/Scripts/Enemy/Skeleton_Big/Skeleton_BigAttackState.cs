@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Skeleton_BigAttackState : EnemyState
 {
     private Enemy_Skeleton_Big enemy;
@@ -24,5 +26,7 @@ public class Skeleton_BigAttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
+
+        enemy.lastTimeAttacked = Time.time;
     }
 }

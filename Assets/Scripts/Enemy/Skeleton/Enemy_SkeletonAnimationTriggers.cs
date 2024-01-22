@@ -4,7 +4,7 @@ public class Enemy_SkeletonAnimationTriggers : MonoBehaviour
 {
     private Enemy_Skeleton enemy => GetComponentInParent<Enemy_Skeleton>();
 
-    private void AnimationFinishTrigger()
+    private void AnimationTrigger()
     {
         enemy.AnimationFinishTrigger();
     }
@@ -18,4 +18,7 @@ public class Enemy_SkeletonAnimationTriggers : MonoBehaviour
             if(hit.GetComponent<Player>() != null) hit.GetComponent<Player>().Damage();
         }
     }
+
+    private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
+    private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286266450317647576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 744665672949311534}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3250022609200061641}
   - component: {fileID: 3833966734566486352}
   - component: {fileID: 8082015293556482318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +181,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ff029856e85446bbccf9cf5064c32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7753793625502964779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9198816841309593573}
+  m_Layer: 6
+  m_Name: AttackCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9198816841309593573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753793625502964779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.13, y: -0.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2871066386799114496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8973192898958212582
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +224,8 @@ GameObject:
   - component: {fileID: 720650219429283365}
   - component: {fileID: 1675847860743177361}
   - component: {fileID: 2136440750003095285}
-  m_Layer: 0
+  - component: {fileID: 4928571564794338061}
+  m_Layer: 6
   m_Name: Valkyrie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,6 +248,7 @@ Transform:
   - {fileID: 4855294729051169635}
   - {fileID: 744665672949311534}
   - {fileID: 286266450317647576}
+  - {fileID: 9198816841309593573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &720650219429283365
@@ -230,15 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f95b4208c92e429f850b27dad2a1e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackMovement:
-  - {x: 3, y: 1.5}
-  - {x: 1, y: 2.5}
-  - {x: 4, y: 1.5}
-  moveSpeed: 8
-  jumpForce: 12
-  dashCooldown: 1
-  dashSpeed: 25
-  dashDuration: 0.2
+  knockbackDirection: {x: 0, y: 0}
+  knockbackDuration: 0
+  attackCheck: {fileID: 9198816841309593573}
+  attackCheckRadius: 0.8
   groundCheck: {fileID: 744665672949311534}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 286266450317647576}
@@ -246,6 +274,16 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  attackMovement:
+  - {x: 3, y: 1.5}
+  - {x: 1, y: 2.5}
+  - {x: 4, y: 1.5}
+  counterAttackDuration: 0.2
+  moveSpeed: 8
+  jumpForce: 12
+  dashCooldown: 1
+  dashSpeed: 25
+  dashDuration: 0.2
 --- !u!70 &1675847860743177361
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -308,3 +346,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &4928571564794338061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973192898958212582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e9ce747074a422298beaa678573ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.15
+  hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}

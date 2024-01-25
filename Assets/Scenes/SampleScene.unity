@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 1037791446}
   - component: {fileID: 1037791448}
   - component: {fileID: 1037791447}
+  - component: {fileID: 1037791449}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -352,7 +353,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03b03954975d4ee89564860b8596fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash: {fileID: 0}
+--- !u!114 &1037791449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037791445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8cf18e1ade44e618103083eb94dc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  clonePrefab: {fileID: 7031547100696959102, guid: 86145969c58614f898a5888674e5514c, type: 3}
+  cloneDuration: 1.5
+  canAttack: 1
 --- !u!1 &1176968817
 GameObject:
   m_ObjectHideFlags: 0
@@ -8114,7 +8130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 367637511408172118, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.55
+      value: -10.376
       objectReference: {fileID: 0}
     - target: {fileID: 367637511408172118, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
       propertyPath: m_LocalPosition.z

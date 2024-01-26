@@ -384,8 +384,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   swordPrefab: {fileID: 1596943140038934683, guid: 7006a362573314b16a8f0c82769187b5, type: 3}
-  launchDir: {x: 15, y: 5}
-  swordGravity: 4
+  launchForce: {x: 35, y: 25}
+  swordGravity: 4.5
+  numberOfDots: 20
+  spaceBetweenDots: 0.07
+  dotPrefab: {fileID: 2658370090073329153, guid: 3b4c04acdc2ac4d8abfe208aca66f1dd, type: 3}
+  dotsParent: {fileID: 1473201692}
 --- !u!1 &1176968817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7729,63 +7733,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1001 &1333532560
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2871066386799114496, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8973192898958212582, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
-      propertyPath: m_Name
-      value: Valkyrie
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
+--- !u!4 &1473201692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6983631071439264093, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
+  m_PrefabInstance: {fileID: 173919313628627322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1609414592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8429,7 +8381,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 495749749}
   - {fileID: 173919313628627322}
-  - {fileID: 1333532560}
   - {fileID: 1609414594}
   - {fileID: 2037766620}
   - {fileID: 4137019381694716762}

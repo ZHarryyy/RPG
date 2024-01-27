@@ -13,10 +13,11 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool canRotate = true;
     private bool isReturning;
 
-    public float bounceSpeed;
-    public bool isBouncing = true;
-    public int amountOfBounce = 4;
-    public List<Transform> enemyTarget;
+    [Header("Bounce info")]
+    [SerializeField] private float bounceSpeed;
+    private bool isBouncing;
+    private int amountOfBounce;
+    private List<Transform> enemyTarget;
     private int targetIndex;
 
     private void Awake()
@@ -36,6 +37,14 @@ public class Sword_Skill_Controller : MonoBehaviour
         anim.SetBool("Rotation", true);
     }
 
+    public void SetupBounce(bool _isBouncing, int _amountOfBounce)
+    {
+        isBouncing = _isBouncing;
+        amountOfBounce = _amountOfBounce;
+
+        enemyTarget = new List<Transform>();
+    }
+
     public void ReturnSword()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -46,31 +55,36 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void Update()
     {
-        if(canRotate) transform.right = rb.velocity;
+        if (canRotate) transform.right = rb.velocity;
 
-        if(isReturning)
+        if (isReturning)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, player.transform.position) < 1) player.CatchTheSword();
+            if (Vector2.Distance(transform.position, player.transform.position) < 1) player.CatchTheSword();
         }
 
-        if(isBouncing && enemyTarget.Count > 0)
+        BounceLogic();
+    }
+
+    private void BounceLogic()
+    {
+        if (isBouncing && enemyTarget.Count > 0)
         {
             transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
+            if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
             {
                 targetIndex++;
                 amountOfBounce--;
 
-                if(amountOfBounce <= 0)
+                if (amountOfBounce <= 0)
                 {
                     isBouncing = false;
                     isReturning = true;
                 }
 
-                if(targetIndex >= enemyTarget.Count) targetIndex = 0;
+                if (targetIndex >= enemyTarget.Count) targetIndex = 0;
             }
         }
     }

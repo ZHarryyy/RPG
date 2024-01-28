@@ -299,11 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name
-      value: Enemy_Skeleton (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Enemy_Skeleton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -501,11 +497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  swordType: 2
-  bounceAmount: 0
-  bounceGravity: 5
+  swordType: 3
+  bounceAmount: 4
+  bounceGravity: 1
   pierceAmount: 2
   pierceGravity: 1
+  maxTravelDistance: 7
+  spinDuration: 2
+  spinGravity: 1
   swordPrefab: {fileID: 1596943140038934683, guid: 7006a362573314b16a8f0c82769187b5, type: 3}
   launchForce: {x: 35, y: 25}
   swordGravity: 4.5
@@ -8430,10 +8429,6 @@ PrefabInstance:
     - target: {fileID: 3221275417237984128, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
       propertyPath: m_Name
       value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7460783070504664782, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
-      propertyPath: swordReturnImpact
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -57,7 +57,7 @@ MonoBehaviour:
   attackCheck: {fileID: 7543806061853927898}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 1739633292566135764}
-  groundCheckDistance: 0.4
+  groundCheckDistance: 1
   wallCheck: {fileID: 5431398815801624937}
   wallCheckDistance: 1.7
   whatIsGround:

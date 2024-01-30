@@ -33,7 +33,7 @@ public class Clone_Skill_Controller : MonoBehaviour
     {
         if(_canAttack) anim.SetInteger("AttackNumber", Random.Range(1, 4));
 
-        transform.position = _newTransform.position;
+        transform.position = _newTransform.position + new Vector3(0, -0.9f, 0);
         cloneTimer = _cloneDuration;
 
         FaceClosestTarget();

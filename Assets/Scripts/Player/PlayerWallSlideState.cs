@@ -26,7 +26,7 @@ public class PlayerWallSlideState : PlayerState
             return;
         }
 
-        if(xInput != 0 && player.facingDir != xInput) stateMachine.ChangeState(player.idleState);
+        if((xInput != 0 && player.facingDir != xInput) || !player.IsWallDetected()) stateMachine.ChangeState(player.idleState);
 
         if(yInput < 0) rb.velocity = new Vector2(0, rb.velocity.y);
         else rb.velocity = new Vector2(0, rb.velocity.y * .7f);

@@ -521,6 +521,14 @@ MonoBehaviour:
   canExplode: 1
   canMoveToEnemy: 1
   moveSpeed: 4
+  canUseMultiStacks: 1
+  amountOfStacks: 3
+  multiStackCooldown: 4
+  useTimeWindow: 2.5
+  crystalLeft:
+  - {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
+  - {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
+  - {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
 --- !u!4 &1117797225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7668051369055386038, guid: cfb04201f67a34c599076ae274adf002, type: 3}

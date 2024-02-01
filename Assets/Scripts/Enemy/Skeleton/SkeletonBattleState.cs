@@ -41,7 +41,7 @@ public class SkeletonBattleState : EnemyState
 
         if(enemy.IsGroundDetected())
         {
-            enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
+            if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown) enemy.SetVelocity(enemy.moveSpeed * 1.5f * moveDir, rb.velocity.y);
         }
         else
         {

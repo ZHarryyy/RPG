@@ -28,6 +28,8 @@ public class Crystal_Skill : Skill
     {
         base.UseSkill();
 
+        if(Blackhole_Skill_Controller.IsBlackholeActive) return;
+
         if(CanUseMultiCrystal()) return;
 
         if(currentCrystal == null)

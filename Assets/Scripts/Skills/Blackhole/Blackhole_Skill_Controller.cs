@@ -6,6 +6,8 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     [SerializeField] private GameObject hotKeyPrefab;
     [SerializeField] private List<KeyCode> keyCodeList;
 
+    public static bool IsBlackholeActive { get; private set; }
+
     private float maxSize;
     private float growSpeed;
     private float shrinkSpeed;
@@ -34,8 +36,12 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         amountOfAttacks = _amountOfAttacks;
         cloneAttackCooldown = _cloneAttackCooldown;
         blackholeTimer = _blackholeDuration;
+        IsBlackholeActive = true;
 
-        if(SkillManager.instance.clone.crystalInsteadOfClone) playerCanDisappear = false;
+        if(SkillManager.instance.clone.crystalInsteadOfClone)
+        {
+            playerCanDisappear = false;
+        }
     }
 
     private void Update()
@@ -124,6 +130,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         playerCanExitState = true;
         canShrink = true;
         cloneAttackReleased = false;
+        IsBlackholeActive = false;
     }
 
     private void DestroyHotKeys()

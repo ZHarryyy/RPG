@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7016749549641357264}
   - component: {fileID: 5182313973409436489}
   - component: {fileID: 7934610684840006564}
+  - component: {fileID: 1511322165024689108}
   m_Layer: 6
   m_Name: GhostKnight
   m_TagString: Untagged
@@ -180,6 +181,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.15
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
+--- !u!114 &1511322165024689108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593887837558377883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5fa085f8ff54bd993a93bee35f8990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2873875786016337989
 GameObject:
   m_ObjectHideFlags: 0

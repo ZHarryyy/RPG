@@ -23,7 +23,6 @@ public class EnemyState
         triggerCalled = false;
         rb = enemyBase.rb;
         enemyBase.anim.SetBool(animBoolName, true);
-        Debug.Log(enemyBase.stateMachine.currentState);
     }
 
     public virtual void Update()

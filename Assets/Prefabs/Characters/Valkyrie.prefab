@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 1675847860743177361}
   - component: {fileID: 2136440750003095285}
   - component: {fileID: 4928571564794338061}
+  - component: {fileID: -6385680077061580907}
   m_Layer: 6
   m_Name: Valkyrie
   m_TagString: Untagged
@@ -316,7 +317,6 @@ MonoBehaviour:
   swordReturnImpact: 7
   dashSpeed: 25
   dashDuration: 0.2
-  sword: {fileID: 0}
 --- !u!70 &1675847860743177361
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -393,3 +393,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.15
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
+--- !u!114 &-6385680077061580907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973192898958212582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5fa085f8ff54bd993a93bee35f8990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

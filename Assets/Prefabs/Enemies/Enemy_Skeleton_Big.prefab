@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4919862057794029591}
   - component: {fileID: 1116658829630067231}
   - component: {fileID: 8768757092987494863}
-  - component: {fileID: 7341259724545901897}
+  - component: {fileID: 2366482898116741026}
   m_Layer: 7
   m_Name: Enemy_Skeleton_Big
   m_TagString: Untagged
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.2
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
---- !u!114 &7341259724545901897
+--- !u!114 &2366482898116741026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +171,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1382193383841840635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5fa085f8ff54bd993a93bee35f8990, type: 3}
+  m_Script: {fileID: 11500000, guid: a858d624ecf2c4bc3a23e397d9adb142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 500
+    modifiers: 
+  currentHealth: 0
 --- !u!1 &3940361829125822619
 GameObject:
   m_ObjectHideFlags: 0

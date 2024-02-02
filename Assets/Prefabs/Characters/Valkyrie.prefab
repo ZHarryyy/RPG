@@ -256,14 +256,14 @@ GameObject:
   - component: {fileID: 1675847860743177361}
   - component: {fileID: 2136440750003095285}
   - component: {fileID: 4928571564794338061}
-  - component: {fileID: -6385680077061580907}
+  - component: {fileID: 2775418083606418073}
   m_Layer: 6
   m_Name: Valkyrie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2871066386799114496
 Transform:
   m_ObjectHideFlags: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.15
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
---- !u!114 &-6385680077061580907
+--- !u!114 &2775418083606418073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,6 +402,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8973192898958212582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5fa085f8ff54bd993a93bee35f8990, type: 3}
+  m_Script: {fileID: 11500000, guid: a0f2b7909b51f46bd9761ce623d6e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 0
+    modifiers: 
+  currentHealth: 0

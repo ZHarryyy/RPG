@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int damage;
-    public int maxHealth;
+    public Stat damage;
+    public Stat maxHealth;
 
     [SerializeField] private int currentHealth;
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.GetValue();
+
+        damage.AddModifier(4);
     }
 
     public void TakeDamage(int _damage)

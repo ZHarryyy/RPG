@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -32,6 +31,6 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Die()
     {
-        // throw new NotImplementedException();
+        
     }
 }

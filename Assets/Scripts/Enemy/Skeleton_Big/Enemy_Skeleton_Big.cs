@@ -7,7 +7,9 @@ public class Enemy_Skeleton_Big : Enemy
     public Skeleton_BigMoveState moveState { get; private set; }
     public Skeleton_BigBattleState battleState { get; private set; }
     public Skeleton_BigAttackState attackState { get; private set; }
+
     public SkeletonBigStunnedState stunnedState { get; private set; }
+    public Skeleton_BigDeadState deadState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -19,6 +21,7 @@ public class Enemy_Skeleton_Big : Enemy
         battleState = new Skeleton_BigBattleState(this, stateMachine, "Move", this);
         attackState = new Skeleton_BigAttackState(this, stateMachine, "Attack", this);
         stunnedState = new SkeletonBigStunnedState(this, stateMachine, "Stunned", this);
+        deadState = new Skeleton_BigDeadState(this, stateMachine, "Idle", this);
     }
 
     protected override void Start()
@@ -44,5 +47,12 @@ public class Enemy_Skeleton_Big : Enemy
         }
 
         return false;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        stateMachine.ChangeState(deadState);
     }
 }

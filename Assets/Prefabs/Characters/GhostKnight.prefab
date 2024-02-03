@@ -200,7 +200,7 @@ MonoBehaviour:
     baseValue: 5
     modifiers: 
   maxHealth:
-    baseValue: 150
+    baseValue: 1000
     modifiers: 
   currentHealth: 0
 --- !u!1 &2873875786016337989

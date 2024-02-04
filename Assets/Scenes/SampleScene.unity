@@ -8580,6 +8580,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: armor.baseValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: evasion.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: magicResistance.baseValue
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8694,6 +8706,22 @@ PrefabInstance:
     - target: {fileID: 6284099400360952235, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: damage.baseValue
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: strength.baseValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: critChance.baseValue
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: fireDamage.baseValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -37,12 +38,14 @@ public class CharacterStats : MonoBehaviour
     private float igniteDamageTimer;
     private int igniteDamage;
 
-    [SerializeField] private int currentHealth;
+    public int currentHealth;
+
+    public Action onHealthChanged;
 
     protected virtual void Start()
     {
         critPower.SetDefaultValue(150);   
-        currentHealth = maxHealth.GetValue();
+        currentHealth = GetMaxHealthValue();
     }
 
     protected virtual void Update()
@@ -61,7 +64,7 @@ public class CharacterStats : MonoBehaviour
         {
             Debug.Log("Take burn damage" + igniteDamage);
 
-            currentHealth -= igniteDamage;
+            DecreaseHealthBy(igniteDamage);
     
             if(currentHealth < 0) Die();
 
@@ -105,7 +108,7 @@ public class CharacterStats : MonoBehaviour
 
         while(!canApplyIgnite && !canApplyChill && !canApplyShock)
         {
-            if(Random.value < .3f && _fireDamage > 0)
+            if(UnityEngine.Random.value < .3f && _fireDamage > 0)
             {
                 canApplyIgnite = true;
                 _targetStats.ApplyAliments(canApplyIgnite, canApplyChill, canApplyShock);
@@ -113,7 +116,7 @@ public class CharacterStats : MonoBehaviour
                 return;
             }
 
-            if(Random.value < .5f && _iceDamage > 0)
+            if(UnityEngine.Random.value < .5f && _iceDamage > 0)
             {
                 canApplyChill = true;
                 _targetStats.ApplyAliments(canApplyIgnite, canApplyChill, canApplyShock);
@@ -121,7 +124,7 @@ public class CharacterStats : MonoBehaviour
                 return;
             }
 
-            if(Random.value < .5f && _lightingDamage > 0)
+            if(UnityEngine.Random.value < .5f && _lightingDamage > 0)
             {
                 canApplyShock = true;
                 _targetStats.ApplyAliments(canApplyIgnite, canApplyChill, canApplyShock);
@@ -172,11 +175,18 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void TakeDamage(int _damage)
     {
-        currentHealth -= _damage;
+        DecreaseHealthBy(_damage);
 
         Debug.Log(_damage);
 
         if(currentHealth < 0) Die();
+    }
+
+    protected virtual void DecreaseHealthBy(int _damage)
+    {
+        currentHealth -= _damage;
+
+        if(onHealthChanged != null) onHealthChanged();
     }
 
     protected virtual void Die()
@@ -199,7 +209,7 @@ public class CharacterStats : MonoBehaviour
 
         if(isShocked) totalEvasion += 20;
 
-        if (Random.Range(0, 100) < totalEvasion)
+        if (UnityEngine.Random.Range(0, 100) < totalEvasion)
         {
             return true;
         }
@@ -211,7 +221,7 @@ public class CharacterStats : MonoBehaviour
     {
         int totalCriticalChance = critChance.GetValue() + agility.GetValue();
 
-        if(Random.Range(0, 100) <= totalCriticalChance)
+        if(UnityEngine.Random.Range(0, 100) <= totalCriticalChance)
         {
             return true;
         }
@@ -226,5 +236,10 @@ public class CharacterStats : MonoBehaviour
         float critDamage = _damage * totalCritPower;
 
         return Mathf.RoundToInt(critDamage);
+    }
+
+    public int GetMaxHealthValue()
+    {
+        return maxHealth.GetValue() + vitality.GetValue() * 5;
     }
 }

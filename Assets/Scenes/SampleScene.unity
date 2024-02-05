@@ -360,9 +360,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1090760117956952884, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090760117956952884, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3221275417237984128, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
       propertyPath: m_Name
       value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221275417237984128, guid: 05dbd536231b148609d13aa5aaf882e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -478,9 +490,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8372626728619399160, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372626728619399160, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8973192898958212582, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
       propertyPath: m_Name
       value: Valkyrie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973192898958212582, guid: ce085d782c038403d8de229e7bf8fa1c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8086,6 +8110,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 557821532501061571, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557821532501061571, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6284099400360952235, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.48
@@ -8129,10 +8161,6 @@ PrefabInstance:
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8584,25 +8612,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
-      propertyPath: armor.baseValue
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
-      propertyPath: evasion.baseValue
+    - target: {fileID: 8525369573509710738, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
-      propertyPath: iceDamage.baseValue
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
-      propertyPath: fireDamage.baseValue
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
-      propertyPath: magicResistance.baseValue
-      value: 1
+    - target: {fileID: 8525369573509710738, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8679,6 +8695,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 557821532501061571, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557821532501061571, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6284099400360952235, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.14
@@ -8719,30 +8743,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: damage.baseValue
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: strength.baseValue
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: iceDamage.baseValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: critChance.baseValue
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: fireDamage.baseValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
-      propertyPath: lightingDamage.baseValue
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton
@@ -8763,6 +8763,14 @@ PrefabInstance:
     - target: {fileID: 1382193383841840635, guid: b9fb7c3babfb3477eaeff73cbe1ca6d0, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton_Big
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440496895448813140, guid: b9fb7c3babfb3477eaeff73cbe1ca6d0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440496895448813140, guid: b9fb7c3babfb3477eaeff73cbe1ca6d0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9122404686906148958, guid: b9fb7c3babfb3477eaeff73cbe1ca6d0, type: 3}
       propertyPath: m_LocalPosition.x

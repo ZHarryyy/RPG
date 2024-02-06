@@ -851,4 +851,5 @@ MonoBehaviour:
   isChilled: 0
   isShocked: 0
   alimentsDuration: 4
+  shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0

@@ -738,7 +738,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   iceDamage:
-    baseValue: 0
+    baseValue: 2
     modifiers: 
   lightingDamage:
     baseValue: 0
@@ -747,6 +747,7 @@ MonoBehaviour:
   isChilled: 0
   isShocked: 0
   alimentsDuration: 4
+  shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
 --- !u!1 &7934323532406941881
 GameObject:

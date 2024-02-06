@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 1540688556425445215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.532, y: 1}
   m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2871066386799114496
 Transform:
   m_ObjectHideFlags: 0
@@ -782,8 +782,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e9ce747074a422298beaa678573ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashDuration: 0.15
+  flashDuration: 0.2
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
+  igniteColor:
+  - {r: 0.99215686, g: 0.3882353, b: 0.3882353, a: 1}
+  - {r: 0.972549, g: 0.6745098, b: 0.6745098, a: 1}
+  chillColor:
+  - {r: 0.59607846, g: 0.83137256, b: 1, a: 1}
+  - {r: 0.59607846, g: 0.83137256, b: 1, a: 1}
+  shockColor:
+  - {r: 1, g: 0.8901961, b: 0.38431373, a: 1}
+  - {r: 0.94509804, g: 0.8745098, b: 0.54901963, a: 1}
 --- !u!114 &2775418083606418073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,4 +850,5 @@ MonoBehaviour:
   isIgnited: 0
   isChilled: 0
   isShocked: 0
+  alimentsDuration: 4
   currentHealth: 0

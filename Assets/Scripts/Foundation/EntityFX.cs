@@ -10,7 +10,7 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private Material hitMat;
     private Material originalMat;
 
-    [Header("Aliment colors")]
+    [Header("Ailment colors")]
     [SerializeField] private Color[] igniteColor;
     [SerializeField] private Color[] chillColor;
     [SerializeField] private Color[] shockColor;
@@ -19,6 +19,12 @@ public class EntityFX : MonoBehaviour
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         originalMat = sr.material;
+    }
+
+    public void MakeTransparent(bool _transparent)
+    {
+        if(_transparent) sr.color = Color.clear;
+        else sr.color = Color.white;
     }
 
     private IEnumerator FlashFX()

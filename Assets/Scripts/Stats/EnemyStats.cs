@@ -1,25 +1,23 @@
-public class PlayerStats : CharacterStats
+public class EnemyStats : CharacterStats
 {
-    private Player player;
+    private Enemy enemy;
 
     protected override void Start()
     {
         base.Start();
 
-        player = GetComponent<Player>();
+        enemy = GetComponent<Enemy>();
     }
 
     public override void TakeDamage(int _damage)
     {
         base.TakeDamage(_damage);
-
-        player.DamageEffect();
     }
 
     protected override void Die()
     {
         base.Die();
 
-        player.Die();
+        enemy.Die();
     }
 }

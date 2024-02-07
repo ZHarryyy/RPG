@@ -62,13 +62,7 @@ public class Entity : MonoBehaviour
         anim.speed = 1;
     }
 
-    public virtual void DamageEffect()
-    {
-        fx.StartCoroutine("FlashFX");
-        StartCoroutine("HitKnockback");
-
-        // Debug.Log(gameObject.name + " was damaged!");
-    }
+    public virtual void DamageImpact() => StartCoroutine("HitKnockback");
 
     protected virtual IEnumerator HitKnockback()
     {
@@ -126,12 +120,6 @@ public class Entity : MonoBehaviour
         else if(_x < 0 && facingRight) Flip();
     }
     #endregion
-
-    public void MakeTransparent(bool _transparent)
-    {
-        if(_transparent) sr.color = Color.clear;
-        else sr.color = Color.white;
-    }
 
     public virtual void Die()
     {

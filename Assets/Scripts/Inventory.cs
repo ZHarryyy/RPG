@@ -49,14 +49,4 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ItemData newItem = inventoryItems[inventoryItems.Count - 1].data;
-
-            RemoveItem(newItem);
-        }
-    }
 }

@@ -23,7 +23,7 @@ public class EntityFX : MonoBehaviour
 
     public void MakeTransparent(bool _transparent)
     {
-        if(_transparent) sr.color = Color.clear;
+        if (_transparent) sr.color = Color.clear;
         else sr.color = Color.white;
     }
 
@@ -36,12 +36,12 @@ public class EntityFX : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
 
         sr.color = currentColor;
-        sr.material = originalMat; 
+        sr.material = originalMat;
     }
 
     private void RedColorBlink()
     {
-        if(sr.color != Color.white) sr.color = Color.white;
+        if (sr.color != Color.white) sr.color = Color.white;
         else sr.color = Color.red;
     }
 
@@ -59,7 +59,7 @@ public class EntityFX : MonoBehaviour
 
     private void IgniteColorFx()
     {
-        if(sr.color != igniteColor[0]) sr.color = igniteColor[0];
+        if (sr.color != igniteColor[0]) sr.color = igniteColor[0];
         else sr.color = igniteColor[1];
     }
 
@@ -71,7 +71,7 @@ public class EntityFX : MonoBehaviour
 
     private void ChillColorFx()
     {
-        if(sr.color != chillColor[0]) sr.color = chillColor[0];
+        if (sr.color != chillColor[0]) sr.color = chillColor[0];
         else sr.color = chillColor[1];
     }
 
@@ -83,7 +83,7 @@ public class EntityFX : MonoBehaviour
 
     private void ShockColorFx()
     {
-        if(sr.color != shockColor[0]) sr.color = shockColor[0];
+        if (sr.color != shockColor[0]) sr.color = shockColor[0];
         else sr.color = shockColor[1];
     }
 }

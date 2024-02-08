@@ -24,7 +24,7 @@ public class EntityTemp : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
-        if(wallCheck == null) wallCheck = transform;
+        if (wallCheck == null) wallCheck = transform;
     }
 
     protected virtual void Update()

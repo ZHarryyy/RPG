@@ -55,18 +55,18 @@ public class Sword_Skill : Skill
 
     private void SetupGravity()
     {
-        if(swordType == SwordType.Bounce) swordGravity = bounceGravity;
-        else if(swordType == SwordType.Pierce) swordGravity = pierceGravity;
-        else if(swordType ==SwordType.Spin) swordGravity = spinGravity;
+        if (swordType == SwordType.Bounce) swordGravity = bounceGravity;
+        else if (swordType == SwordType.Pierce) swordGravity = pierceGravity;
+        else if (swordType == SwordType.Spin) swordGravity = spinGravity;
     }
 
     protected override void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Mouse1)) finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
+        if (Input.GetKeyUp(KeyCode.Mouse1)) finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
 
-        if(Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse1))
         {
-            for(int i = 0; i < dots.Length; i++)
+            for (int i = 0; i < dots.Length; i++)
             {
                 dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
             }
@@ -78,9 +78,9 @@ public class Sword_Skill : Skill
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
         Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
 
-        if(swordType == SwordType.Bounce) newSwordScript.SetupBounce(true, bounceAmount, bounceSpeed);
-        else if(swordType == SwordType.Pierce) newSwordScript.SetupPierce(pierceAmount);
-        else if(swordType == SwordType.Spin) newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown);
+        if (swordType == SwordType.Bounce) newSwordScript.SetupBounce(true, bounceAmount, bounceSpeed);
+        else if (swordType == SwordType.Pierce) newSwordScript.SetupPierce(pierceAmount);
+        else if (swordType == SwordType.Spin) newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown);
 
         newSwordScript.SetupSword(finalDir, swordGravity, player, freezeTimeDuration, returnSpeed);
 
@@ -101,7 +101,7 @@ public class Sword_Skill : Skill
 
     public void DotsActive(bool _isActive)
     {
-        for(int i = 0; i < dots.Length; i++)
+        for (int i = 0; i < dots.Length; i++)
         {
             dots[i].SetActive(_isActive);
         }
@@ -110,7 +110,7 @@ public class Sword_Skill : Skill
     private void GenerateDots()
     {
         dots = new GameObject[numberOfDots];
-        for(int i = 0; i < numberOfDots; i++)
+        for (int i = 0; i < numberOfDots; i++)
         {
             dots[i] = Instantiate(dotPrefab, player.transform.position, Quaternion.identity, dotsParent);
             dots[i].SetActive(false);

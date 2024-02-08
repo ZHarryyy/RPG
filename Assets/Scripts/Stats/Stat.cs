@@ -13,7 +13,7 @@ public class Stat
     {
         int finalValue = baseValue;
 
-        foreach(int modifiers in modifiers)
+        foreach (int modifiers in modifiers)
         {
             finalValue += modifiers;
         }

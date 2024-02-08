@@ -36,7 +36,7 @@ public class Entity : MonoBehaviour
     {
 
     }
-    
+
     protected virtual void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -78,14 +78,14 @@ public class Entity : MonoBehaviour
     #region Velocity
     public void SetZeroVelocity()
     {
-        if(isKnocked) return;
-        
+        if (isKnocked) return;
+
         rb.velocity = new Vector2(0, 0);
     }
 
     public void SetVelocity(float _xVelocity, float _yVelocity)
     {
-        if(isKnocked) return;
+        if (isKnocked) return;
 
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
         FlipController(_xVelocity);
@@ -111,13 +111,13 @@ public class Entity : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
 
-        if(onFlipped != null) onFlipped();
+        if (onFlipped != null) onFlipped();
     }
 
     public virtual void FlipController(float _x)
     {
-        if(_x > 0 && !facingRight) Flip();
-        else if(_x < 0 && facingRight) Flip();
+        if (_x > 0 && !facingRight) Flip();
+        else if (_x < 0 && facingRight) Flip();
     }
     #endregion
 

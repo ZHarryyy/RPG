@@ -22,21 +22,21 @@ public class ShockStrike_Controller : MonoBehaviour
 
     private void Update()
     {
-        if(!targetStats) return;
+        if (!targetStats) return;
 
-        if(triggered) return;
+        if (triggered) return;
 
         transform.position = Vector2.MoveTowards(transform.position, targetStats.transform.position, speed * Time.deltaTime);
         transform.right = transform.position - targetStats.transform.position;
 
-        if(Vector2.Distance(transform.position, targetStats.transform.position) < .1f)
+        if (Vector2.Distance(transform.position, targetStats.transform.position) < .1f)
         {
             anim.transform.localPosition = new Vector3(0, .5f);
             anim.transform.localRotation = Quaternion.identity;
 
             transform.localRotation = Quaternion.identity;
             transform.localScale = new Vector3(3, 3);
-            
+
             Invoke("DamageAndSelfDestroy", .2f);
             triggered = true;
             anim.SetTrigger("Hit");

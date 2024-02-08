@@ -14,16 +14,16 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        
+
         xInput = 0;
 
-        if(comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;
+        if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;
 
         player.anim.SetInteger("ComboCounter", comboCounter);
 
         float attackDir = player.facingDir;
-        if(xInput != 0) attackDir = xInput;
-        
+        if (xInput != 0) attackDir = xInput;
+
         player.SetVelocity(player.attackMovement[comboCounter].x * attackDir, player.attackMovement[comboCounter].y);
 
         stateTimer = .1f;
@@ -43,8 +43,8 @@ public class PlayerPrimaryAttackState : PlayerState
     {
         base.Update();
 
-        if(stateTimer < 0) player.SetZeroVelocity();
+        if (stateTimer < 0) player.SetZeroVelocity();
 
-        if(triggerCalled) stateMachine.ChangeState(player.idleState);
+        if (triggerCalled) stateMachine.ChangeState(player.idleState);
     }
 }

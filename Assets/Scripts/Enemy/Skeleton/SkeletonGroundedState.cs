@@ -21,7 +21,7 @@ public class SkeletonGroundedState : EnemyState
     {
         base.Update();
 
-        if((enemy.IsPlayerDetected() && !enemy.IsWallDetected() && enemy.IsGroundDetected()) || (Vector2.Distance(enemy.transform.position, player.transform.position) < 2 && enemy.IsGroundDetected())) stateMachine.ChangeState(enemy.battleState);
+        if ((enemy.IsPlayerDetected() && !enemy.IsWallDetected() && enemy.IsGroundDetected()) || (Vector2.Distance(enemy.transform.position, player.transform.position) < 2 && enemy.IsGroundDetected())) stateMachine.ChangeState(enemy.battleState);
     }
 
     public override void Exit()

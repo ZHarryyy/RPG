@@ -15,9 +15,9 @@ public class Skeleton_BigIdleState : Skeleton_BigGroundedState
     {
         base.Update();
 
-        if(stateTimer < 0)
+        if (stateTimer < 0)
         {
-            if(!enemy.IsGroundDetected()) enemy.Flip();
+            if (!enemy.IsGroundDetected()) enemy.Flip();
             stateMachine.ChangeState(enemy.moveState);
         }
     }

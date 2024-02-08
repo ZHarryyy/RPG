@@ -48,7 +48,7 @@ public class Enemy_SkeletonTemp : EntityTemp
 
     private void Movement()
     {
-        if(!isAttacking) rb.velocity = new Vector2(moveSpeed * facingDir, rb.velocity.y);
+        if (!isAttacking) rb.velocity = new Vector2(moveSpeed * facingDir, rb.velocity.y);
     }
 
     protected override void CollisionChecks()
@@ -63,6 +63,6 @@ public class Enemy_SkeletonTemp : EntityTemp
         base.OnDrawGizmos();
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + playerCheckDistance * facingDir,  transform.position.y));
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + playerCheckDistance * facingDir, transform.position.y));
     }
 }

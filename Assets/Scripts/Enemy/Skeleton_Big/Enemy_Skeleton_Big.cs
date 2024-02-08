@@ -35,12 +35,12 @@ public class Enemy_Skeleton_Big : Enemy
     {
         base.Update();
 
-        if(Input.GetKeyDown(KeyCode.U)) stateMachine.ChangeState(stunnedState);
+        if (Input.GetKeyDown(KeyCode.U)) stateMachine.ChangeState(stunnedState);
     }
 
     public override bool CanBeStunned()
     {
-        if(base.CanBeStunned())
+        if (base.CanBeStunned())
         {
             stateMachine.ChangeState(stunnedState);
             return true;

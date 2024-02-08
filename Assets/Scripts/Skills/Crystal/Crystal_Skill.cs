@@ -28,23 +28,23 @@ public class Crystal_Skill : Skill
     {
         base.UseSkill();
 
-        if(Blackhole_Skill_Controller.IsBlackholeActive) return;
+        if (Blackhole_Skill_Controller.IsBlackholeActive) return;
 
-        if(CanUseMultiCrystal()) return;
+        if (CanUseMultiCrystal()) return;
 
-        if(currentCrystal == null)
+        if (currentCrystal == null)
         {
             CreateCrystal();
         }
         else
         {
-            if(canMoveToEnemy) return;
+            if (canMoveToEnemy) return;
 
             Vector2 playerPos = player.transform.position;
             player.transform.position = currentCrystal.transform.position;
             currentCrystal.transform.position = playerPos;
 
-            if(cloneInsteadOfCrystal)
+            if (cloneInsteadOfCrystal)
             {
                 SkillManager.instance.clone.CreateClone(currentCrystal.transform, Vector3.zero);
                 Destroy(currentCrystal);
@@ -68,27 +68,27 @@ public class Crystal_Skill : Skill
 
     private bool CanUseMultiCrystal()
     {
-        if(canUseMultiStacks)
+        if (canUseMultiStacks)
         {
-            if(crystalLeft.Count > 0)
+            if (crystalLeft.Count > 0)
             {
-                if(crystalLeft.Count == amountOfStacks) Invoke("ResetAbility", useTimeWindow);
+                if (crystalLeft.Count == amountOfStacks) Invoke("ResetAbility", useTimeWindow);
 
                 cooldown = 0;
-                GameObject crystalToSpawn = crystalLeft[crystalLeft.Count -1];
+                GameObject crystalToSpawn = crystalLeft[crystalLeft.Count - 1];
                 GameObject newCrystal = Instantiate(crystalToSpawn, player.transform.position, Quaternion.identity);
 
                 crystalLeft.Remove(crystalToSpawn);
 
                 newCrystal.GetComponent<Crystal_Skill_Controller>().SetupCrystal(crystalDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newCrystal.transform), player);
 
-                if(crystalLeft.Count <= 0)
+                if (crystalLeft.Count <= 0)
                 {
                     cooldown = multiStackCooldown;
                     RefillCrystal();
                 }
 
-            return true;
+                return true;
             }
         }
 
@@ -99,7 +99,7 @@ public class Crystal_Skill : Skill
     {
         int amountToAdd = amountOfStacks - crystalLeft.Count;
 
-        for(int i = 0; i < amountToAdd; i++)
+        for (int i = 0; i < amountToAdd; i++)
         {
             crystalLeft.Add(crystalPrefab);
         }
@@ -107,7 +107,7 @@ public class Crystal_Skill : Skill
 
     private void ResetAbility()
     {
-        if(cooldownTimer > 0) return;
+        if (cooldownTimer > 0) return;
 
         cooldownTimer = multiStackCooldown;
         RefillCrystal();

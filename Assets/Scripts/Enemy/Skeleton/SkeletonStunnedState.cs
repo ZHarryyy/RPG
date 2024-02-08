@@ -24,7 +24,7 @@ public class SkeletonStunnedState : EnemyState
     {
         base.Update();
 
-        if(stateTimer < 0) stateMachine.ChangeState(enemy.idleState);
+        if (stateTimer < 0) stateMachine.ChangeState(enemy.idleState);
     }
 
     public override void Exit()

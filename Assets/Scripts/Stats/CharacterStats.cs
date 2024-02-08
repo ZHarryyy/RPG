@@ -51,7 +51,7 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Start()
     {
-        critPower.SetDefaultValue(150);   
+        critPower.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
 
         fx = GetComponent<EntityFX>();
@@ -69,7 +69,7 @@ public class CharacterStats : MonoBehaviour
         if (chilledTimer < 0) isChilled = false;
         if (shockedTimer < 0) isShocked = false;
 
-        if(isIgnited) ApplyIgniteDamage();
+        if (isIgnited) ApplyIgniteDamage();
     }
 
     public virtual void DoDamage(CharacterStats _targetStats)
@@ -78,7 +78,7 @@ public class CharacterStats : MonoBehaviour
 
         int totalDamage = damage.GetValue() + strength.GetValue();
 
-        if(CanCrit())
+        if (CanCrit())
         {
             totalDamage = CalculateCriticalDamage(totalDamage);
         }
@@ -148,7 +148,7 @@ public class CharacterStats : MonoBehaviour
         bool canApplyChill = !isIgnited && !isChilled && !isShocked;
         bool canApplyShock = !isIgnited && !isChilled;
 
-        if(_ignite && canApplyIgnite)
+        if (_ignite && canApplyIgnite)
         {
             isIgnited = _ignite;
             ignitedTimer = ailmentsDuration;
@@ -156,7 +156,7 @@ public class CharacterStats : MonoBehaviour
             fx.IgniteFxFor(ailmentsDuration);
         }
 
-        if(_chill && canApplyChill)
+        if (_chill && canApplyChill)
         {
             isChilled = _chill;
             chilledTimer = ailmentsDuration;
@@ -167,9 +167,9 @@ public class CharacterStats : MonoBehaviour
             fx.ChillFxFor(ailmentsDuration);
         }
 
-        if(_shock && canApplyShock)
+        if (_shock && canApplyShock)
         {
-            if(!isShocked)
+            if (!isShocked)
             {
                 ApplyShock(_shock);
             }
@@ -184,7 +184,7 @@ public class CharacterStats : MonoBehaviour
 
     public void ApplyShock(bool _shock)
     {
-        if(isShocked) return;
+        if (isShocked) return;
 
         isShocked = _shock;
         shockedTimer = ailmentsDuration;
@@ -245,14 +245,14 @@ public class CharacterStats : MonoBehaviour
         GetComponent<Entity>().DamageImpact();
         fx.StartCoroutine("FlashFX");
 
-        if(currentHealth < 0 && !isDead) Die();
+        if (currentHealth < 0 && !isDead) Die();
     }
 
     protected virtual void DecreaseHealthBy(int _damage)
     {
         currentHealth -= _damage;
 
-        if(onHealthChanged != null) onHealthChanged();
+        if (onHealthChanged != null) onHealthChanged();
     }
 
     protected virtual void Die()
@@ -263,7 +263,7 @@ public class CharacterStats : MonoBehaviour
     #region Stat calculations
     private int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
     {
-        if(isChilled) totalDamage -= Mathf.RoundToInt(_targetStats.armor.GetValue() * .8f);
+        if (isChilled) totalDamage -= Mathf.RoundToInt(_targetStats.armor.GetValue() * .8f);
         else totalDamage -= _targetStats.armor.GetValue();
 
         totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
@@ -281,7 +281,7 @@ public class CharacterStats : MonoBehaviour
     {
         int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
 
-        if(isShocked) totalEvasion += 20;
+        if (isShocked) totalEvasion += 20;
 
         if (UnityEngine.Random.Range(0, 100) < totalEvasion)
         {
@@ -295,7 +295,7 @@ public class CharacterStats : MonoBehaviour
     {
         int totalCriticalChance = critChance.GetValue() + agility.GetValue();
 
-        if(UnityEngine.Random.Range(0, 100) <= totalCriticalChance)
+        if (UnityEngine.Random.Range(0, 100) <= totalCriticalChance)
         {
             return true;
         }

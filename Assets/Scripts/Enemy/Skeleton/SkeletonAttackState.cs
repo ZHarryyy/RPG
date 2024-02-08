@@ -20,7 +20,7 @@ public class SkeletonAttackState : EnemyState
 
         enemy.SetZeroVelocity();
 
-        if(triggerCalled) stateMachine.ChangeState(enemy.battleState);
+        if (triggerCalled) stateMachine.ChangeState(enemy.battleState);
     }
 
     public override void Exit()

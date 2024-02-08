@@ -24,7 +24,7 @@ public class SkeletonDeadState : EnemyState
     {
         base.Update();
 
-        if(stateTimer > 0) rb.velocity = new Vector2(0, 10);
+        if (stateTimer > 0) rb.velocity = new Vector2(0, 10);
     }
 
     public override void Exit()

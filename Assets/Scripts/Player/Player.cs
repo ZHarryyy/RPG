@@ -91,7 +91,7 @@ public class Player : Entity
 
         CheckForDashInput();
 
-        if(Input.GetKeyDown(KeyCode.F)) skill.crystal.CanUseSkill();
+        if (Input.GetKeyDown(KeyCode.F)) skill.crystal.CanUseSkill();
     }
 
     public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
@@ -123,7 +123,7 @@ public class Player : Entity
         stateMachine.ChangeState(catchSwordState);
         Destroy(sword);
     }
-    
+
     public IEnumerator BusyFor(float _seconds)
     {
         isBusy = true;
@@ -137,13 +137,13 @@ public class Player : Entity
 
     private void CheckForDashInput()
     {
-        if(IsWallDetected()) return;
+        if (IsWallDetected()) return;
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 
-            if(dashDir == 0) dashDir = facingDir;
+            if (dashDir == 0) dashDir = facingDir;
 
             stateMachine.ChangeState(dashState);
         }

@@ -48,26 +48,26 @@ public class PlayerTemp : EntityTemp
 
         comboCounter++;
 
-        if(comboCounter > 2) comboCounter = 0;
+        if (comboCounter > 2) comboCounter = 0;
     }
 
     private void CheckInput()
     {
         xInput = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             StartAttackEvent();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) Jump();
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)) DashAbility();
+        if (Input.GetKeyDown(KeyCode.LeftShift)) DashAbility();
     }
 
     private void StartAttackEvent()
     {
-        if(!isGrounded) return;
+        if (!isGrounded) return;
 
         if (comboTimeWindow < 0) comboCounter = 0;
 
@@ -77,7 +77,7 @@ public class PlayerTemp : EntityTemp
 
     private void DashAbility()
     {
-        if(dashCooldownTimer < 0 && !isAttacking)
+        if (dashCooldownTimer < 0 && !isAttacking)
         {
             dashCooldownTimer = dashCooldown;
             dashTime = dashDuration;
@@ -86,14 +86,14 @@ public class PlayerTemp : EntityTemp
 
     private void Movement()
     {
-        if(isAttacking) rb.velocity = new Vector2(0, 0);
-        else if(dashTime > 0) rb.velocity = new Vector2(facingDir * dashSpeed, 0);
+        if (isAttacking) rb.velocity = new Vector2(0, 0);
+        else if (dashTime > 0) rb.velocity = new Vector2(facingDir * dashSpeed, 0);
         else rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
     }
 
     private void Jump()
     {
-        if(isGrounded) rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if (isGrounded) rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     private void AnimatorControllers()
@@ -101,7 +101,7 @@ public class PlayerTemp : EntityTemp
         bool isMoving = rb.velocity.x != 0;
 
         anim.SetFloat("yVelocity", rb.velocity.y);
-        
+
         anim.SetBool("isMoving", isMoving);
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isDashing", dashTime > 0);
@@ -111,7 +111,7 @@ public class PlayerTemp : EntityTemp
 
     private void FlipController()
     {
-        if(rb.velocity.x > 0 && !facingRight) Flip();
-        else if(rb.velocity.x < 0 && facingRight) Flip();
+        if (rb.velocity.x > 0 && !facingRight) Flip();
+        else if (rb.velocity.x < 0 && facingRight) Flip();
     }
 }

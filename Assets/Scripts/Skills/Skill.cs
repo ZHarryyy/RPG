@@ -19,7 +19,7 @@ public class Skill : MonoBehaviour
 
     public virtual bool CanUseSkill()
     {
-        if(cooldownTimer < 0)
+        if (cooldownTimer < 0)
         {
             UseSkill();
             cooldownTimer = cooldown;
@@ -42,13 +42,13 @@ public class Skill : MonoBehaviour
         float closestDistance = Mathf.Infinity;
         Transform closestEnemy = null;
 
-        foreach(var hit in colliders)
+        foreach (var hit in colliders)
         {
-            if(hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<Enemy>() != null)
             {
                 float distanceToEnemy = Vector2.Distance(_checkTransform.position, hit.transform.position);
 
-                if(distanceToEnemy < closestDistance)
+                if (distanceToEnemy < closestDistance)
                 {
                     closestDistance = distanceToEnemy;
                     closestEnemy = hit.transform;

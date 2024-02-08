@@ -21,34 +21,34 @@ public class Skeleton_BigBattleState : EnemyState
     public override void Update()
     {
         base.Update();
-        
-        if(enemy.IsPlayerDetected())
+
+        if (enemy.IsPlayerDetected())
         {
             stateTimer = enemy.battleTime;
 
-            if(enemy.IsPlayerDetected().distance < enemy.attackDistance)
+            if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
             {
-                if(CanAttack()) stateMachine.ChangeState(enemy.attackState);
+                if (CanAttack()) stateMachine.ChangeState(enemy.attackState);
             }
         }
         else
         {
-            if(stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 10) stateMachine.ChangeState(enemy.idleState);
+            if (stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 10) stateMachine.ChangeState(enemy.idleState);
         }
 
-        if(player.position.x > enemy.transform.position.x + .3f) moveDir = 1;
-        else if(player.position.x < enemy.transform.position.x - .3f) moveDir = -1;
+        if (player.position.x > enemy.transform.position.x + .3f) moveDir = 1;
+        else if (player.position.x < enemy.transform.position.x - .3f) moveDir = -1;
 
-        if(enemy.IsGroundDetected())
+        if (enemy.IsGroundDetected())
         {
-            if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown) enemy.SetVelocity(enemy.moveSpeed * 1.5f * moveDir, rb.velocity.y);
+            if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown) enemy.SetVelocity(enemy.moveSpeed * 1.5f * moveDir, rb.velocity.y);
         }
         else
         {
             stateMachine.ChangeState(enemy.idleState);
         }
 
-        if(enemy.IsWallDetected()) stateMachine.ChangeState(enemy.idleState);
+        if (enemy.IsWallDetected()) stateMachine.ChangeState(enemy.idleState);
     }
 
     public override void Exit()
@@ -58,7 +58,7 @@ public class Skeleton_BigBattleState : EnemyState
 
     private bool CanAttack()
     {
-        if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
+        if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
         {
             enemy.lastTimeAttacked = Time.time;
             return true;

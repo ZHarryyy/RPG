@@ -41,9 +41,9 @@ public class Blackhole_Skil : Skill
 
     public bool SkillCompleted()
     {
-        if(!currentBlackhole) return false;
+        if (!currentBlackhole) return false;
 
-        if(currentBlackhole.playerCanExitState)
+        if (currentBlackhole.playerCanExitState)
         {
             currentBlackhole = null;
             return true;

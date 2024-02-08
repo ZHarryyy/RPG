@@ -24,7 +24,7 @@ public class Blackhole_HotKey_Controller : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(myHotKey))
+        if (Input.GetKeyDown(myHotKey))
         {
             blackHole.AddEnemyToList(myEnemy);
 

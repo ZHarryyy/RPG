@@ -61,7 +61,7 @@ public class Enemy : Entity
 
     public virtual void FreezeTime(bool _timeFrozen)
     {
-        if(_timeFrozen)
+        if (_timeFrozen)
         {
             moveSpeed = 0;
             anim.speed = 0;
@@ -98,7 +98,7 @@ public class Enemy : Entity
 
     public virtual bool CanBeStunned()
     {
-        if(canBeStunned)
+        if (canBeStunned)
         {
             CloseCounterAttackWindow();
             return true;

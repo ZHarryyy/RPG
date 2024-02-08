@@ -34,36 +34,36 @@ public class Crystal_Skill_Controller : MonoBehaviour
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, whatIsEnemy);
 
-        if(colliders.Length > 0) closestTarget = colliders[Random.Range(0, colliders.Length)].transform;
+        if (colliders.Length > 0) closestTarget = colliders[Random.Range(0, colliders.Length)].transform;
     }
 
     private void Update()
     {
         crystalExistTimer -= Time.deltaTime;
 
-        if(crystalExistTimer < 0) FinishCrystal();
+        if (crystalExistTimer < 0) FinishCrystal();
 
-        if(canMoveToEnemy && closestTarget != null)
+        if (canMoveToEnemy && closestTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, closestTarget.position) < 1)
+            if (Vector2.Distance(transform.position, closestTarget.position) < 1)
             {
                 FinishCrystal();
                 canMoveToEnemy = false;
             }
         }
 
-        if(canGrow) transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(3, 3), growSpeed * Time.deltaTime);
+        if (canGrow) transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(3, 3), growSpeed * Time.deltaTime);
     }
 
     private void AnimationExplodeEvent()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, cd.radius);
 
-        foreach(var hit in colliders)
+        foreach (var hit in colliders)
         {
-            if(hit.GetComponent<Enemy>() != null) player.stats.DoMagicDamage(hit.GetComponent<CharacterStats>());
+            if (hit.GetComponent<Enemy>() != null) player.stats.DoMagicDamage(hit.GetComponent<CharacterStats>());
         }
     }
 

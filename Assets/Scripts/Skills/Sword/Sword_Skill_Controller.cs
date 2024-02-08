@@ -58,7 +58,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
 
-        if(pierceAmount <= 0) anim.SetBool("Rotation", true);
+        if (pierceAmount <= 0) anim.SetBool("Rotation", true);
 
         spinDirection = Mathf.Clamp(rb.velocity.x, -1, 1);
 
@@ -184,7 +184,7 @@ public class Sword_Skill_Controller : MonoBehaviour
     {
         if (isReturning) return;
 
-        if(collision.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<Enemy>() != null)
         {
             Enemy enemy = collision.GetComponent<Enemy>();
 
@@ -220,15 +220,15 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
-        if(pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
+        if (pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             pierceAmount--;
             return;
         }
 
-        if(isSpinning)
+        if (isSpinning)
         {
-            if(!wasStopped) StopWhenSpinning();
+            if (!wasStopped) StopWhenSpinning();
             return;
         }
 
@@ -238,7 +238,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        if(isBouncing && enemyTarget.Count > 0) return;
+        if (isBouncing && enemyTarget.Count > 0) return;
 
         anim.SetBool("Rotation", false);
         transform.parent = collision.transform;

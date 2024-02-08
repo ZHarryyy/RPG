@@ -39,18 +39,18 @@ public class PlayerBlackholeState : PlayerState
     {
         base.Update();
 
-        if(stateTimer > 0) rb.velocity = new Vector2(0, 15);
+        if (stateTimer > 0) rb.velocity = new Vector2(0, 15);
 
-        if(stateTimer < 0)
+        if (stateTimer < 0)
         {
             rb.velocity = new Vector2(0, -.1f);
 
-            if(!skillUsed)
+            if (!skillUsed)
             {
-                if(player.skill.blackhole.CanUseSkill()) skillUsed = true;
+                if (player.skill.blackhole.CanUseSkill()) skillUsed = true;
             }
         }
 
-        if(player.skill.blackhole.SkillCompleted()) stateMachine.ChangeState(player.airState);
+        if (player.skill.blackhole.SkillCompleted()) stateMachine.ChangeState(player.airState);
     }
 }

@@ -43,8 +43,10 @@ public class Crystal_Skill_Controller : MonoBehaviour
 
         if (crystalExistTimer < 0) FinishCrystal();
 
-        if (canMoveToEnemy && closestTarget != null)
+        if (canMoveToEnemy)
         {
+            if (closestTarget == null) return;
+
             transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, closestTarget.position) < 1)

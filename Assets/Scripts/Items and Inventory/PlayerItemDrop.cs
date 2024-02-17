@@ -28,16 +28,16 @@ public class PlayerItemDrop : ItemDrop
             inventory.UnequipItem(itemsToUnequip[i].data as ItemData_Equipment);
         }
 
-        foreach(InventoryItem item in inventory.GetStashList())
+        foreach (InventoryItem item in inventory.GetStashList())
         {
-            if(Random.Range(0, 100) <= chanceToLooseMaterials)
+            if (Random.Range(0, 100) <= chanceToLooseMaterials)
             {
                 DropItem(item.data);
                 materialsToLoose.Add(item);
             }
         }
 
-        for(int i = 0; i < materialsToLoose.Count; i++)
+        for (int i = 0; i < materialsToLoose.Count; i++)
         {
             inventory.RemoveItem(materialsToLoose[i].data);
         }

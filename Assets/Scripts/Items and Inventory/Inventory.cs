@@ -5,13 +5,15 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
+    public List<ItemData> startingItems;
+
     public List<InventoryItem> inventory;
     public Dictionary<ItemData, InventoryItem> inventoryDictionary;
 
     public List<InventoryItem> stash;
     public Dictionary<ItemData, InventoryItem> stashDictionary;
 
-    public List<InventoryItem> euqipment;
+    public List<InventoryItem> equipment;
     public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary;
 
     [Header("Inventory UI")]
@@ -37,12 +39,22 @@ public class Inventory : MonoBehaviour
         stash = new List<InventoryItem>();
         stashDictionary = new Dictionary<ItemData, InventoryItem>();
 
-        euqipment = new List<InventoryItem>();
+        equipment = new List<InventoryItem>();
         equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
         inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
+
+        AddStartingItems();
+    }
+
+    private void AddStartingItems()
+    {
+        for (int i = 0; i < startingItems.Count; i++)
+        {
+            AddItem(startingItems[i]);
+        }
     }
 
     public void EquipItem(ItemData _item)
@@ -63,7 +75,7 @@ public class Inventory : MonoBehaviour
             AddItem(oldEquipment);
         }
 
-        euqipment.Add(newItem);
+        equipment.Add(newItem);
         equipmentDictionary.Add(newEquipment, newItem);
         newEquipment.AddModifiers();
 
@@ -76,7 +88,7 @@ public class Inventory : MonoBehaviour
     {
         if (equipmentDictionary.TryGetValue(itemToRemove, out InventoryItem value))
         {
-            euqipment.Remove(value);
+            equipment.Remove(value);
             equipmentDictionary.Remove(itemToRemove);
             itemToRemove.RemoveModifiers();
         }
@@ -215,4 +227,8 @@ public class Inventory : MonoBehaviour
 
         return true;
     }
+
+    public List<InventoryItem> GetEquipmentList() => equipment;
+
+    public List<InventoryItem> GetStashList() => stash;
 }

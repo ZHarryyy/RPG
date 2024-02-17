@@ -2960,7 +2960,7 @@ GameObject:
   - component: {fileID: 1027084412}
   - component: {fileID: 1027084411}
   m_Layer: 0
-  m_Name: Item object - Nice armor
+  m_Name: Item object - Plate armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12054,6 +12054,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: level
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: damage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: percentageModifier
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
@@ -14018,6 +14030,18 @@ PrefabInstance:
     - target: {fileID: 6284099400360952235, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: damage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: percentageModifier
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name

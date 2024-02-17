@@ -65,23 +65,26 @@ public class Inventory : MonoBehaviour
 
         euqipment.Add(newItem);
         equipmentDictionary.Add(newEquipment, newItem);
+        newEquipment.AddModifiers();
+
         RemoveItem(_item);
 
         UpdateSlotUI();
     }
 
-    private void UnequipItem(ItemData_Equipment itemToRemove)
+    public void UnequipItem(ItemData_Equipment itemToRemove)
     {
         if (equipmentDictionary.TryGetValue(itemToRemove, out InventoryItem value))
         {
             euqipment.Remove(value);
             equipmentDictionary.Remove(itemToRemove);
+            itemToRemove.RemoveModifiers();
         }
     }
 
     private void UpdateSlotUI()
     {
-        for(int i = 0; i < equipmentSlot.Length; i++)
+        for (int i = 0; i < equipmentSlot.Length; i++)
         {
             foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
             {

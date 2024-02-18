@@ -236,9 +236,9 @@ public class Inventory : MonoBehaviour
     {
         ItemData_Equipment euqipedItem = null;
 
-        foreach(KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
         {
-            if(item.Key.equipmentType == _type) euqipedItem = item.Key;
+            if (item.Key.equipmentType == _type) euqipedItem = item.Key;
         }
 
         return euqipedItem;

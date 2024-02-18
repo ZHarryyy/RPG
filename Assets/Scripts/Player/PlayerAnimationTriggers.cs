@@ -17,11 +17,13 @@ public class PlayerAnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                EnemyStats target = hit.GetComponent<EnemyStats>();
+                EnemyStats _target = hit.GetComponent<EnemyStats>();
 
-                player.stats.DoDamage(target);
+                player.stats.DoDamage(_target);
 
-                Inventory.instance.GetEquipment(EquipmentType.Weapon)?.ExecuteItemEffect();
+                ItemData_Equipment weaponData = Inventory.instance.GetEquipment(EquipmentType.Weapon);
+
+                if (weaponData != null) weaponData.Effect(_target.transform);
             }
         }
     }

@@ -1172,6 +1172,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
   - {fileID: 11400000, guid: 1baa0c23a5fe7458683dc358772d8562, type: 2}
   - {fileID: 11400000, guid: dfce784f269b444208a91d847b401b6f, type: 2}
+  - {fileID: 11400000, guid: f203c51a91acf4fd58338a2dc4ea7704, type: 2}
   inventory: []
   stash: []
   equipment: []
@@ -12876,6 +12877,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4247189251925205885, guid: cfb04201f67a34c599076ae274adf002, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: lightingDamage.baseValue
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8525369573509710738, guid: cfb04201f67a34c599076ae274adf002, type: 3}

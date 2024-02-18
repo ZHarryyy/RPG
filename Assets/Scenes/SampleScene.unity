@@ -1176,6 +1176,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3457b1090e9b4cfda6fa7714a11e003, type: 2}
   - {fileID: 11400000, guid: 25638ce03f8834c2ab2e45809eeccf85, type: 2}
   - {fileID: 11400000, guid: 08f51ef94c64046cba64a74dc9fbfd26, type: 2}
+  - {fileID: 11400000, guid: a5d500b58cf554d2992ebaeec53654b2, type: 2}
+  - {fileID: 11400000, guid: 1a28c2f4adc7b4f85a7f281ee850bcb3, type: 2}
+  - {fileID: 11400000, guid: ce93eb884eb774dcca466509242ff72b, type: 2}
+  - {fileID: 11400000, guid: 60cbf6d49d5c14b49a95e4c90b4f8bd5, type: 2}
   inventory: []
   stash: []
   equipment: []
@@ -11160,6 +11164,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: strength.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: vitality.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: lightingDamage.baseValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
@@ -12949,7 +12969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
       propertyPath: iceDamage.baseValue
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
+      propertyPath: fireDamage.baseValue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056454938799394502, guid: cfb04201f67a34c599076ae274adf002, type: 3}
       propertyPath: lightingDamage.baseValue

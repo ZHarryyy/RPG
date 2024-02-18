@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbe942f9deb64b449c52f2dc425ed75, type: 3}
-  m_Name: Healing Flask
+  m_Name: Fire flask
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Healing Flask
-  icon: {fileID: -410334530, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemName: Fire flask
+  icon: {fileID: 1463097486, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   dropChance: 0
   equipmentType: 3
-  itemCooldown: 5
+  itemCooldown: 0
   itemEffects:
-  - {fileID: 11400000, guid: 5c296a134f3cb48cfbb97f32855e1c67, type: 2}
+  - {fileID: 11400000, guid: 6c3e14fcfe0a74dc5a87492093eb4958, type: 2}
   strength: 0
   agility: 0
   intelligence: 0

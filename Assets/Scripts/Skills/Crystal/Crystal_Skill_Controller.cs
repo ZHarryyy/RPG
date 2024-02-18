@@ -71,7 +71,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
 
                 ItemData_Equipment equipedAmulet = Inventory.instance.GetEquipment(EquipmentType.Amulet);
 
-                if(equipedAmulet != null) equipedAmulet.Effect(hit.transform);
+                if (equipedAmulet != null) equipedAmulet.Effect(hit.transform);
             }
         }
     }

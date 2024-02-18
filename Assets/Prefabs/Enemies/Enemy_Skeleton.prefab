@@ -718,7 +718,7 @@ MonoBehaviour:
     baseValue: 10
     modifiers: 
   critChance:
-    baseValue: 99
+    baseValue: 0
     modifiers: 
   critPower:
     baseValue: 0
@@ -772,7 +772,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
   - {fileID: 11400000, guid: 1baa0c23a5fe7458683dc358772d8562, type: 2}
   dropPrefab: {fileID: 8678008731740440193, guid: e2c362a157a8f4a638625de12c469aa3, type: 3}
-  item: {fileID: 11400000, guid: 1659d14939dfe44bba6b528ecd265b18, type: 2}
 --- !u!1 &7934323532406941881
 GameObject:
   m_ObjectHideFlags: 0

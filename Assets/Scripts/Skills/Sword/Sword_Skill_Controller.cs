@@ -203,7 +203,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
         ItemData_Equipment equipedAmulet = Inventory.instance.GetEquipment(EquipmentType.Amulet);
 
-        if(equipedAmulet != null) equipedAmulet.Effect(enemy.transform);
+        if (equipedAmulet != null) equipedAmulet.Effect(enemy.transform);
     }
 
     private void SetupTargetsForBounce(Collider2D collision)

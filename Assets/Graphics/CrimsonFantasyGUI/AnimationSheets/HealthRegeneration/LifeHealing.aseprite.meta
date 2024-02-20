@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5c8576283fed94c48984a823f4d49d23
+guid: 770f55950fb8a4379a6d912324d3a5c7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 16
-    spriteID: 56cb9f931b8974829986c82650c3b942
+    spriteID: 280bb60c779e2448d8f6212f66f6f479
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 16
-    spriteID: 28bd62627170a48cda0179657e74b862
+    spriteID: c9633d57bf3944b64aa9ad74541a4cbb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 16
-    spriteID: f2891f8377a8746e1a253cae7533bdf0
+    spriteID: 634d25916acf64d329b28ff722bd914e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 28
       width: 64
       height: 16
-    spriteID: 2144caee06d2c43b1a185f8ab1a5a5fd
+    spriteID: be881616890714370b56017d9675b366
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 28
       width: 64
       height: 16
-    spriteID: 9df9cb0d7987047478f32d4cd6466ea1
+    spriteID: c0141498cc0a34641bab6a009151afd4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 28
       width: 64
       height: 16
-    spriteID: 8ae2d717a922f425cb56a507bcee3145
+    spriteID: 12a5a0aa0000240e19eca144d7ad692e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 52
       width: 64
       height: 16
-    spriteID: 0f05c71a011e145c4aaff07e2d7ff9ec
+    spriteID: 5ae24c065c701455d809d5aebb705521
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 52
       width: 64
       height: 16
-    spriteID: e2f9aaa23a7dd46cf9b8fddf7e3ca2a4
+    spriteID: 6785212c1e1be43fd8a7dae33e9e7cbd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 52
       width: 64
       height: 16
-    spriteID: 61e5b349395304ab09a3651b7ee2e5ba
+    spriteID: 34305908d80314a21b6bacdb098a6fb8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 76
       width: 64
       height: 16
-    spriteID: 1b1c3604274a947abbe0416ea4ce1966
+    spriteID: 5d60c4711b170483f8e7debcb88cbb53
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 76
       width: 64
       height: 16
-    spriteID: e0d4ba12ed7ea4495b342e69b62b4123
+    spriteID: 28675ddf0c3b845febe3221e4298615b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 76
       width: 64
       height: 16
-    spriteID: a7f749582bc754d5a8cf9aa4993babef
+    spriteID: 6133ee007af0b4eb8acc0ed8ddbb18d5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 100
       width: 64
       height: 16
-    spriteID: 32917b4b6354f4f8eaeb1f6ecf2c83e0
+    spriteID: 9839842c75020467c9c083d473524afe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -397,7 +397,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 56cb9f931b8974829986c82650c3b942
+      spriteId: 280bb60c779e2448d8f6212f66f6f479
     - name: LifeHealing_Frame_1
       frameIndex: 1
       cellRect:
@@ -405,7 +405,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 28bd62627170a48cda0179657e74b862
+      spriteId: c9633d57bf3944b64aa9ad74541a4cbb
     - name: LifeHealing_Frame_2
       frameIndex: 2
       cellRect:
@@ -413,7 +413,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: f2891f8377a8746e1a253cae7533bdf0
+      spriteId: 634d25916acf64d329b28ff722bd914e
     - name: LifeHealing_Frame_3
       frameIndex: 3
       cellRect:
@@ -421,7 +421,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 2144caee06d2c43b1a185f8ab1a5a5fd
+      spriteId: be881616890714370b56017d9675b366
     - name: LifeHealing_Frame_4
       frameIndex: 4
       cellRect:
@@ -429,7 +429,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 9df9cb0d7987047478f32d4cd6466ea1
+      spriteId: c0141498cc0a34641bab6a009151afd4
     - name: LifeHealing_Frame_5
       frameIndex: 5
       cellRect:
@@ -437,7 +437,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 8ae2d717a922f425cb56a507bcee3145
+      spriteId: 12a5a0aa0000240e19eca144d7ad692e
     - name: LifeHealing_Frame_6
       frameIndex: 6
       cellRect:
@@ -445,7 +445,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 0f05c71a011e145c4aaff07e2d7ff9ec
+      spriteId: 5ae24c065c701455d809d5aebb705521
     - name: LifeHealing_Frame_7
       frameIndex: 7
       cellRect:
@@ -453,7 +453,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: e2f9aaa23a7dd46cf9b8fddf7e3ca2a4
+      spriteId: 6785212c1e1be43fd8a7dae33e9e7cbd
     - name: LifeHealing_Frame_8
       frameIndex: 8
       cellRect:
@@ -461,7 +461,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 61e5b349395304ab09a3651b7ee2e5ba
+      spriteId: 34305908d80314a21b6bacdb098a6fb8
     - name: LifeHealing_Frame_9
       frameIndex: 9
       cellRect:
@@ -469,7 +469,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 1b1c3604274a947abbe0416ea4ce1966
+      spriteId: 5d60c4711b170483f8e7debcb88cbb53
     - name: LifeHealing_Frame_10
       frameIndex: 10
       cellRect:
@@ -477,7 +477,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: e0d4ba12ed7ea4495b342e69b62b4123
+      spriteId: 28675ddf0c3b845febe3221e4298615b
     - name: LifeHealing_Frame_11
       frameIndex: 11
       cellRect:
@@ -485,7 +485,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: a7f749582bc754d5a8cf9aa4993babef
+      spriteId: 6133ee007af0b4eb8acc0ed8ddbb18d5
     - name: LifeHealing_Frame_12
       frameIndex: 12
       cellRect:
@@ -493,7 +493,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 16
-      spriteId: 32917b4b6354f4f8eaeb1f6ecf2c83e0
+      spriteId: 9839842c75020467c9c083d473524afe
     linkedCells: []
     parentIndex: -1
   platformSettings: []

@@ -6,6 +6,8 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject[] UIScreens;
     private int currentScreenIndex;
 
+    public UI_ItemTooltip itemToolTip;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -54,14 +56,4 @@ public class UI : MonoBehaviour
             }
         }
     }
-
-    // public void SwitchTo(GameObject _menu)
-    // {
-    //     for (int i = 0; i < transform.childCount; i++)
-    //     {
-    //         transform.GetChild(i).gameObject.SetActive(false);
-    //     }
-
-    //     if (_menu != null) _menu.SetActive(true);
-    // }
 }

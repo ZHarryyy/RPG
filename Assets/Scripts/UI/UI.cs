@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI : MonoBehaviour
@@ -14,6 +13,7 @@ public class UI : MonoBehaviour
     public UI_ItemToolTip itemToolTip;
     public UI_StatTooltip statToolTip;
     public UI_CraftWindow craftWindow;
+    public UI_SkillToolTip skillToolTip;
 
     private bool isAnyUIScreenOpen = false;
 

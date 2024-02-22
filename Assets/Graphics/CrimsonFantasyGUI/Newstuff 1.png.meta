@@ -277,6 +277,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Newstuff 1_8
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 56
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf17eb680f9a41be8fcf5e13e11d12e
+      internalID: -815284837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Newstuff 1_9
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 65
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f0dbdc453064bfcbf4f560788a8d20
+      internalID: 596537836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -296,6 +338,8 @@ TextureImporter:
       Newstuff 1_5: -651322399
       Newstuff 1_6: -723059232
       Newstuff 1_7: 1700508136
+      Newstuff 1_8: -815284837
+      Newstuff 1_9: 596537836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

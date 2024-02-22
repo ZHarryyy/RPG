@@ -23,7 +23,7 @@ public class UI_CraftWindow : MonoBehaviour
 
         for (int i = 0; i < _data.craftingMaterials.Count; i++)
         {
-            if (_data.craftingMaterials.Count > materialImage.Length) Debug.LogWarning("You have more materials than you have material slots in craft window");
+            if (_data.craftingMaterials.Count > materialImage.Length) Debug.LogWarning("You have too more materials than you have material slots in craft window");
 
             materialImage[i].sprite = _data.craftingMaterials[i].data.itemIcon;
             materialImage[i].color = Color.white;

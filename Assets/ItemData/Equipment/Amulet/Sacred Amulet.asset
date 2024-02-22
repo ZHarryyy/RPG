@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Sacred Amulet
-  icon: {fileID: 21300000, guid: 9320f2438326a4f59b526e4c889d5a5f, type: 3}
+  itemIcon: {fileID: 21300000, guid: 9320f2438326a4f59b526e4c889d5a5f, type: 3}
   dropChance: 0
   equipmentType: 2
   itemCooldown: 0
@@ -34,4 +34,8 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 10
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 1baa0c23a5fe7458683dc358772d8562, type: 2}
+    stackSize: 1

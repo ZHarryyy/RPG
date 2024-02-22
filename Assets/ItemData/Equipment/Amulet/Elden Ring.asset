@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbe942f9deb64b449c52f2dc425ed75, type: 3}
-  m_Name: Steel flask
+  m_Name: Elden Ring
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Steel flask
-  itemIcon: {fileID: 21300000, guid: ae1277195bab441cc911101a07620887, type: 3}
+  itemName: Elden Ring
+  itemIcon: {fileID: 21300000, guid: 4c1aae572551c45f2946a2284c8c2f3c, type: 3}
   dropChance: 0
-  equipmentType: 3
-  itemCooldown: 15
-  itemEffects:
-  - {fileID: 11400000, guid: aa2450d45a988494d89b6b352afdce01, type: 2}
-  - {fileID: 11400000, guid: 5c296a134f3cb48cfbb97f32855e1c67, type: 2}
-  strength: 0
+  equipmentType: 2
+  itemCooldown: 0
+  itemEffects: []
+  strength: 74
   agility: 0
   intelligence: 0
   vitality: 0
   damage: 0
   critChance: 0
   critPower: 0
-  health: 0
-  armor: 0
-  evasion: 0
-  magicResistance: 0
+  health: 36
+  armor: 46
+  evasion: 32
+  magicResistance: 40
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
+    stackSize: 5

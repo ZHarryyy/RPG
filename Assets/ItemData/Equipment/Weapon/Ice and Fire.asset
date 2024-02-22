@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Ice and Fire
-  icon: {fileID: 954391676, guid: 8d394d51fb6ef413596590130aa5640b, type: 3}
+  itemIcon: {fileID: -936277553, guid: 84a1df88739274f85a542ad21e86f2ad, type: 3}
   dropChance: 0
   equipmentType: 0
   itemCooldown: 0
@@ -35,4 +35,8 @@ MonoBehaviour:
   fireDamage: 5
   iceDamage: 7
   lightingDamage: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 1baa0c23a5fe7458683dc358772d8562, type: 2}
+    stackSize: 5

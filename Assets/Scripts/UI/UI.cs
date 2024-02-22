@@ -1,4 +1,4 @@
-using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI : MonoBehaviour
@@ -6,18 +6,49 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject[] UIScreens;
     private int currentScreenIndex;
 
-    public UI_ItemTooltip itemToolTip;
+    [SerializeField] private GameObject characterUI;
+    [SerializeField] private GameObject skillTreeUI;
+    [SerializeField] private GameObject craftUI;
+    [SerializeField] private GameObject optionsUI;
+
+    public UI_ItemToolTip itemToolTip;
+    public UI_StatTooltip statToolTip;
+    public UI_CraftWindow craftWindow;
+
+    private bool isAnyUIScreenOpen = false;
+
+    private void Start()
+    {
+        // CloseAllUI();
+
+        itemToolTip.gameObject.SetActive(false);
+        statToolTip.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SwitchToPreviousScreen();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            SwitchToNextScreen();
-        }
+        if (Input.GetKeyDown(KeyCode.C)) ToggleUI(characterUI);
+        else if (Input.GetKeyDown(KeyCode.I)) ToggleUI(skillTreeUI);
+        else if (Input.GetKeyDown(KeyCode.B)) ToggleUI(craftUI);
+        else if (Input.GetKeyDown(KeyCode.Q) && isAnyUIScreenOpen) SwitchToPreviousScreen();
+        else if (Input.GetKeyDown(KeyCode.E) && isAnyUIScreenOpen) SwitchToNextScreen();
+        else if (Input.GetKeyDown(KeyCode.Escape)) CloseAllUI();
+    }
+
+    private void CloseAllUI()
+    {
+        characterUI.SetActive(false);
+        skillTreeUI.SetActive(false);
+        craftUI.SetActive(false);
+        optionsUI.SetActive(false);
+        isAnyUIScreenOpen = false;
+    }
+
+    private void ToggleUI(GameObject ui)
+    {
+        CloseAllUI();
+        ui.SetActive(!ui.activeSelf);
+        isAnyUIScreenOpen = ui.activeSelf;
     }
 
     private void SwitchToPreviousScreen()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Plate armor
-  icon: {fileID: 21300000, guid: 9737da5c9341142f6a837657cc7346b2, type: 3}
+  itemIcon: {fileID: 21300000, guid: 9737da5c9341142f6a837657cc7346b2, type: 3}
   dropChance: 20
   equipmentType: 1
   itemCooldown: 0

@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbe942f9deb64b449c52f2dc425ed75, type: 3}
-  m_Name: Steel flask
+  m_Name: Blood Oath
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Steel flask
-  itemIcon: {fileID: 21300000, guid: ae1277195bab441cc911101a07620887, type: 3}
+  itemName: Blood Oath
+  itemIcon: {fileID: 21300000, guid: afe6e1205f4704b8a84ee581f23abc8d, type: 3}
   dropChance: 0
-  equipmentType: 3
-  itemCooldown: 15
-  itemEffects:
-  - {fileID: 11400000, guid: aa2450d45a988494d89b6b352afdce01, type: 2}
-  - {fileID: 11400000, guid: 5c296a134f3cb48cfbb97f32855e1c67, type: 2}
+  equipmentType: 2
+  itemCooldown: 0
+  itemEffects: []
   strength: 0
   agility: 0
   intelligence: 0
@@ -33,6 +31,6 @@ MonoBehaviour:
   evasion: 0
   magicResistance: 0
   fireDamage: 0
-  iceDamage: 0
+  iceDamage: 15
   lightingDamage: 0
   craftingMaterials: []

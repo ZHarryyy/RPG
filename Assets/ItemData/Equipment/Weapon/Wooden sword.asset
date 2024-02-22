@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Wooden sword
-  icon: {fileID: 1871142192, guid: 02e3cac9e58fb4122a6454af88fed932, type: 3}
+  itemIcon: {fileID: 1871142192, guid: 02e3cac9e58fb4122a6454af88fed932, type: 3}
   dropChance: 65
   equipmentType: 0
   itemCooldown: 0
@@ -33,4 +33,6 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
+    stackSize: 1

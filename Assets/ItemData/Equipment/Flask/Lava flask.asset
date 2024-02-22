@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Lava flask
-  icon: {fileID: 21300000, guid: 3e122945db69c4cfb8b373cc1ef6715e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 3e122945db69c4cfb8b373cc1ef6715e, type: 3}
   dropChance: 0
   equipmentType: 3
   itemCooldown: 0

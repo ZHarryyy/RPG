@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UI_ItemTooltip : MonoBehaviour
+public class UI_ItemToolTip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemTypeText;
@@ -11,7 +11,7 @@ public class UI_ItemTooltip : MonoBehaviour
 
     public void ShowToolTip(ItemData_Equipment item)
     {
-        if(item == null) return;
+        if (item == null) return;
 
         itemNameText.text = item.itemName;
         itemTypeText.text = item.equipmentType.ToString();

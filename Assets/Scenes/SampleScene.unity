@@ -13623,6 +13623,7 @@ GameObject:
   - component: {fileID: 1037791451}
   - component: {fileID: 1037791452}
   - component: {fileID: 1037791453}
+  - component: {fileID: 1037791454}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -13658,11 +13659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
-  dashUnlocked: 0
   dashUnlockButton: {fileID: 1330825533}
-  cloneOnDashUnlocked: 0
   cloneOnDashUnlockButton: {fileID: 1881421290}
-  cloneOnArrivalUnlocked: 0
   cloneOnArrivalUnlockButton: {fileID: 2115580691}
 --- !u!114 &1037791448
 MonoBehaviour:
@@ -13691,8 +13689,7 @@ MonoBehaviour:
   cooldown: 0
   clonePrefab: {fileID: 5040595440498978458, guid: b3ac405f42f604bff9c24d387768181e, type: 3}
   cloneDuration: 1.5
-  canAttack: 0
-  canCreateCloneOnCounterAttack: 0
+  canAttack: 1
   canDuplicateClone: 0
   chanceToDuplicate: 0
   crystalInsteadOfClone: 0
@@ -13763,10 +13760,15 @@ MonoBehaviour:
   cooldown: 0
   crystalDuration: 1.5
   crystalPrefab: {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
+  unlockCloneInsteadButton: {fileID: 371166849}
   cloneInsteadOfCrystal: 0
+  unlockCrystalButton: {fileID: 1328667968}
+  unlockExplosiveButton: {fileID: 942786704}
   canExplode: 0
+  unlockMovingCrystalButton: {fileID: 1687446500}
   canMoveToEnemy: 0
   moveSpeed: 4
+  unlockMultiStackButton: {fileID: 1029078646}
   canUseMultiStacks: 0
   amountOfStacks: 3
   multiStackCooldown: 4
@@ -13789,12 +13791,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   parryUnlockButton: {fileID: 2019826805}
-  parryUnlocked: 0
   restoreUnlockButton: {fileID: 227466901}
   restoreHealthPercentage: 0.05
-  restoreUnlocked: 0
   parryWithMirageUnlockButton: {fileID: 683390097}
-  parryWithMirageUnlocked: 0
+--- !u!114 &1037791454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037791445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1aafd3c0ce14e8da756a9c613e2701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  unlockDodgeButton: {fileID: 1695117626}
+  evasionAmount: 10
+  dodgeUnlocked: 0
+  unlockMirageDodge: {fileID: 503860788}
+  dodgeMirageUnlocked: 0
 --- !u!1 &1042139542
 GameObject:
   m_ObjectHideFlags: 0

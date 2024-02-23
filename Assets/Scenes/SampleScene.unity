@@ -3188,6 +3188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Restore With Parry
   skillDescription: You restore a bit of health with successful parry.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -4377,6 +4378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Bullet Sword
   skillDescription: 'Sword can pierce targets.
 
@@ -4976,6 +4978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Mirage Blink
   skillDescription: 'You leave your mirage instead of you when you blink.
 
@@ -5825,6 +5828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Aggressive Mirage
   skillDescription: 'Your mirage has 80% of your damage.
 
@@ -7919,6 +7923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Dodge Mirage
   skillDescription: You can create mirage on dodge.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -8897,6 +8902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Chainsaw Sword
   skillDescription: 'Sword will spin like a chainsaw.
 
@@ -9395,6 +9401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Parry With A Mirage
   skillDescription: You create a mirage with successful parry.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -11290,6 +11297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 781732199}
+  currency: 100000
 --- !u!4 &914140443
 Transform:
   m_ObjectHideFlags: 0
@@ -11648,6 +11656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Explosion
   skillDescription: 'Crystal can explode.
 
@@ -13348,6 +13357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Multiple Destruction
   skillDescription: You can create up to 3 crystals at a time.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -13460,8 +13470,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 186406817}
   - {fileID: 121168779}
+  - {fileID: 186406817}
   - {fileID: 1238794641}
   - {fileID: 469801030}
   m_Father: {fileID: 0}
@@ -13647,6 +13657,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
+  dashUnlocked: 0
+  dashUnlockButton: {fileID: 1330825533}
+  cloneOnDashUnlocked: 0
+  cloneOnDashUnlockButton: {fileID: 1881421290}
+  cloneOnArrivalUnlocked: 0
+  cloneOnArrivalUnlockButton: {fileID: 2115580691}
 --- !u!114 &1037791448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13674,13 +13690,13 @@ MonoBehaviour:
   cooldown: 0
   clonePrefab: {fileID: 5040595440498978458, guid: b3ac405f42f604bff9c24d387768181e, type: 3}
   cloneDuration: 1.5
-  canAttack: 1
-  createCloneOnDashStart: 1
-  createCloneOnDashOver: 1
-  canCreateCloneOnCounterAttack: 1
-  canDuplicateClone: 1
+  canAttack: 0
+  createCloneOnDashStart: 0
+  createCloneOnDashOver: 0
+  canCreateCloneOnCounterAttack: 0
+  canDuplicateClone: 0
   chanceToDuplicate: 0
-  crystalInsteadOfClone: 1
+  crystalInsteadOfClone: 0
 --- !u!114 &1037791450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13749,10 +13765,10 @@ MonoBehaviour:
   crystalDuration: 1.5
   crystalPrefab: {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
   cloneInsteadOfCrystal: 0
-  canExplode: 1
-  canMoveToEnemy: 1
+  canExplode: 0
+  canMoveToEnemy: 0
   moveSpeed: 4
-  canUseMultiStacks: 1
+  canUseMultiStacks: 0
   amountOfStacks: 3
   multiStackCooldown: 4
   useTimeWindow: 2.5
@@ -14511,6 +14527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Vulnerability
   skillDescription: Enemy hit by sword, takes 10% more damage.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -14778,6 +14795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Blackhole
   skillDescription: You trap enemies in a blackhole which allows you to do tons of
     damage.
@@ -16030,6 +16048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Sword Throw
   skillDescription: Throw sword into the enemy.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -24006,7 +24025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1238794641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24275,6 +24294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Bouncy Sword
   skillDescription: 'Sword can bounce between targets.
 
@@ -24698,6 +24718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Crystal
   skillDescription: 'You create magic crystal that does magical damage.
 
@@ -24840,6 +24861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 100
   skillName: Dash
   skillDescription: 'You can dash to avoid attacks.
 
@@ -25848,6 +25870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Crystal Mirage
   skillDescription: 'You create crystal instead of mirage with all it''s qualities.
 
@@ -26076,6 +26099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Time Stop
   skillDescription: When enemy hit by sword, it's time stops.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -26283,6 +26307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Multiple Mirage
   skillDescription: 'Your mirage has 30% of your damage. Your mirage can spawn another
     mirage.
@@ -28699,6 +28724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Controlled Destruction
   skillDescription: 'Crystal moves towards the enemy.
 
@@ -28843,6 +28869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Dodge
   skillDescription: You getting 10% of evasion.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -29185,6 +29212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Time Mirage
   skillDescription: 'Your mirage can attack targets.
 
@@ -31847,6 +31875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 200
   skillName: Dash - "Here I Am"
   skillDescription: You leave mirage when you dash.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -32741,6 +32770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 0
   skillName: Parry
   skillDescription: You can parry attack to avoid damage.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}
@@ -34173,6 +34203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8089f843606ce4cae80bafa83385ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrice: 300
   skillName: Dash - "Actually Here I Am"
   skillDescription: You create mirage at your arrival.
   lockedSkillColor: {r: 0.49411765, g: 0.4117647, b: 0.4117647, a: 1}

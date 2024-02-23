@@ -17,9 +17,14 @@ public class UI : MonoBehaviour
 
     private bool isAnyUIScreenOpen = false;
 
+    private void Awake()
+    {
+        skillTreeUI.SetActive(true);
+    }
+
     private void Start()
     {
-        // CloseAllUI();
+        CloseAllUI();
 
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);

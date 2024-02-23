@@ -22,7 +22,7 @@ public class Dodge_Skill : Skill
 
     private void UnlockDodge()
     {
-        if(unlockDodgeButton.unlocked)
+        if (unlockDodgeButton.unlocked)
         {
             player.stats.evasion.AddModifier(evasionAmount);
             Inventory.instance.UpdateStatsUI();
@@ -32,11 +32,11 @@ public class Dodge_Skill : Skill
 
     private void UnlockMirageDodge()
     {
-        if(unlockMirageDodge.unlocked) dodgeMirageUnlocked = true;
+        if (unlockMirageDodge.unlocked) dodgeMirageUnlocked = true;
     }
 
     public void CreateMirageOnDodge()
     {
-        if(dodgeMirageUnlocked) SkillManager.instance.clone.CreateClone(player.transform, new Vector3(2 * player.facingDir, 0));
+        if (dodgeMirageUnlocked) SkillManager.instance.clone.CreateClone(player.transform, new Vector3(2 * player.facingDir, 0));
     }
 }

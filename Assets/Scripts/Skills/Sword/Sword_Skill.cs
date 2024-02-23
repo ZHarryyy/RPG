@@ -111,17 +111,17 @@ public class Sword_Skill : Skill
     #region Unlock region
     private void UnlockTimeStop()
     {
-        if(timeStopUnlockButton.unlocked) timeStopUnlocked = true;
+        if (timeStopUnlockButton.unlocked) timeStopUnlocked = true;
     }
 
     private void UnlockVulnerable()
     {
-        if(vulnerableUnlockButton.unlocked) vulnerableUnlocked = true;
+        if (vulnerableUnlockButton.unlocked) vulnerableUnlocked = true;
     }
 
     private void UnlockSword()
     {
-        if(swordUnlockButton.unlocked)
+        if (swordUnlockButton.unlocked)
         {
             swordType = SwordType.Regular;
             swordUnlocked = true;
@@ -130,17 +130,17 @@ public class Sword_Skill : Skill
 
     private void UnlockBounceSword()
     {
-        if(bounceUnlockButton.unlocked) swordType = SwordType.Bounce;
+        if (bounceUnlockButton.unlocked) swordType = SwordType.Bounce;
     }
 
     private void UnlockPierceSword()
     {
-        if(pierceUnlockButton.unlocked) swordType = SwordType.Pierce;
+        if (pierceUnlockButton.unlocked) swordType = SwordType.Pierce;
     }
 
     private void UnlockSpinSword()
     {
-        if(spinUnlockButton.unlocked) swordType = SwordType.Spin;
+        if (spinUnlockButton.unlocked) swordType = SwordType.Spin;
     }
     #endregion
 

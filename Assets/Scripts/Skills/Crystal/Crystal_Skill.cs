@@ -47,27 +47,27 @@ public class Crystal_Skill : Skill
     #region Unlock Skill Region
     private void UnlockCrystal()
     {
-        if(unlockCrystalButton.unlocked) crystalUnlocked = true;
+        if (unlockCrystalButton.unlocked) crystalUnlocked = true;
     }
 
     private void UnlockCrystalMirage()
     {
-        if(unlockCloneInsteadButton.unlocked) cloneInsteadOfCrystal = true;
+        if (unlockCloneInsteadButton.unlocked) cloneInsteadOfCrystal = true;
     }
 
     private void UnlockExplosiveCrystal()
     {
-        if(unlockExplosiveButton.unlocked) canExplode = true;
+        if (unlockExplosiveButton.unlocked) canExplode = true;
     }
 
     private void UnlockMovingCrystal()
     {
-        if(unlockMovingCrystalButton.unlocked) canMoveToEnemy = true;
+        if (unlockMovingCrystalButton.unlocked) canMoveToEnemy = true;
     }
 
     private void UnlockMultiStack()
     {
-        if(unlockMultiStackButton.unlocked) canUseMultiStacks = true;
+        if (unlockMultiStackButton.unlocked) canUseMultiStacks = true;
     }
     #endregion
 

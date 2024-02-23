@@ -21,7 +21,7 @@ public class Parry_Skill : Skill
     {
         base.UseSkill();
 
-        if(restoreUnlocked)
+        if (restoreUnlocked)
         {
             int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealthValue() * restoreHealthPercentage);
             player.stats.IncreaseHealthBy(restoreAmount);
@@ -54,6 +54,6 @@ public class Parry_Skill : Skill
 
     public void MakeMirageOnParry(Transform _respawnTransform)
     {
-        if(parryWithMirageUnlocked) SkillManager.instance.clone.CreateCloneWithDelay(_respawnTransform);
+        if (parryWithMirageUnlocked) SkillManager.instance.clone.CreateCloneWithDelay(_respawnTransform);
     }
 }

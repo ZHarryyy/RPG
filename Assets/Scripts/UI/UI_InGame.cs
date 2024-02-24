@@ -20,7 +20,7 @@ public class UI_InGame : MonoBehaviour
 
     private void Start()
     {
-        if(playerStats != null) playerStats.onHealthChanged += UpdateHealthUI;
+        if (playerStats != null) playerStats.onHealthChanged += UpdateHealthUI;
 
         skills = SkillManager.instance;
     }
@@ -29,16 +29,16 @@ public class UI_InGame : MonoBehaviour
     {
         currentSouls.text = PlayerManager.instance.GetCurrency().ToString("#,#");
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked) SetCooldownOf(dashImage);
-        if(Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked) SetCooldownOf(parryImage);
-        if(Input.GetKeyDown(KeyCode.F) && skills.crystal.crystalUnlocked) SetCooldownOf(crystalImage);
-        if(Input.GetKeyDown(KeyCode.Mouse1) && skills.sword.swordUnlocked) SetCooldownOf(swordImage);
-        if(Input.GetKeyDown(KeyCode.R) && skills.blackhole.blackholeUnlocked) SetCooldownOf(blackholeImage);
-        if(Input.GetKeyDown(KeyCode.Alpha1) && Inventory.instance.GetEquipment(EquipmentType.Flask) != null) SetCooldownOf(flaskImage);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked) SetCooldownOf(dashImage);
+        if (Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked) SetCooldownOf(parryImage);
+        if (Input.GetKeyDown(KeyCode.F) && skills.crystal.crystalUnlocked) SetCooldownOf(crystalImage);
+        if (Input.GetKeyDown(KeyCode.Mouse1) && skills.sword.swordUnlocked) SetCooldownOf(swordImage);
+        if (Input.GetKeyDown(KeyCode.R) && skills.blackhole.blackholeUnlocked) SetCooldownOf(blackholeImage);
+        if (Input.GetKeyDown(KeyCode.Alpha1) && Inventory.instance.GetEquipment(EquipmentType.Flask) != null) SetCooldownOf(flaskImage);
 
         CheckCooldownOf(dashImage, skills.dash.cooldown);
         CheckCooldownOf(parryImage, skills.parry.cooldown);
-        CheckCooldownOf(crystalImage, skills.crystal .cooldown);
+        CheckCooldownOf(crystalImage, skills.crystal.cooldown);
         CheckCooldownOf(swordImage, skills.sword.cooldown);
         CheckCooldownOf(blackholeImage, skills.blackhole.cooldown);
         CheckCooldownOf(flaskImage, Inventory.instance.flaskCooldown);
@@ -52,11 +52,11 @@ public class UI_InGame : MonoBehaviour
 
     private void SetCooldownOf(Image _image)
     {
-        if(_image.fillAmount <= 0) _image.fillAmount = 1;
+        if (_image.fillAmount <= 0) _image.fillAmount = 1;
     }
 
     private void CheckCooldownOf(Image _image, float _cooldown)
     {
-        if(_image.fillAmount > 0) _image.fillAmount -= 1 / _cooldown * Time.deltaTime;
+        if (_image.fillAmount > 0) _image.fillAmount -= 1 / _cooldown * Time.deltaTime;
     }
 }

@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject skillTreeUI;
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
+    [SerializeField] private GameObject inGameUI;
 
     public UI_ItemToolTip itemToolTip;
     public UI_StatTooltip statToolTip;
@@ -25,6 +26,7 @@ public class UI : MonoBehaviour
     private void Start()
     {
         CloseAllUI();
+        inGameUI.SetActive(true);
 
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
@@ -32,12 +34,16 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) ToggleUI(characterUI);
-        else if (Input.GetKeyDown(KeyCode.I)) ToggleUI(skillTreeUI);
-        else if (Input.GetKeyDown(KeyCode.B)) ToggleUI(craftUI);
+        if (Input.GetKeyDown(KeyCode.C) && !characterUI.activeSelf) ToggleUI(characterUI);
+        else if (Input.GetKeyDown(KeyCode.I) && !skillTreeUI.activeSelf) ToggleUI(skillTreeUI);
+        else if (Input.GetKeyDown(KeyCode.B) && !craftUI.activeSelf) ToggleUI(craftUI);
         else if (Input.GetKeyDown(KeyCode.Q) && isAnyUIScreenOpen) SwitchToPreviousScreen();
         else if (Input.GetKeyDown(KeyCode.E) && isAnyUIScreenOpen) SwitchToNextScreen();
-        else if (Input.GetKeyDown(KeyCode.Escape)) CloseAllUI();
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseAllUI();
+            inGameUI.SetActive(true);
+        }
     }
 
     private void CloseAllUI()
@@ -51,7 +57,23 @@ public class UI : MonoBehaviour
 
     private void ToggleUI(GameObject ui)
     {
+        bool wasAnyUIScreenOpen = isAnyUIScreenOpen;
+
         CloseAllUI();
+        inGameUI.SetActive(false);
+
+        if (!wasAnyUIScreenOpen || ui != UIScreens[currentScreenIndex])
+        {
+            for (int i = 0; i < UIScreens.Length; i++)
+            {
+                if (UIScreens[i] == ui)
+                {
+                    currentScreenIndex = i;
+                    break;
+                }
+            }
+        }
+
         ui.SetActive(!ui.activeSelf);
         isAnyUIScreenOpen = ui.activeSelf;
     }

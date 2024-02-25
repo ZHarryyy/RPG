@@ -122,9 +122,9 @@ public class ItemData_Equipment : ItemData
         AddItemDescription(iceDamage, "Ice Damage");
         AddItemDescription(lightingDamage, "Lighting Damage");
 
-        for(int i = 0; i < itemEffects.Length; i++)
+        for (int i = 0; i < itemEffects.Length; i++)
         {
-            if(itemEffects[i].effectDescription.Length > 0)
+            if (itemEffects[i].effectDescription.Length > 0)
             {
                 sb.AppendLine();
                 sb.AppendLine("Unique: " + itemEffects[i].effectDescription);

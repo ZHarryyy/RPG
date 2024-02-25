@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class UI : MonoBehaviour
     public UI_CraftWindow craftWindow;
     public UI_SkillToolTip skillToolTip;
 
+    public Toggle toggleInGameUI;
+
     private bool isAnyUIScreenOpen = false;
+    public bool alwaysShowInGameUI;
 
     private void Awake()
     {
@@ -26,7 +30,8 @@ public class UI : MonoBehaviour
     private void Start()
     {
         CloseAllUI();
-        inGameUI.SetActive(true);
+        alwaysShowInGameUI = toggleInGameUI.isOn;
+        SetInGameUIVisible(alwaysShowInGameUI);
 
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
@@ -34,16 +39,37 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !characterUI.activeSelf) ToggleUI(characterUI);
-        else if (Input.GetKeyDown(KeyCode.I) && !skillTreeUI.activeSelf) ToggleUI(skillTreeUI);
-        else if (Input.GetKeyDown(KeyCode.B) && !craftUI.activeSelf) ToggleUI(craftUI);
+        if (Input.GetKeyDown(KeyCode.C) && !characterUI.activeSelf && !optionsUI.activeSelf) ToggleUI(characterUI);
+        else if (Input.GetKeyDown(KeyCode.I) && !skillTreeUI.activeSelf && !optionsUI.activeSelf) ToggleUI(skillTreeUI);
+        else if (Input.GetKeyDown(KeyCode.B) && !craftUI.activeSelf && !optionsUI.activeSelf) ToggleUI(craftUI);
         else if (Input.GetKeyDown(KeyCode.Q) && isAnyUIScreenOpen) SwitchToPreviousScreen();
         else if (Input.GetKeyDown(KeyCode.E) && isAnyUIScreenOpen) SwitchToNextScreen();
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            CloseAllUI();
-            inGameUI.SetActive(true);
+            if (!isAnyUIScreenOpen)
+            {
+                ToggleUI(optionsUI);
+            }
+            else if (currentScreenIndex == 0 && optionsUI.activeSelf)
+            {
+                CloseAllUI();
+                inGameUI.SetActive(true);
+                SetInGameUIVisible(alwaysShowInGameUI);
+            }
+            else if (isAnyUIScreenOpen)
+            {
+                CloseAllUI();
+                SetInGameUIVisible(alwaysShowInGameUI);
+            }
         }
+
+        alwaysShowInGameUI = toggleInGameUI.isOn;
+    }
+
+    private void SetInGameUIVisible(bool _isShow)
+    {
+        if (alwaysShowInGameUI == true) inGameUI.SetActive(true);
+        else inGameUI.SetActive(false);
     }
 
     private void CloseAllUI()
@@ -60,7 +86,7 @@ public class UI : MonoBehaviour
         bool wasAnyUIScreenOpen = isAnyUIScreenOpen;
 
         CloseAllUI();
-        inGameUI.SetActive(false);
+        SetInGameUIVisible(alwaysShowInGameUI);
 
         if (!wasAnyUIScreenOpen || ui != UIScreens[currentScreenIndex])
         {

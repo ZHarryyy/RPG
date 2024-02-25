@@ -7,7 +7,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private UI ui;
     private Image skillImage;
 
-    [SerializeField] private int skillPrice;
+    [SerializeField] private int skillCost;
     [SerializeField] private string skillName;
     [TextArea]
     [SerializeField] private string skillDescription;
@@ -41,7 +41,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (unlocked) return;
 
-        if (PlayerManager.instance.HaveEnoughMoney(skillPrice) == false) return;
+        if (PlayerManager.instance.HaveEnoughMoney(skillCost) == false) return;
 
         for (int i = 0; i < shouldBeUnlocked.Length; i++)
         {
@@ -67,17 +67,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowToolTip(skillDescription, skillName);
-
-        Vector2 mousePosition = Input.mousePosition;
-        float xOffset;
-        if (mousePosition.x > Screen.width * .5f) xOffset = Screen.width * .2f * -1f;
-        else xOffset = Screen.width * .2f;
-        float yOffset;
-        if (mousePosition.y > Screen.height * .5f) yOffset = Screen.height * .1f * -1;
-        else yOffset = Screen.height * .1f;
-
-        ui.skillToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+        ui.skillToolTip.ShowToolTip(skillDescription, skillName, skillCost);
     }
 
     public void OnPointerExit(PointerEventData eventData)

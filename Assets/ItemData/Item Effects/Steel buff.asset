@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8772327b02a784e3e9f237ec7723d291, type: 3}
   m_Name: Steel buff
   m_EditorClassIdentifier: 
+  effectDescription: Gives 50 armor for 7 seconds.
   buffType: 8
   buffAmount: 50
   buffDuration: 7

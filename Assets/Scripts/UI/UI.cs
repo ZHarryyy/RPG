@@ -39,9 +39,9 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !characterUI.activeSelf && !optionsUI.activeSelf) ToggleUI(characterUI);
+        if (Input.GetKeyDown(KeyCode.B) && !characterUI.activeSelf && !optionsUI.activeSelf) ToggleUI(characterUI);
         else if (Input.GetKeyDown(KeyCode.I) && !skillTreeUI.activeSelf && !optionsUI.activeSelf) ToggleUI(skillTreeUI);
-        else if (Input.GetKeyDown(KeyCode.B) && !craftUI.activeSelf && !optionsUI.activeSelf) ToggleUI(craftUI);
+        else if (Input.GetKeyDown(KeyCode.C) && !craftUI.activeSelf && !optionsUI.activeSelf) ToggleUI(craftUI);
         else if (Input.GetKeyDown(KeyCode.Q) && isAnyUIScreenOpen) SwitchToPreviousScreen();
         else if (Input.GetKeyDown(KeyCode.E) && isAnyUIScreenOpen) SwitchToNextScreen();
         else if (Input.GetKeyDown(KeyCode.Escape))

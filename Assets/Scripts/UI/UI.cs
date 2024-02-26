@@ -32,6 +32,7 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         skillTreeUI.SetActive(true);
+        fadeScreen.gameObject.SetActive(true);
     }
 
     private void Start()

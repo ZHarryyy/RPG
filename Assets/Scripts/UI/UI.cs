@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,12 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject inGameUI;
+
+    [Header("End Screen")]
+    [SerializeField] private UI_FadeScreen fadeScreen;
+    [SerializeField] private GameObject endText;
+    [SerializeField] private GameObject restartButton;
+    [Space]
 
     public UI_ItemToolTip itemToolTip;
     public UI_StatTooltip statToolTip;
@@ -140,4 +147,24 @@ public class UI : MonoBehaviour
             }
         }
     }
+
+    public void SwitchOnEndScreen()
+    {
+        CloseAllUI();
+        fadeScreen.FadeOut();
+        StartCoroutine(EndScreenCoroutine());
+    }
+
+    IEnumerator EndScreenCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+
+        endText.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        restartButton.SetActive(true);
+    }
+
+    public void RestartGameButton() => GameManager.instance.RestartScene();
 }

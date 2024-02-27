@@ -10534,7 +10534,7 @@ GameObject:
   - component: {fileID: 677448837}
   m_Layer: 5
   m_Name: SoulIcon
-  m_TagString: Untagged
+  m_TagString: SoulIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17167,6 +17167,8 @@ MonoBehaviour:
   blackholeImage: {fileID: 1124457541}
   flaskImage: {fileID: 688669242}
   currentSouls: {fileID: 1966680382}
+  soulsAmount: 0
+  increaseRate: 5000
 --- !u!1 &1078877316
 GameObject:
   m_ObjectHideFlags: 0
@@ -36109,6 +36111,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpoints: []
   closestCheckpointId: 
+  lostSoulPrefab: {fileID: 4490600352588822981, guid: 4c3f310bdcd8b401bbe210f1eed0561c, type: 3}
+  lostSoulAmount: 0
+  lostSoulX: 0
+  lostSoulY: 0
 --- !u!1 &1902245984
 GameObject:
   m_ObjectHideFlags: 0
@@ -40127,10 +40133,6 @@ PrefabInstance:
     - target: {fileID: 5267225621451208077, guid: cd03291a791404815a5c5826f0b8930e, type: 3}
       propertyPath: m_Name
       value: SaveManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 9208965504067305532, guid: cd03291a791404815a5c5826f0b8930e, type: 3}
-      propertyPath: encryptData
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

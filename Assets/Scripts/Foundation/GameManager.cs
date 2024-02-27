@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour, ISaveManager
 {
     public static GameManager instance;
+    private Transform player;
     [SerializeField] private Checkpoint[] checkpoints;
     [SerializeField] private string closestCheckpointId;
+
+    [Header("Lost currency")]
+    [SerializeField] private GameObject lostSoulPrefab;
+    public int lostSoulAmount;
+    [SerializeField] private float lostSoulX;
+    [SerializeField] private float lostSoulY;
 
     private void Awake()
     {
@@ -18,6 +25,7 @@ public class GameManager : MonoBehaviour, ISaveManager
     private void Start()
     {
         checkpoints = FindObjectsOfType<Checkpoint>();
+        player = PlayerManager.instance.player.transform;
     }
 
     public void RestartScene()
@@ -27,19 +35,10 @@ public class GameManager : MonoBehaviour, ISaveManager
         SceneManager.LoadScene(scene.name);
     }
 
-    public void LoadData(GameData _data)
+    public void LoadData(GameData _data) => StartCoroutine(LoadWithDelay(_data));
+
+    private void LoadCheckpoints(GameData _data)
     {
-        closestCheckpointId = _data.closestCheckpointId;
-
-        StartCoroutine(ActivateCheckpoints(_data));
-
-        Invoke("PlacePlayerAtClosestCheckpoint", .1f);
-    }
-
-    IEnumerator ActivateCheckpoints(GameData _data)
-    {
-        yield return new WaitForSeconds(.1f);
-
         foreach (KeyValuePair<string, bool> pair in _data.checkpoints)
         {
             foreach (Checkpoint checkpoint in checkpoints)
@@ -49,16 +48,36 @@ public class GameManager : MonoBehaviour, ISaveManager
         }
     }
 
-    private void PlacePlayerAtClosestCheckpoint()
+    private void LoadLostCurrency(GameData _data)
     {
-        foreach (Checkpoint checkpoint in checkpoints)
+        lostSoulAmount = _data.lostSoulAmount;
+        lostSoulX = _data.lostSoulX;
+        lostSoulY = _data.lostSoulY;
+
+        if (lostSoulAmount > 0)
         {
-            if (closestCheckpointId == checkpoint.Id) PlayerManager.instance.player.transform.position = checkpoint.transform.position;
+            GameObject newLostSoul = Instantiate(lostSoulPrefab, new Vector3(lostSoulX, lostSoulY), Quaternion.identity);
+            newLostSoul.GetComponent<LostSoulController>().currency = lostSoulAmount;
         }
+
+        lostSoulAmount = 0;
+    }
+
+    private IEnumerator LoadWithDelay(GameData _data)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        LoadCheckpoints(_data);
+        LoadClosestCheckpoint(_data);
+        LoadLostCurrency(_data);
     }
 
     public void SaveData(ref GameData _data)
     {
+        _data.lostSoulAmount = lostSoulAmount;
+        _data.lostSoulX = player.position.x;
+        _data.lostSoulY = player.position.y;
+
         if (FindClosestCheckpoint() != null) _data.closestCheckpointId = FindClosestCheckpoint().Id;
 
         _data.checkpoints.Clear();
@@ -69,6 +88,19 @@ public class GameManager : MonoBehaviour, ISaveManager
         }
     }
 
+
+    private void LoadClosestCheckpoint(GameData _data)
+    {
+        if (_data.closestCheckpointId == null) return;
+
+        closestCheckpointId = _data.closestCheckpointId;
+
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            if (closestCheckpointId == checkpoint.Id) player.position = checkpoint.transform.position;
+        }
+    }
+
     private Checkpoint FindClosestCheckpoint()
     {
         float closestDistance = Mathf.Infinity;
@@ -76,7 +108,7 @@ public class GameManager : MonoBehaviour, ISaveManager
 
         foreach (var checkpoint in checkpoints)
         {
-            float distanceToCheckpoint = Vector2.Distance(PlayerManager.instance.player.transform.position, checkpoint.transform.position);
+            float distanceToCheckpoint = Vector2.Distance(player.position, checkpoint.transform.position);
 
             if (distanceToCheckpoint < closestDistance && checkpoint.activationStatus == true)
             {

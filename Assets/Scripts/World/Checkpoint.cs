@@ -39,6 +39,7 @@ public class Checkpoint : MonoBehaviour
 
     public void ActivateCheckpoint()
     {
+        AudioManager.instance.PlaySFX(4, transform);
         activationStatus = true;
         lightSmall.SetActive(false);
         anim.SetBool("active", true);

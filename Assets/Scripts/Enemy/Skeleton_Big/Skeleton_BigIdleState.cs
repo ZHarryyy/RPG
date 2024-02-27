@@ -25,5 +25,7 @@ public class Skeleton_BigIdleState : Skeleton_BigGroundedState
     public override void Exit()
     {
         base.Exit();
+
+        AudioManager.instance.PlaySFX(22, enemy.transform);
     }
 }

@@ -15,6 +15,8 @@ public class PlayerPrimaryAttackState : PlayerState
     {
         base.Enter();
 
+        // AudioManager.instance.PlaySFX(1);
+
         xInput = 0;
 
         if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;

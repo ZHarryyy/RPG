@@ -24,13 +24,12 @@ public class SaveManager : MonoBehaviour
     {
         if (instance != null) Destroy(instance.gameObject);
         else instance = this;
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
+        saveManagers = FindAllSaveManager();
     }
 
     private void Start()
     {
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
-        saveManagers = FindAllSaveManager();
-
         LoadGame();
     }
 

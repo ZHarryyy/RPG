@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -5,7 +6,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] private float sfxMinimumDistance;
-    [SerializeField] private AudioSource[] sfx;
+    [SerializeField] public AudioSource[] sfx;
     [SerializeField] private AudioSource[] bgm;
 
     public bool playBgm;
@@ -43,6 +44,43 @@ public class AudioManager : MonoBehaviour
     }
 
     public void StopSFX(int _index) => sfx[_index].Stop();
+
+    public IEnumerator IncreaseVolumeOverTime(int _sfxIndex, float currentVolume, float fadeTime)
+    {
+        float startTime = Time.time;
+        float elapsedTime = 0f;
+        float startVolume = currentVolume;
+
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime = Time.time - startTime;
+            float normalizedTime = elapsedTime / fadeTime;
+            float targetVolume = Mathf.Lerp(startVolume, 1f, normalizedTime);
+            sfx[_sfxIndex].volume = targetVolume;
+            yield return null;
+        }
+
+        sfx[_sfxIndex].volume = 1f;
+    }
+
+    public IEnumerator DecreaseVolumeOverTime(int _sfxIndex, float currentVolume, float fadeTime)
+    {
+        float startTime = Time.time;
+        float elapsedTime = 0f;
+        float startVolume = currentVolume;
+
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime = Time.time - startTime;
+            float normalizedTime = elapsedTime / fadeTime;
+            float targetVolume = Mathf.Lerp(startVolume, 0f, normalizedTime);
+            sfx[_sfxIndex].volume = targetVolume;
+            yield return null;
+        }
+
+        sfx[_sfxIndex].Stop();
+        sfx[_sfxIndex].volume = startVolume;
+    }
 
     public void PlayRandomBGM()
     {

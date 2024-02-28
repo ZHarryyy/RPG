@@ -51,6 +51,8 @@ public class Enemy_Skeleton : Enemy
 
     public override void Die()
     {
+        CloseCounterAttackWindow();
+
         base.Die();
 
         stateMachine.ChangeState(deadState);

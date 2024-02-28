@@ -10,13 +10,13 @@ public class AreaSound : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            if(fadeCoroutine != null)
+            if (fadeCoroutine != null)
             {
                 currentVolume = AudioManager.instance.sfx[areaSoundIndex].volume;
                 StopCoroutine(fadeCoroutine);
             }
 
-            if(AudioManager.instance.sfx[areaSoundIndex].isPlaying == false)
+            if (AudioManager.instance.sfx[areaSoundIndex].isPlaying == false)
             {
                 currentVolume = 0f;
             }
@@ -30,7 +30,7 @@ public class AreaSound : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            if(fadeCoroutine != null)
+            if (fadeCoroutine != null)
             {
                 currentVolume = AudioManager.instance.sfx[areaSoundIndex].volume;
                 StopCoroutine(fadeCoroutine);

@@ -67,12 +67,14 @@ public class UI : MonoBehaviour, ISaveManager
                 inGameUI.SetActive(true);
                 AudioManager.instance.PlaySFX(7, null);
                 SetInGameUIVisible(alwaysShowInGameUI);
+                if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
             else if (isAnyUIScreenOpen)
             {
                 CloseAllUI();
                 AudioManager.instance.PlaySFX(7, null);
                 SetInGameUIVisible(alwaysShowInGameUI);
+                if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
         }
 
@@ -116,6 +118,8 @@ public class UI : MonoBehaviour, ISaveManager
         ui.SetActive(!ui.activeSelf);
         AudioManager.instance.PlaySFX(6, null);
         isAnyUIScreenOpen = ui.activeSelf;
+
+        if (GameManager.instance != null) GameManager.instance.PauseGame(true);
     }
 
     private void SwitchToPreviousScreen()

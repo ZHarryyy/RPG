@@ -287,8 +287,10 @@ MonoBehaviour:
   moveSpeed: 1.5
   idleTime: 2
   battleTime: 7
-  attackDistance: 1.5
+  attackDistance: 1.8
   attackCooldown: 0.4
+  minAttackCooldown: 0.35
+  maxAttackCooldown: 0.55
   lastTimeAttacked: 0
 --- !u!50 &6665272060132966498
 Rigidbody2D:

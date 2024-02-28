@@ -54,10 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4280a4c22c746c5bed03072f5c1440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 5, y: 7}
+  knockbackPower: {x: 5, y: 10}
   knockbackDuration: 0.05
   attackCheck: {fileID: 7543806061853927898}
-  attackCheckRadius: 0.8
+  attackCheckRadius: 1.2
   groundCheck: {fileID: 1739633292566135764}
   groundCheckDistance: 1
   wallCheck: {fileID: 5431398815801624937}
@@ -74,8 +74,10 @@ MonoBehaviour:
   moveSpeed: 3
   idleTime: 2
   battleTime: 7
-  attackDistance: 2
+  attackDistance: 2.5
   attackCooldown: 0.8
+  minAttackCooldown: 0.6
+  maxAttackCooldown: 1
   lastTimeAttacked: 0
 --- !u!50 &4919862057794029591
 Rigidbody2D:
@@ -222,6 +224,9 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  soulsDropAmount:
+    baseValue: 0
+    modifiers: 
   level: 0
   percentageModifier: 0
 --- !u!1 &3940361829125822619
@@ -328,7 +333,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 471347535
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ae44d6ca9dc728943a492226b377d3f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -445,7 +450,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 471347535
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.6862745}
@@ -514,7 +519,7 @@ Transform:
   m_GameObject: {fileID: 8934877278131292197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.33, y: -0.2, z: 0}
+  m_LocalPosition: {x: 1.51, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -26,10 +26,6 @@ public class SaveManager : MonoBehaviour
         else instance = this;
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
         saveManagers = FindAllSaveManager();
-    }
-
-    private void Start()
-    {
         LoadGame();
     }
 

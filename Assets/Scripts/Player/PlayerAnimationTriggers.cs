@@ -23,6 +23,8 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
                 if (_target != null) player.stats.DoDamage(_target);
 
+                player.fx.ScreenShake(player.fx.shakeNormalDamage);
+
                 ItemData_Equipment weaponData = Inventory.instance.GetEquipment(EquipmentType.Weapon);
 
                 if (weaponData != null) weaponData.Effect(_target.transform);

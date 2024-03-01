@@ -33,7 +33,7 @@ public class Skill : MonoBehaviour
             return true;
         }
 
-        Debug.Log("Skill is on cooldown");
+        player.fx.CreatePopUpText("Skill is on Cooldown!");
         return false;
     }
 

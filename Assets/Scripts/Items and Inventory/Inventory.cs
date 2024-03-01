@@ -65,57 +65,6 @@ public class Inventory : MonoBehaviour, ISaveManager
         AddStartingItems();
     }
 
-
-    public void LoadData(GameData _data)
-    {
-        foreach (KeyValuePair<string, int> pair in _data.inventory)
-        {
-            foreach (var item in itemDataBase)
-            {
-                if (item != null && item.itemId == pair.Key)
-                {
-                    InventoryItem itemToLoad = new InventoryItem(item);
-                    itemToLoad.stackSize = pair.Value;
-
-                    loadedItems.Add(itemToLoad);
-                }
-            }
-        }
-
-        foreach (string loadedItemId in _data.equipmentId)
-        {
-            foreach (var item in itemDataBase)
-            {
-                if (item != null && loadedItemId == item.itemId)
-                {
-                    loadedEquipment.Add(item as ItemData_Equipment);
-                }
-            }
-        }
-    }
-
-    public void SaveData(ref GameData _data)
-    {
-        _data.inventory.Clear();
-        _data.equipmentId.Clear();
-
-        foreach (KeyValuePair<ItemData, InventoryItem> pair in inventoryDictionary)
-        {
-            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
-        }
-
-
-        foreach (KeyValuePair<ItemData, InventoryItem> pair in stashDictionary)
-        {
-            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
-        }
-
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> pair in equipmentDictionary)
-        {
-            _data.equipmentId.Add(pair.Key.itemId);
-        }
-    }
-
     private void AddStartingItems()
     {
         foreach (ItemData_Equipment item in loadedEquipment)
@@ -379,6 +328,56 @@ public class Inventory : MonoBehaviour, ISaveManager
 
         Debug.Log("Armor on cooldown");
         return false;
+    }
+
+    public void LoadData(GameData _data)
+    {
+        foreach (KeyValuePair<string, int> pair in _data.inventory)
+        {
+            foreach (var item in itemDataBase)
+            {
+                if (item != null && item.itemId == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
+
+        foreach (string loadedItemId in _data.equipmentId)
+        {
+            foreach (var item in itemDataBase)
+            {
+                if (item != null && loadedItemId == item.itemId)
+                {
+                    loadedEquipment.Add(item as ItemData_Equipment);
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.inventory.Clear();
+        _data.equipmentId.Clear();
+
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in inventoryDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in stashDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> pair in equipmentDictionary)
+        {
+            _data.equipmentId.Add(pair.Key.itemId);
+        }
     }
 
 #if UNITY_EDITOR

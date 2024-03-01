@@ -26,8 +26,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Exit Game");
-        // Application.Quit();
+        Application.Quit();
     }
 
     IEnumerator LoadSceneWithFadeEffect(float _delay)

@@ -18793,7 +18793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b6b2c38e8ac4fdf9f1530e6ab275ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 3
+  cooldown: 0
   cooldownTimer: 0
   crystalDuration: 1.5
   crystalPrefab: {fileID: 191967584724804292, guid: ab981a2b6381a42d58ae7e92c3fd32d7, type: 3}
@@ -18801,6 +18801,7 @@ MonoBehaviour:
   cloneInsteadOfCrystal: 0
   unlockCrystalButton: {fileID: 1328667968}
   unlockExplosiveButton: {fileID: 942786704}
+  explosiveCooldown: 3.5
   canExplode: 0
   unlockMovingCrystalButton: {fileID: 1687446500}
   canMoveToEnemy: 0

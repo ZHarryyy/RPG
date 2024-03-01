@@ -4554,7 +4554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 262751694}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 178466615}
+        m_TargetAssemblyTypeName: UI_Options, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &262751694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6771,8 +6783,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1955994283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -48, y: 0}
   m_SizeDelta: {x: 96, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -8433,7 +8445,7 @@ GameObject:
   - component: {fileID: 465281518}
   - component: {fileID: 465281517}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: InventoryManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8484,6 +8496,7 @@ MonoBehaviour:
   stashSlotParent: {fileID: 1550133573}
   equipmentSlotParent: {fileID: 1857272379}
   statSlotParent: {fileID: 2001152538}
+  itemDataBase: []
   loadedItems: []
   loadedEquipment: []
 --- !u!4 &465281518
@@ -8494,12 +8507,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465281516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1703978137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470960988
 GameObject:
@@ -12838,7 +12851,7 @@ MonoBehaviour:
   m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -15549,8 +15562,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 366181498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -48, y: 0}
   m_SizeDelta: {x: 96, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -19343,7 +19356,7 @@ RectTransform:
   m_Father: {fileID: 1662390223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: 0, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36154,7 +36167,7 @@ MonoBehaviour:
   m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -37375,6 +37388,7 @@ Transform:
   - {fileID: 685523893}
   - {fileID: 1037791446}
   - {fileID: 533205401}
+  - {fileID: 465281518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732577074
@@ -45019,7 +45033,7 @@ RectTransform:
   m_Father: {fileID: 620965042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: 0, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45919,7 +45933,6 @@ SceneRoots:
   - {fileID: 2037766620}
   - {fileID: 1029489272}
   - {fileID: 470960991}
-  - {fileID: 465281518}
   - {fileID: 2754686589934835450}
   - {fileID: 4137019381694716762}
   - {fileID: 1900895444}

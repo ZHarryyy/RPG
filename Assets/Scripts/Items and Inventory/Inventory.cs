@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     private float armorCooldown;
 
     [Header("Data base")]
+    public List<ItemData> itemDataBase;
     public List<InventoryItem> loadedItems;
     public List<ItemData_Equipment> loadedEquipment;
 
@@ -62,6 +63,57 @@ public class Inventory : MonoBehaviour, ISaveManager
         statSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
 
         AddStartingItems();
+    }
+
+
+    public void LoadData(GameData _data)
+    {
+        foreach (KeyValuePair<string, int> pair in _data.inventory)
+        {
+            foreach (var item in itemDataBase)
+            {
+                if (item != null && item.itemId == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
+
+        foreach (string loadedItemId in _data.equipmentId)
+        {
+            foreach (var item in itemDataBase)
+            {
+                if (item != null && loadedItemId == item.itemId)
+                {
+                    loadedEquipment.Add(item as ItemData_Equipment);
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.inventory.Clear();
+        _data.equipmentId.Clear();
+
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in inventoryDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+
+        foreach (KeyValuePair<ItemData, InventoryItem> pair in stashDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> pair in equipmentDictionary)
+        {
+            _data.equipmentId.Add(pair.Key.itemId);
+        }
     }
 
     private void AddStartingItems()
@@ -329,55 +381,9 @@ public class Inventory : MonoBehaviour, ISaveManager
         return false;
     }
 
-    public void LoadData(GameData _data)
-    {
-        foreach (KeyValuePair<string, int> pair in _data.inventory)
-        {
-            foreach (var item in GetItemDataBase())
-            {
-                if (item != null && item.itemId == pair.Key)
-                {
-                    InventoryItem itemToLoad = new InventoryItem(item);
-                    itemToLoad.stackSize = pair.Value;
-
-                    loadedItems.Add(itemToLoad);
-                }
-            }
-        }
-
-        foreach (string loadedItemId in _data.equipmentId)
-        {
-            foreach (var item in GetItemDataBase())
-            {
-                if (item != null && loadedItemId == item.itemId)
-                {
-                    loadedEquipment.Add(item as ItemData_Equipment);
-                }
-            }
-        }
-    }
-
-    public void SaveData(ref GameData _data)
-    {
-        _data.inventory.Clear();
-        _data.equipmentId.Clear();
-
-        foreach (KeyValuePair<ItemData, InventoryItem> pair in inventoryDictionary)
-        {
-            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
-        }
-
-
-        foreach (KeyValuePair<ItemData, InventoryItem> pair in stashDictionary)
-        {
-            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
-        }
-
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> pair in equipmentDictionary)
-        {
-            _data.equipmentId.Add(pair.Key.itemId);
-        }
-    }
+#if UNITY_EDITOR
+    [ContextMenu("Fill up item data base")]
+    private void FillUpItemDataBase() => itemDataBase = new List<ItemData>(GetItemDataBase());
 
     private List<ItemData> GetItemDataBase()
     {
@@ -393,4 +399,5 @@ public class Inventory : MonoBehaviour, ISaveManager
 
         return itemDataBase;
     }
+#endif
 }

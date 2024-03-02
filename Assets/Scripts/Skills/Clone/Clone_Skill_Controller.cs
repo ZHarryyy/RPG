@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Clone_Skill_Controller : MonoBehaviour
@@ -90,12 +91,17 @@ public class Clone_Skill_Controller : MonoBehaviour
 
     private void FaceClosestTarget()
     {
-        if (closestEnemy != null)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackCheckRadius * 2);
+     
+        foreach (var collider in colliders)
         {
-            if (transform.position.x > closestEnemy.position.x)
+            if (collider.TryGetComponent(out Enemy enemy))
             {
-                facingDir = -1;
-                transform.Rotate(0, 180, 0);
+                int yRotation = (int)transform.rotation.y;
+                if ((yRotation == 0 && transform.position.x > enemy.transform.position.x) ||
+                    (yRotation != 0 && transform.position.x < enemy.transform.position.x))
+                    transform.Rotate(0, 180, 0);
+                break;
             }
         }
     }

@@ -1,5 +1,16 @@
+using UnityEngine;
+
+public enum OozeType { big, medium, small }
+
 public class Enemy_Ooze : Enemy
 {
+    [Header("Ooze specific")]
+    [SerializeField] private OozeType oozeType;
+    [SerializeField] private int oozeToCreate;
+    [SerializeField] private GameObject oozePrefab;
+    [SerializeField] private Vector2 minCreationVelocity;
+    [SerializeField] private Vector2 maxCreationVelocity;
+
     #region States
     public OozeIdleState idleState { get; private set; }
     public OozeMoveState moveState { get; private set; }
@@ -50,5 +61,35 @@ public class Enemy_Ooze : Enemy
         base.Die();
 
         stateMachine.ChangeState(deadState);
+
+        if (oozeType == OozeType.small) return;
+
+        CreateOozes(oozeToCreate, oozePrefab);
     }
+
+    private void CreateOozes(int _amountOfOoze, GameObject _oozePrefab)
+    {
+        for (int i = 0; i < _amountOfOoze; i++)
+        {
+            GameObject newOoze = Instantiate(_oozePrefab, transform.position, Quaternion.identity);
+
+            newOoze.GetComponent<Enemy_Ooze>().SetupOoze(facingDir);
+        }
+    }
+
+    public void SetupOoze(int _facingDir)
+    {
+        if (_facingDir != facingDir) Flip();
+
+        float xVelocity = Random.Range(minCreationVelocity.x, maxCreationVelocity.x);
+        float yVelocity = Random.Range(minCreationVelocity.y, maxCreationVelocity.y);
+
+        isKnocked = true;
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(xVelocity * _facingDir, yVelocity);
+
+        Invoke("CancelKnockback", 1.5f);
+    }
+
+    private void CancelKnockback() => isKnocked = false;
 }

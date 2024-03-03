@@ -24,6 +24,13 @@ public class OozeStunnedState : EnemyState
     {
         base.Update();
 
+        if (rb.velocity.y < .1f && enemy.IsGroundDetected())
+        {
+            enemy.fx.Invoke("CancelColorChange", 0);
+            enemy.anim.SetTrigger("StunFold");
+            enemy.stats.MakeInvincible(true);
+        }
+
         if (stateTimer < 0) stateMachine.ChangeState(enemy.idleState);
     }
 
@@ -31,6 +38,6 @@ public class OozeStunnedState : EnemyState
     {
         base.Exit();
 
-        enemy.fx.Invoke("CancelColorChange", 0);
+        enemy.stats.MakeInvincible(false);
     }
 }

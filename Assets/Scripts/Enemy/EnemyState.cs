@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyState
@@ -39,5 +40,12 @@ public class EnemyState
     public virtual void AnimationFinishTrigger()
     {
         triggerCalled = true;
+    }
+
+    protected IEnumerator PauseForIdle()
+    {
+        yield return new WaitForSeconds(enemyBase.attackCooldown);
+
+        enemyBase.anim.SetBool("Idle", true);
     }
 }

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Enemy_Skeleton_Big : Enemy
 {
     #region States

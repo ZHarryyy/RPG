@@ -1,0 +1,69 @@
+using UnityEngine;
+
+public class Enemy_Bat : Enemy
+{
+    [Header("Shady specifics")]
+    public float battleStateMoveSpeed;
+
+    [SerializeField] private GameObject explosivePrefab;
+    [SerializeField] private float growSpeed;
+    [SerializeField] private float maxSize;
+
+    #region States
+    public BatIdleState idleState { get; private set; }
+    public BatMoveState moveState { get; private set; }
+    public BatBattleState battleState { get; private set; }
+
+    public BatStunnedState stunnedState { get; private set; }
+    public BatDeadState deadState { get; private set; }
+    #endregion
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        idleState = new BatIdleState(this, stateMachine, "Idle", this);
+        moveState = new BatMoveState(this, stateMachine, "Move", this);
+        battleState = new BatBattleState(this, stateMachine, "MoveFast", this);
+        stunnedState = new BatStunnedState(this, stateMachine, "Stunned", this);
+        deadState = new BatDeadState(this, stateMachine, "Dead", this);
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        stateMachine.Initialize(idleState);
+    }
+
+    public override bool CanBeStunned()
+    {
+        if (base.CanBeStunned())
+        {
+            stateMachine.ChangeState(stunnedState);
+            return true;
+        }
+
+        return false;
+    }
+
+    public override void Die()
+    {
+        CloseCounterAttackWindow();
+
+        base.Die();
+
+        stateMachine.ChangeState(deadState);
+    }
+
+    public override void AnimationSpecialAttackTrigger()
+    {
+        GameObject newExplosive = Instantiate(explosivePrefab, attackCheck.position, Quaternion.identity);
+        newExplosive.GetComponent<Explosive_Controller>().SetupExplosive(stats, growSpeed, maxSize, attackCheckRadius);
+
+        cd.enabled = false;
+        rb.gravityScale = 0;
+    }
+
+    public void SelfDestroy() => Destroy(gameObject);
+}

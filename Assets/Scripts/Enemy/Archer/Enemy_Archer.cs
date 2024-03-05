@@ -10,7 +10,7 @@ public class Enemy_Archer : Enemy
     public float jumpCooldown;
     public float safeDistance;
     [HideInInspector] public float lastTimeJumped;
-    
+
     [Header("Additional collision check")]
     [SerializeField] private Transform groundBehindCheck;
     [SerializeField] private Vector2 groundBehindCheckSize;
@@ -72,6 +72,8 @@ public class Enemy_Archer : Enemy
         GameObject newArrow = Instantiate(arrowPrefab, attackCheck.position, Quaternion.identity);
 
         newArrow.GetComponent<Arrow_Controller>().SetupArrow(arrowSpeed * facingDir, stats);
+
+        if (facingDir == -1) newArrow.transform.Rotate(0, 180, 0);
     }
 
     public bool GroundBehind() => Physics2D.BoxCast(groundBehindCheck.position, groundBehindCheckSize, 0, Vector2.zero, 0, whatIsGround);

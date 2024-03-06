@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class BatDeadState : EnemyState
 {
     private Enemy_Bat enemy;

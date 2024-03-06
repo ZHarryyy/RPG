@@ -12,6 +12,8 @@ public class ExecutionerAttackState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
+        enemy.chanceToTeleport += 5;
     }
 
     public override void Update()
@@ -20,7 +22,11 @@ public class ExecutionerAttackState : EnemyState
 
         enemy.SetZeroVelocity();
 
-        if (triggerCalled) stateMachine.ChangeState(enemy.battleState);
+        if (triggerCalled)
+        {
+            if (enemy.CanTeleport()) stateMachine.ChangeState(enemy.teleportState);
+            else stateMachine.ChangeState(enemy.battleState);
+        }
     }
 
     public override void Exit()

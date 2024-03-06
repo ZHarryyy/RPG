@@ -37,11 +37,8 @@ public class ExecutionerBattleState : EnemyState
             if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
             {
                 if (CanAttack()) stateMachine.ChangeState(enemy.attackState);
+                else stateMachine.ChangeState(enemy.idleState);
             }
-        }
-        else
-        {
-            if (stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 10) stateMachine.ChangeState(enemy.idleState);
         }
 
         if (player.position.x > enemy.transform.position.x + enemy.attackDistance) moveDir = 1;
@@ -60,7 +57,7 @@ public class ExecutionerBattleState : EnemyState
         //     stateMachine.ChangeState(enemy.idleState);
         // }
 
-        if (enemy.IsWallDetected()) stateMachine.ChangeState(enemy.idleState);
+        if (enemy.IsWallDetected()) stateMachine.ChangeState(enemy.teleportState);
     }
 
     public override void Exit()

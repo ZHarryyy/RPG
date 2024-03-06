@@ -2,9 +2,21 @@ using UnityEngine;
 
 public class Enemy_DeathBringer : Enemy
 {
+    public bool bossFightBegun;
+
+    [Header("Spell cast details")]
+    [SerializeField] private GameObject spellPrefab;
+    public int amountOfSpells;
+    public float spellCooldown;
+    public float lastTimeCast;
+    [SerializeField] private float castStateCooldown;
+    [SerializeField] private Vector2 spellOffset;
+
     [Header("Teleport details")]
     [SerializeField] private BoxCollider2D arena;
     [SerializeField] private Vector2 surroundingCheckSize;
+    public float chanceToTeleport;
+    public float defaultChanceToTeleport = 25;
 
     #region States
     public DeathBringerIdleState idleState { get; private set; }
@@ -18,6 +30,8 @@ public class Enemy_DeathBringer : Enemy
     protected override void Awake()
     {
         base.Awake();
+
+        SetupDefaultFacingDir(-1);
 
         idleState = new DeathBringerIdleState(this, stateMachine, "Idle", this);
         battleState = new DeathBringerBattleState(this, stateMachine, "Move", this);
@@ -43,6 +57,20 @@ public class Enemy_DeathBringer : Enemy
         stateMachine.ChangeState(deadState);
     }
 
+    public void CastSpell()
+    {
+        Player player = PlayerManager.instance.player;
+
+        float xOffset = 0;
+
+        if (player.rb.velocity.x != 0) xOffset = player.facingDir * spellOffset.x;
+
+        Vector3 spellPosition = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + spellOffset.y);
+
+        GameObject newSpell = Instantiate(spellPrefab, spellPosition, Quaternion.identity);
+        newSpell.GetComponent<DeathBringerSpell_Controller>().SetupSpell(stats);
+    }
+
     public void FindPosition()
     {
         float x = Random.Range(arena.bounds.min.x + 3, arena.bounds.max.x - 3);
@@ -51,7 +79,7 @@ public class Enemy_DeathBringer : Enemy
         transform.position = new Vector3(x, y);
         transform.position = new Vector3(transform.position.x, transform.position.y - GroundBelow().distance + (cd.size.y / 2));
 
-        if(!GroundBelow() || SomethingIsAround())
+        if (!GroundBelow() || SomethingIsAround())
         {
             Debug.Log("Looking for new position");
             FindPosition();
@@ -67,5 +95,23 @@ public class Enemy_DeathBringer : Enemy
 
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - GroundBelow().distance));
         Gizmos.DrawWireCube(transform.position, surroundingCheckSize);
+    }
+
+    public bool CanTeleport()
+    {
+        if (Random.Range(0, 100) <= chanceToTeleport)
+        {
+            chanceToTeleport = defaultChanceToTeleport;
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool CanDoSpellCast()
+    {
+        if (Time.time >= lastTimeCast + castStateCooldown) return true;
+
+        return false;
     }
 }

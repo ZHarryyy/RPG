@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ShadyDeadState : EnemyState
 {
     private Enemy_Shady enemy;

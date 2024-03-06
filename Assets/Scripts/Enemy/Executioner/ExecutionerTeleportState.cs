@@ -11,15 +11,24 @@ public class ExecutionerTeleportState : EnemyState
     {
         base.Enter();
 
-        enemy.FindPosition();
-
-        stateTimer = 1;
+        enemy.stats.MakeInvincible(true);
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (stateTimer < 0) stateMachine.ChangeState(enemy.idleState);
+        if (triggerCalled)
+        {
+            if (enemy.CanSummon()) stateMachine.ChangeState(enemy.summonState);
+            else stateMachine.ChangeState(enemy.battleState);
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        enemy.stats.MakeInvincible(false);
     }
 }

@@ -126,6 +126,16 @@ public class Enemy : Entity
         return false;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player player = collision.collider.GetComponent<Player>();
+        if (player != null)
+        {
+            player.GetComponent<Entity>().SetupKnockbackDir(transform);
+            this.GetComponent<EnemyStats>().DoDamage(player.GetComponent<CharacterStats>());
+        }
+    }
+
     public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     public virtual void AnimationSpecialAttackTrigger()
     {

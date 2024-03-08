@@ -36,6 +36,8 @@ public class Enemy : Entity
 
     public string lastAnimBoolName { get; private set; }
 
+    public bool isDead;
+
     protected override void Awake()
     {
         base.Awake();
@@ -162,5 +164,10 @@ public class Enemy : Entity
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + agroDistance * -facingDir, wallCheck.position.y));
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class BatDeadState : EnemyState
 {
     private Enemy_Bat enemy;
@@ -10,13 +12,15 @@ public class BatDeadState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
+        enemy.isDead = true;
+
+        Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), PlayerManager.instance.player.GetComponent<Collider2D>(), true);
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (triggerCalled) enemy.SelfDestroy();
     }
 
     public override void Exit()

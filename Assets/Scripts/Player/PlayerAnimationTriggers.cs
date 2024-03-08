@@ -15,12 +15,12 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<Enemy>() != null && !hit.GetComponent<Enemy>().isDead)
             {
                 EnemyStats _target = hit.GetComponent<EnemyStats>();
 
                 if (_target != null) player.stats.DoDamage(_target);
-            
+
                 AudioManager.instance.PlaySFX(35, null);
 
                 player.fx.ScreenShake(player.fx.shakeNormalDamage);

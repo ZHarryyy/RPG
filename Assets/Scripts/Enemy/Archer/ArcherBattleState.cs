@@ -51,6 +51,8 @@ public class ArcherBattleState : EnemyState
 
         BattleStateFlipControl();
 
+        if (!enemy.IsGroundDetected()) stateMachine.ChangeState(enemy.idleState);
+
         // // if (enemy.IsPlayerDetected() && enemy.IsPlayerDetected().distance < enemy.attackDistance - .1f) return;
 
         // enemy.SetVelocity(moveDir, rb.velocity.y);

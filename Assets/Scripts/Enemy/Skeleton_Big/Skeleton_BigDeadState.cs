@@ -13,18 +13,14 @@ public class Skeleton_BigDeadState : EnemyState
     {
         base.Enter();
 
-        enemy.anim.SetBool(enemy.lastAnimBoolName, true);
-        enemy.anim.speed = 0;
-        enemy.cd.enabled = false;
+        enemy.isDead = true;
 
-        stateTimer = .1f;
+        Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), PlayerManager.instance.player.GetComponent<Collider2D>(), true);
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (stateTimer > 0) rb.velocity = new Vector2(0, 10);
     }
 
     public override void Exit()

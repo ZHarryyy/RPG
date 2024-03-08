@@ -167,8 +167,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22899893, y: 0.009405587}
-  m_Size: {x: 2.7767344, y: 2.1682088}
+  m_Offset: {x: 0.2289989, y: -0.24696213}
+  m_Size: {x: 2.837528, y: 2.6809447}
   m_Direction: 1
 --- !u!114 &8633571380936899270
 MonoBehaviour:
@@ -318,6 +318,7 @@ MonoBehaviour:
   minAttackCooldown: 1
   maxAttackCooldown: 2
   lastTimeAttacked: 0
+  isDead: 0
   battleStateMoveSpeed: 6
   explosivePrefab: {fileID: 403561717966083494, guid: 353eaebce25b64570a2ae538b196ab0a, type: 3}
   growSpeed: 15

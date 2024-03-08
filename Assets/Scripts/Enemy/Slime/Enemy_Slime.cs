@@ -32,7 +32,7 @@ public class Enemy_Slime : Enemy
         battleState = new SlimeBattleState(this, stateMachine, "Move", this);
         attackState = new SlimeAttackState(this, stateMachine, "Attack", this);
         stunnedState = new SlimeStunnedState(this, stateMachine, "Stunned", this);
-        deadState = new SlimeDeadState(this, stateMachine, "Idle", this);
+        deadState = new SlimeDeadState(this, stateMachine, "Dead", this);
     }
 
     protected override void Start()

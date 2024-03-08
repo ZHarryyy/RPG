@@ -36,7 +36,7 @@ public class Enemy_Archer : Enemy
         battleState = new ArcherBattleState(this, stateMachine, "Idle", this);
         attackState = new ArcherAttackState(this, stateMachine, "Attack", this);
         stunnedState = new ArcherStunnedState(this, stateMachine, "Stunned", this);
-        deadState = new ArcherDeadState(this, stateMachine, "Idle", this);
+        deadState = new ArcherDeadState(this, stateMachine, "Dead", this);
         jumpState = new ArcherJumpState(this, stateMachine, "Jump", this);
     }
 

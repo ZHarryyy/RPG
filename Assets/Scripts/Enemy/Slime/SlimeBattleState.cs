@@ -51,6 +51,8 @@ public class SlimeBattleState : EnemyState
 
         enemy.SetVelocity(enemy.moveSpeed * moveDir * 1.5f, rb.velocity.y);
 
+        if (!enemy.IsGroundDetected()) stateMachine.ChangeState(enemy.idleState);
+
         // if (enemy.IsGroundDetected())
         // {
         //     if (Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown) enemy.SetVelocity(enemy.moveSpeed * 1.5f * moveDir, rb.velocity.y);

@@ -33,7 +33,7 @@ public class Enemy_Ooze : Enemy
         battleState = new OozeBattleState(this, stateMachine, "Move", this);
         attackState = new OozeAttackState(this, stateMachine, "Attack", this);
         stunnedState = new OozeStunnedState(this, stateMachine, "Stunned", this);
-        deadState = new OozeDeadState(this, stateMachine, "Idle", this);
+        deadState = new OozeDeadState(this, stateMachine, "Dead", this);
     }
 
     protected override void Start()

@@ -19,7 +19,7 @@ public class Enemy_Skeleton_Big : Enemy
         battleState = new Skeleton_BigBattleState(this, stateMachine, "Move", this);
         attackState = new Skeleton_BigAttackState(this, stateMachine, "Attack", this);
         stunnedState = new SkeletonBigStunnedState(this, stateMachine, "Stunned", this);
-        deadState = new Skeleton_BigDeadState(this, stateMachine, "Idle", this);
+        deadState = new Skeleton_BigDeadState(this, stateMachine, "Dead", this);
     }
 
     protected override void Start()

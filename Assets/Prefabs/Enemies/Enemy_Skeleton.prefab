@@ -297,6 +297,7 @@ MonoBehaviour:
   minAttackCooldown: 0.35
   maxAttackCooldown: 0.55
   lastTimeAttacked: 0
+  isDead: 0
 --- !u!50 &6665272060132966498
 Rigidbody2D:
   serializedVersion: 4

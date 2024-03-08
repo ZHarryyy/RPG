@@ -121,7 +121,14 @@ public class CharacterStats : MonoBehaviour
     {
         bool criticalStrike = false;
 
-        if (_targetStats.isInvincible) return;
+        if (_targetStats.isInvincible)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _targetStats.GetComponent<Collider2D>(), true);
+
+            StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+
+            return;
+        }
 
         if (TargetCanAvoidAttack(_targetStats)) return;
 
@@ -142,6 +149,13 @@ public class CharacterStats : MonoBehaviour
         _targetStats.TakeDamage(totalDamage);
 
         DoMagicDamage(_targetStats);
+    }
+
+    private IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
+    {
+        yield return new WaitForSeconds(1f);
+        
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
     }
 
     #region Magical damage and ailments

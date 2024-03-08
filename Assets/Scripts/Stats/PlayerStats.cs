@@ -1,14 +1,50 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    private Player player;
+    private Player player;   
+    public SpriteRenderer spriteRenderer;
+    public float invincibleDuration = 2f;
+    public float blinkDuration = 0.1f;
+    public float minAlpha = 0.4f;
+    public float maxAlpha = 1f;
+    private float elapsedTime;
+    private bool isFadingOut;
 
     protected override void Start()
     {
         base.Start();
 
         player = GetComponent<Player>();
+    }
+
+    protected override void Update()
+    {
+        if (isInvincible)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= blinkDuration)
+            {
+                if (isFadingOut)
+                {
+                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+                    isFadingOut = false;
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
+                    isFadingOut = true;
+                }
+
+                elapsedTime = 0f;
+            }
+        }
+        else
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+        }
     }
 
     public override void TakeDamage(int _damage)
@@ -32,15 +68,51 @@ public class PlayerStats : CharacterStats
     {
         base.DecreaseHealthBy(_damage);
 
-        if (_damage > GetMaxHealthValue() * .3f)
-        {
-            player.SetupKnockbackPower(new Vector2(10, 6));
-            player.fx.ScreenShake(player.fx.shakeHighDamage);
-        }
+        player.SetupKnockbackPower(new Vector2(10, 6));
+        player.fx.ScreenShake(player.fx.shakeHighDamage);
+        InvincibleBlink();
+        player.stats.MakeInvincible(true);
 
         ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
 
         if (currentArmor != null) currentArmor.Effect(player.transform);
+
+        StartCoroutine(DisableInvincibilityAfterDuration());
+    }
+
+    private void InvincibleBlink()
+    {
+        if(isInvincible)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= blinkDuration)
+            {
+                if (isFadingOut)
+                {
+                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+                    isFadingOut = false;
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
+                    isFadingOut = true;
+                }
+
+                elapsedTime = 0f;
+            }
+            else
+            {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+            }
+        }
+    }
+
+    private IEnumerator DisableInvincibilityAfterDuration()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        player.stats.MakeInvincible(false);
     }
 
     public override void OnEvasion()

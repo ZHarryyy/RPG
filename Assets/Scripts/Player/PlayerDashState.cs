@@ -13,6 +13,10 @@ public class PlayerDashState : PlayerState
         stateTimer = player.dashDuration;
 
         player.stats.MakeInvincible(true);
+
+        player.fx.PlayDashFX(true);
+
+        AudioManager.instance.PlaySFX(33, player.transform);
     }
 
     public override void Exit()

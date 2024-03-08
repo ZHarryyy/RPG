@@ -173,6 +173,7 @@ public class UI : MonoBehaviour, ISaveManager
         yield return new WaitForSeconds(1);
 
         endText.SetActive(true);
+        AudioManager.instance.PlaySFX(10, null);
 
         yield return new WaitForSeconds(1);
 

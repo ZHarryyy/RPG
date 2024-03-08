@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    private Player player;   
-    public SpriteRenderer spriteRenderer;
-    public float invincibleDuration = 2f;
-    public float blinkDuration = 0.1f;
-    public float minAlpha = 0.4f;
-    public float maxAlpha = 1f;
+    private Player player;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private float blinkDuration = 0.1f;
+    private float minAlpha = 0.4f;
+    private float maxAlpha = 1f;
     private float elapsedTime;
     private bool isFadingOut;
 
@@ -69,6 +68,7 @@ public class PlayerStats : CharacterStats
         base.DecreaseHealthBy(_damage);
 
         player.SetupKnockbackPower(new Vector2(10, 6));
+        AudioManager.instance.PlaySFX(36, null);
         player.fx.ScreenShake(player.fx.shakeHighDamage);
         InvincibleBlink();
         player.stats.MakeInvincible(true);
@@ -82,7 +82,7 @@ public class PlayerStats : CharacterStats
 
     private void InvincibleBlink()
     {
-        if(isInvincible)
+        if (isInvincible)
         {
             elapsedTime += Time.deltaTime;
 

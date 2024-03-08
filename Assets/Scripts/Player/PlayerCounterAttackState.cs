@@ -58,6 +58,8 @@ public class PlayerCounterAttackState : PlayerState
     private void SuccessfulCounterAttack()
     {
         stateTimer = 10;
+        AudioManager.instance.PlaySFX(37, null);
+        player.fx.ScreenShake(player.fx.shakeHighDamage);
         player.anim.SetBool("SuccessfulCounterAttack", true);
     }
 

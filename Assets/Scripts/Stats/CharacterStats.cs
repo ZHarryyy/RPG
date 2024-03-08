@@ -154,7 +154,7 @@ public class CharacterStats : MonoBehaviour
     private IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
     {
         yield return new WaitForSeconds(1f);
-        
+
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
     }
 

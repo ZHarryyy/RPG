@@ -146,10 +146,10 @@ public class Enemy : Entity
     {
         RaycastHit2D playerDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 50, whatIsPlayer);
         RaycastHit2D wallDetected = Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 51, whatIsGround);
- 
+
         float distanceToWall = wallDetected.distance;
         float distanceToPlayer = playerDetected.distance;
- 
+
         if (distanceToPlayer < distanceToWall || !wallDetected) return playerDetected;
 
         return default(RaycastHit2D);

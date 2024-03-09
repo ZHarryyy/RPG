@@ -12,13 +12,14 @@ public class GameData
 
     public SerializableDictionary<string, bool> checkpoints;
     public string closestCheckpointId;
+    public string currentSceneName;
 
     public float lostSoulX;
     public float lostSoulY;
     public int lostSoulAmount;
 
     public SerializableDictionary<string, float> volumeSettings;
-
+    
     public GameData()
     {
         this.lostSoulX = 0;
@@ -32,6 +33,7 @@ public class GameData
 
         closestCheckpointId = string.Empty;
         checkpoints = new SerializableDictionary<string, bool>();
+        this.currentSceneName = null;
 
         volumeSettings = new SerializableDictionary<string, float>();
     }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour, ISaveManager
     private Transform player;
     [SerializeField] private Checkpoint[] checkpoints;
     [SerializeField] private string closestCheckpointId;
+    public string currentSceneName;
 
     [Header("Lost currency")]
     [SerializeField] private GameObject lostSoulPrefab;
@@ -20,12 +21,14 @@ public class GameManager : MonoBehaviour, ISaveManager
     {
         if (instance != null) Destroy(instance.gameObject);
         else instance = this;
+
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     private void Start()
     {
         checkpoints = FindObjectsOfType<Checkpoint>();
-        player = PlayerManager.instance.player.transform;
+        if (PlayerManager.instance != null) player = PlayerManager.instance.player.transform;
     }
 
     public void RestartScene()
@@ -63,10 +66,16 @@ public class GameManager : MonoBehaviour, ISaveManager
         lostSoulAmount = 0;
     }
 
+    private void LoadScene(GameData _data)
+    {
+        currentSceneName = _data.currentSceneName;
+    }
+
     private IEnumerator LoadWithDelay(GameData _data)
     {
         yield return new WaitForSeconds(.1f);
 
+        LoadScene(_data);
         LoadCheckpoints(_data);
         LoadClosestCheckpoint(_data);
         LoadLostCurrency(_data);
@@ -86,6 +95,8 @@ public class GameManager : MonoBehaviour, ISaveManager
         {
             _data.checkpoints.Add(checkpoint.Id, checkpoint.activationStatus);
         }
+
+        _data.currentSceneName = SceneManager.GetActiveScene().name;
     }
 
 

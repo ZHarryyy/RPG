@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class UI_MainMenu : MonoBehaviour
 {
-    [SerializeField] private string sceneName = "MainScene";
+    private string sceneName;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private UI_FadeScreen fadeScreen;
 
@@ -15,12 +15,14 @@ public class UI_MainMenu : MonoBehaviour
 
     public void Continue()
     {
+        if (GameManager.instance.currentSceneName != null) sceneName = GameManager.instance.currentSceneName;
         StartCoroutine(LoadSceneWithFadeEffect(1.5f));
     }
 
     public void NewGame()
     {
         SaveManager.instance.DeleteSaveData();
+        sceneName = "Level0";
         StartCoroutine(LoadSceneWithFadeEffect(1.5f));
     }
 

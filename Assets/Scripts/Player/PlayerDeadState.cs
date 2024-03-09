@@ -15,7 +15,8 @@ public class PlayerDeadState : PlayerState
     {
         base.Enter();
 
-        GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
+        if (player.isRed) GameObject.Find("Canvas").GetComponent<Level1UI>().SwitchOnEndScreen();
+        else GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
     }
 
     public override void Update()

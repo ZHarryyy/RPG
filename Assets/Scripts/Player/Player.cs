@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public bool isRed;
+
     [Header("Attack details")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
@@ -145,6 +147,8 @@ public class Player : Entity
     private void CheckForDashInput()
     {
         if (IsWallDetected()) return;
+
+        if (isRed) return;
 
         if (skill.dash.dashUnlocked == false) return;
 

@@ -236,10 +236,6 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
   spriteRenderer: {fileID: 9117257959313248452}
-  invincibleDuration: 2
-  blinkDuration: 0.1
-  minAlpha: 0.4
-  maxAlpha: 1
 --- !u!114 &1758508603395201150
 MonoBehaviour:
   m_ObjectHideFlags: 0

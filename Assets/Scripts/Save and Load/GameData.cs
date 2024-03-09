@@ -19,7 +19,7 @@ public class GameData
     public int lostSoulAmount;
 
     public SerializableDictionary<string, float> volumeSettings;
-    
+
     public GameData()
     {
         this.lostSoulX = 0;

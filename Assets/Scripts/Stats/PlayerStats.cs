@@ -73,9 +73,12 @@ public class PlayerStats : CharacterStats
         InvincibleBlink();
         player.stats.MakeInvincible(true);
 
-        ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
+        if (Inventory.instance != null)
+        {
+            ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
 
-        if (currentArmor != null) currentArmor.Effect(player.transform);
+            if (currentArmor != null) currentArmor.Effect(player.transform);
+        }
 
         StartCoroutine(DisableInvincibilityAfterDuration());
     }

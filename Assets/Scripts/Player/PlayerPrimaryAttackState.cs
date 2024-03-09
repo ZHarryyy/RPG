@@ -19,7 +19,14 @@ public class PlayerPrimaryAttackState : PlayerState
 
         xInput = 0;
 
-        if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;
+        if (player.isRed)
+        {
+            if (comboCounter > 1 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;
+        }
+        else
+        {
+            if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow) comboCounter = 0;
+        }
 
         player.anim.SetInteger("ComboCounter", comboCounter);
 

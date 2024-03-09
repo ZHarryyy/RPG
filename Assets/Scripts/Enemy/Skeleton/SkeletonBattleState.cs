@@ -22,6 +22,11 @@ public class SkeletonBattleState : EnemyState
             if (CanAttack()) enemy.stateMachine.ChangeState(enemy.attackState);
             else enemy.stateMachine.ChangeState(enemy.idleState);
         }
+        else if (!enemy.IsPlayerDetected() && enemy.IsPlayerDetected().distance < enemy.agroDistance)
+        {
+            enemy.Flip();
+            if (CanAttack()) enemy.stateMachine.ChangeState(enemy.attackState);
+        }
 
         if (player.GetComponent<PlayerStats>().isDead) stateMachine.ChangeState(enemy.moveState);
     }

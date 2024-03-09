@@ -30,6 +30,8 @@ public class UI_InGame : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerManager.instance.player.isRed) return;
+
         UpdateSoulsUI();
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked) SetCooldownOf(dashImage);

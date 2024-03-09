@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level1UI : MonoBehaviour, ISaveManager
+public class Level0UI : MonoBehaviour, ISaveManager
 {
     [SerializeField] private GameObject[] UIScreens;
     private int currentScreenIndex;

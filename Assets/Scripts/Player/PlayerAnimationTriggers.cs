@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimationTriggers : MonoBehaviour
@@ -42,5 +43,26 @@ public class PlayerAnimationTriggers : MonoBehaviour
     private void ThrowSword()
     {
         SkillManager.instance.sword.CreateSword();
+    }
+
+    private void AnimationStop()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponent<Enemy>() != null && !hit.GetComponent<Enemy>().isDead) StartCoroutine(StopAnimation());
+        }
+    }
+
+    private IEnumerator StopAnimation()
+    {
+        float animationStopDuration = 0.15f;
+
+        player.anim.enabled = false;
+
+        yield return new WaitForSeconds(animationStopDuration);
+
+        player.anim.enabled = true;
     }
 }

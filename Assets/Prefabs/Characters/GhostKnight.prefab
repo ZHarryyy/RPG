@@ -103,6 +103,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  isRed: 0
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
@@ -267,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_ImpulseShape: 2
+    m_ImpulseShape: 3
     m_CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -338,7 +339,7 @@ MonoBehaviour:
   shakeMultiplier: 0.2
   shakeSwordImpact: {x: 1, y: 0, z: 0}
   shakeHighDamage: {x: 2, y: 2, z: 0}
-  shakeNormalDamage: {x: 0.5, y: 0.5, z: 0}
+  shakeNormalDamage: {x: 1, y: 1, z: 0}
   afterImagePrefab: {fileID: 7606418239256774149, guid: a00d3fd94bc4448a79a8aa0e93c8b210, type: 3}
   colorLooseRate: 1.5
   afterImageCooldown: 0.05

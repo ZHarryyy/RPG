@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: damage.baseValue
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: maxHealth.baseValue
@@ -342,6 +342,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
       propertyPath: fireDamage.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703896580529636496, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}
+      propertyPath: lightingDamage.baseValue
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7532595441972662868, guid: 4b33753aae36b4011b11e23e78ad9306, type: 3}

@@ -59,6 +59,7 @@ public class CharacterStats : MonoBehaviour
     private float igniteDamageCooldown = .3f;
     private float igniteDamageTimer;
     private int igniteDamage;
+    private int chillDamage;
     [SerializeField] private GameObject shockStrikePrefab;
     private int shockDamage;
 
@@ -316,7 +317,7 @@ public class CharacterStats : MonoBehaviour
         GetComponent<Entity>().DamageImpact();
         fx.StartCoroutine("FlashFX");
 
-        if (currentHealth < 0 && !isDead) Die();
+        if (currentHealth <= 0 && !isDead) Die();
     }
 
     public virtual void IncreaseHealthBy(int _amount)

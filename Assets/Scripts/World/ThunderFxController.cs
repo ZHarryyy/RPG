@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class DangerZone : MonoBehaviour
-{    
+public class ThunderFxController : MonoBehaviour
+{
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Player player = collision.collider.GetComponent<Player>();
-
+        
         if (player != null)
         {
             player.GetComponent<Entity>().SetupKnockbackDir(transform);
@@ -13,6 +13,6 @@ public class DangerZone : MonoBehaviour
             this.GetComponent<EnemyStats>().DoMagicDamage(player.GetComponent<CharacterStats>());
         }
     }
-    
+
     private void DestroySelf() => Destroy(gameObject);
 }

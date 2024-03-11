@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Checkpoint : MonoBehaviour
     public string Id;
     public bool activationStatus;
     private bool canActivate;
+    private Light2D light2D;
 
     [SerializeField] private GameObject lightSmall;
     [SerializeField] private GameObject lightBig;
@@ -14,11 +16,18 @@ public class Checkpoint : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        light2D = GetComponentInChildren<Light2D>();
     }
 
     private void Update()
     {
         if (canActivate && Input.GetKeyDown(KeyCode.E)) ActivateCheckpoint();
+
+        if (activationStatus)
+        {
+            light2D.intensity = 4f;
+            light2D.pointLightOuterRadius = 4f;
+        }
     }
 
     [ContextMenu("Generate checkpoint id")]

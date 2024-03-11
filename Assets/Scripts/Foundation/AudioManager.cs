@@ -24,10 +24,6 @@ public class AudioManager : MonoBehaviour
         {
             StopAllBGM();
         }
-        else
-        {
-            if (!bgm[bgmIndex].isPlaying) PlayBGM(bgmIndex);
-        }
     }
 
     public void PlaySFX(int _sfxIndex, Transform _source)

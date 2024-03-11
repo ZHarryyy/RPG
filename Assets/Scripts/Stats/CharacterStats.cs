@@ -328,7 +328,7 @@ public class CharacterStats : MonoBehaviour
         if (onHealthChanged != null) onHealthChanged();
     }
 
-    protected virtual void DecreaseHealthBy(int _damage)
+    public virtual void DecreaseHealthBy(int _damage)
     {
         if (isVulnerable) _damage = Mathf.RoundToInt(_damage * 1.1f);
 

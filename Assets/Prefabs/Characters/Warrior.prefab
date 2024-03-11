@@ -262,7 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f95b4208c92e429f850b27dad2a1e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 0, y: 0}
+  knockbackPower: {x: 7, y: 12}
+  knockbackOffset: {x: 0.5, y: 2}
   knockbackDuration: 0
   attackCheck: {fileID: 4745818633736105722}
   attackCheckRadius: 0.6
@@ -273,6 +274,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  isRed: 0
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
@@ -357,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e9ce747074a422298beaa678573ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpTextPrefab: {fileID: 0}
   flashDuration: 0.2
   hitMat: {fileID: 2100000, guid: 1f12718825d0246998872ec06b873efe, type: 2}
   igniteColor:
@@ -368,6 +371,11 @@ MonoBehaviour:
   shockColor:
   - {r: 1, g: 0.8901961, b: 0.38431373, a: 1}
   - {r: 0.94509804, g: 0.8745098, b: 0.54901963, a: 1}
+  igniteFx: {fileID: 0}
+  chillFx: {fileID: 0}
+  shockFx: {fileID: 0}
+  hitFx: {fileID: 0}
+  criticalHitFx: {fileID: 0}
 --- !u!114 &3649864891493582642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +436,7 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  spriteRenderer: {fileID: 0}
 --- !u!1 &3395341853223824802
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +797,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -807,7 +816,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 272703809
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 1003262777, guid: d7e2ca1aaa01c4c4ca95b0ffb9056239, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

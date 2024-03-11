@@ -20,6 +20,8 @@ public class PlayerStats : CharacterStats
 
     protected override void Update()
     {
+        base.Update();
+
         if (isInvincible)
         {
             elapsedTime += Time.deltaTime;
@@ -63,13 +65,17 @@ public class PlayerStats : CharacterStats
         GetComponent<PlayerItemDrop>()?.GenerateDrop();
     }
 
-    protected override void DecreaseHealthBy(int _damage)
+    public override void DecreaseHealthBy(int _damage)
     {
         base.DecreaseHealthBy(_damage);
 
-        player.SetupKnockbackPower(new Vector2(10, 6));
-        AudioManager.instance.PlaySFX(36, null);
-        player.fx.ScreenShake(player.fx.shakeHighDamage);
+        if(!isIgnited && !isChilled && !isShocked)
+        {
+            player.SetupKnockbackPower(new Vector2(10, 6));
+            AudioManager.instance.PlaySFX(36, null);
+            player.fx.ScreenShake(player.fx.shakeHighDamage);
+        }
+        
         InvincibleBlink();
         player.stats.MakeInvincible(true);
 

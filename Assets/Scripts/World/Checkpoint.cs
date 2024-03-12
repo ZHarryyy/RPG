@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
 
     private void Update()
     {
-        if (canActivate && Input.GetKeyDown(KeyCode.E)) ActivateCheckpoint();
+        if (canActivate && Input.GetKeyDown(KeyCode.E) && !activationStatus) ActivateCheckpoint();
 
         if (activationStatus)
         {

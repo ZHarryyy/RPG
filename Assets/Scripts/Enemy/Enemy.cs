@@ -37,6 +37,7 @@ public class Enemy : Entity
     public string lastAnimBoolName { get; private set; }
 
     public bool isDead;
+    public bool getHitted;
 
     protected override void Awake()
     {

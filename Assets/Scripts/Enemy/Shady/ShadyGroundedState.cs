@@ -21,7 +21,7 @@ public class ShadyGroundedState : EnemyState
     {
         base.Update();
 
-        if ((enemy.IsPlayerDetected() && !enemy.IsWallDetected() && enemy.IsGroundDetected()) || (Vector2.Distance(enemy.transform.position, player.transform.position) < enemy.agroDistance && enemy.IsGroundDetected())) stateMachine.ChangeState(enemy.battleState);
+        if ((enemy.IsPlayerDetected() && !enemy.IsWallDetected() && enemy.IsGroundDetected()) || (Vector2.Distance(enemy.transform.position, player.transform.position) < enemy.agroDistance && enemy.IsGroundDetected()) || enemy.getHitted) stateMachine.ChangeState(enemy.battleState);
     }
 
     public override void Exit()

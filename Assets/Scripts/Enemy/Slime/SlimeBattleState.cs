@@ -68,6 +68,8 @@ public class SlimeBattleState : EnemyState
     public override void Exit()
     {
         base.Exit();
+
+        enemy.getHitted = false;
     }
 
     private bool CanAttack()

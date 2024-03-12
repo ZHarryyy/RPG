@@ -71,6 +71,8 @@ public class BatBattleState : EnemyState
         base.Exit();
 
         enemy.moveSpeed = defaultSpeed;
+
+        enemy.getHitted = false;
     }
 
     private bool CanAttack()

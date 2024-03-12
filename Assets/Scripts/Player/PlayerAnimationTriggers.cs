@@ -20,7 +20,11 @@ public class PlayerAnimationTriggers : MonoBehaviour
             {
                 EnemyStats _target = hit.GetComponent<EnemyStats>();
 
-                if (_target != null) player.stats.DoDamage(_target);
+                if (_target != null)
+                {
+                    player.stats.DoDamage(_target);
+                    hit.GetComponent<Enemy>().getHitted = true;
+                }
 
                 AudioManager.instance.PlaySFX(35, null);
 

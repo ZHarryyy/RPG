@@ -71,6 +71,8 @@ public class ShadyBattleState : EnemyState
         base.Exit();
 
         enemy.moveSpeed = defaultSpeed;
+        
+        enemy.getHitted = false;
     }
 
     private bool CanAttack()

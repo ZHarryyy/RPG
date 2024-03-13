@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9196025397493077535}
   - component: {fileID: 8754211394152527597}
   - component: {fileID: 7912896438947473968}
-  - component: {fileID: 7456220135217919947}
+  - component: {fileID: 7205662866647538567}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -225,7 +225,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.65882355, g: 0.9843137, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4851,7 +4851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b7e494f9f844d38beae47cf23be9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &7456220135217919947
+--- !u!82 &7205662866647538567
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4861,11 +4861,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0dcb2593d8b724a028f2708266b81f42, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 551479edea69d4552baff9d55577367e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

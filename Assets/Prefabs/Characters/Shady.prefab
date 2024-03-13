@@ -369,8 +369,8 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   counterAttackDuration: 0.2
-  moveSpeed: 4
-  jumpForce: 10
+  moveSpeed: 5
+  jumpForce: 12
   swordReturnImpact: 0
   dashSpeed: 0
   dashDuration: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   - {x: 0.3047831, y: -0.78036785, z: 0}
   m_ShapePathHash: 1408530687
   m_Mesh: {fileID: 0}
-  m_InstanceId: -685688
+  m_InstanceId: -1320
   m_LocalBounds:
     m_Center: {x: -0.060057044, y: -0.0029740334, z: 0}
     m_Extent: {x: 0.36484015, y: 0.7773938, z: 0}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -9,6 +10,7 @@ public class Checkpoint : MonoBehaviour
     public bool activationStatus;
     private bool canActivate;
     private Light2D light2D;
+    private CanvasGroup canvasGroup;
 
     [SerializeField] private GameObject lightSmall;
     [SerializeField] private GameObject lightBig;
@@ -17,6 +19,7 @@ public class Checkpoint : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         light2D = GetComponentInChildren<Light2D>();
+        canvasGroup = GetComponentInChildren<CanvasGroup>();
     }
 
     private void Update()
@@ -38,12 +41,25 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null) canActivate = true;
+        if (collision.GetComponent<Player>() != null)
+        {
+            canActivate = true;
+
+            if(!activationStatus)
+            {
+                StartCoroutine(FadeInKeyPrompt());
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null) canActivate = false;
+        if (collision.GetComponent<Player>() != null)
+        {
+            canActivate = false;
+
+            StartCoroutine(FadeOutKeyPrompt());
+        }
     }
 
     public void ActivateCheckpoint()
@@ -53,5 +69,40 @@ public class Checkpoint : MonoBehaviour
         lightSmall.SetActive(false);
         anim.SetBool("active", true);
         lightBig.SetActive(true);
+        StartCoroutine(FadeOutKeyPrompt());
+    }
+
+    private IEnumerator FadeInKeyPrompt()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float targetAlpha = 1f;
+        float duration = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeOutKeyPrompt()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float targetAlpha = 0f;
+        float duration = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }

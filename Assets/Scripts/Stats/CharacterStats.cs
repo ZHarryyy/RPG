@@ -73,7 +73,9 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Start()
     {
-        critPower.SetDefaultValue(150);
+        if(critChance.GetValue() == 0) critPower.SetDefaultValue(0);
+        else critPower.SetDefaultValue(150);
+
         currentHealth = GetMaxHealthValue();
 
         fx = GetComponent<EntityFX>();

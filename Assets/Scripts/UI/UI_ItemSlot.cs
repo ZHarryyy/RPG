@@ -9,11 +9,13 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     [SerializeField] protected TextMeshProUGUI itemText;
 
     protected UI ui;
+    protected Level0UI level0UI;
     public InventoryItem item;
 
     protected virtual void Start()
     {
         ui = GetComponentInParent<UI>();
+        level0UI = GetComponentInParent<Level0UI>();
     }
 
     public void UpdateSlot(InventoryItem _newItem)
@@ -52,14 +54,16 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
         if (item.data.itemType == ItemType.Equipment) Inventory.instance.EquipItem(item.data);
 
-        ui.itemToolTip.HideToolTip();
+        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
+        else ui.itemToolTip.HideToolTip();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (item == null) return;
 
-        ui.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
+        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
+        else ui.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
 
         Vector2 mousePosition = Input.mousePosition;
         float xOffset;
@@ -69,13 +73,15 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         if (mousePosition.y > Screen.height * .5f) yOffset = Screen.height * .1f * -1;
         else yOffset = Screen.height * .1f;
 
-        ui.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+        else ui.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (item == null) return;
 
-        ui.itemToolTip.HideToolTip();
+        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
+        else ui.itemToolTip.HideToolTip();
     }
 }

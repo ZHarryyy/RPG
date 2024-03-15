@@ -4,27 +4,44 @@ public class ParallaxBackground : MonoBehaviour
 {
     private GameObject cam;
 
-    [SerializeField] private float parallaxEffect;
+    [SerializeField] private float xParallaxEffect;
+    [SerializeField] private float yParallaxEffect = 1;
 
     private float xPosition;
-    private float length;
+    private float yPosition;
+    private float xlength;
+
+    [SerializeField] private float minXPosition;
+    [SerializeField] private float maxXPosition;
+    [SerializeField] private float minYPosition;
+    [SerializeField] private float maxYPosition;
 
     private void Start()
     {
         cam = GameObject.Find("Main Camera");
 
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        xlength = GetComponent<SpriteRenderer>().bounds.size.x;
+
         xPosition = transform.position.x;
+        yPosition = transform.position.y;
     }
 
     private void Update()
     {
-        float distanceMoved = cam.transform.position.x * (1 - parallaxEffect);
-        float distanceToMove = cam.transform.position.x * parallaxEffect;
+        float distanceXMoved = cam.transform.position.x * (1 - xParallaxEffect);
+        float distanceXToMove = cam.transform.position.x * xParallaxEffect;
 
-        transform.position = new Vector3(xPosition + distanceToMove, transform.position.y);
+        float distanceYToMove = cam.transform.position.y * yParallaxEffect;
 
-        if (distanceMoved > xPosition + length) xPosition = xPosition + length;
-        else if (distanceMoved < xPosition - length) xPosition = xPosition - length;
+        float targetXPosition = xPosition + distanceXToMove;
+        float targetYPosition = yPosition + distanceYToMove;
+
+        targetXPosition = Mathf.Clamp(targetXPosition, minXPosition, maxXPosition);
+        targetYPosition = Mathf.Clamp(targetYPosition, minYPosition, maxYPosition);
+
+        transform.position = new Vector3(targetXPosition, targetYPosition);
+
+        if (distanceXMoved > xPosition + xlength) xPosition = xPosition + xlength;
+        else if (distanceXMoved < xPosition - xlength) xPosition = xPosition - xlength;
     }
 }

@@ -288,6 +288,7 @@ MonoBehaviour:
   maxAttackCooldown: 1
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
   bossFightBegun: 0
   spellPrefab: {fileID: 8865858242185534159, guid: 97e503ce6edbe40c4b2bfad5b0526a12, type: 3}
   amountOfSpells: 7

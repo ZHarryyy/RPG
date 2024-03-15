@@ -7,14 +7,20 @@ public class Level0UI : MonoBehaviour, ISaveManager
 {
     [SerializeField] private GameObject[] UIScreens;
     private int currentScreenIndex;
-
-    [SerializeField] private GameObject optionsUI;
+    
+    public GameObject characterUI;
+    public GameObject craftUI;
+    public GameObject optionsUI;
 
     [Header("End Screen")]
     [SerializeField] private UI_FadeScreen fadeScreen;
     [SerializeField] private GameObject endText;
     [SerializeField] private GameObject restartButton;
     [Space]
+
+    public UI_ItemToolTip itemToolTip;
+    public UI_StatTooltip statToolTip;
+    public UI_CraftWindow craftWindow;
 
     public Toggle toggleInGameUI;
 
@@ -32,12 +38,18 @@ public class Level0UI : MonoBehaviour, ISaveManager
     {
         CloseAllUI();
         alwaysShowInGameUI = toggleInGameUI.isOn;
-        // SetInGameUIVisible(alwaysShowInGameUI);
+
+        itemToolTip.gameObject.SetActive(false);
+        statToolTip.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.B) && !characterUI.activeSelf && !optionsUI.activeSelf) ToggleUI(characterUI);
+        else if (Input.GetKeyDown(KeyCode.C) && !craftUI.activeSelf && !optionsUI.activeSelf) ToggleUI(craftUI);
+        else if (Input.GetKeyDown(KeyCode.Q) && isAnyUIScreenOpen) SwitchToPreviousScreen();
+        else if (Input.GetKeyDown(KeyCode.E) && isAnyUIScreenOpen) SwitchToNextScreen();
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isAnyUIScreenOpen)
             {
@@ -47,39 +59,30 @@ public class Level0UI : MonoBehaviour, ISaveManager
             {
                 CloseAllUI();
                 AudioManager.instance.PlaySFX(7, null);
-                // SetInGameUIVisible(alwaysShowInGameUI);
                 if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
             else if (isAnyUIScreenOpen)
             {
                 CloseAllUI();
                 AudioManager.instance.PlaySFX(7, null);
-                // SetInGameUIVisible(alwaysShowInGameUI);
                 if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
         }
-
-        alwaysShowInGameUI = toggleInGameUI.isOn;
     }
-
-    // private void SetInGameUIVisible(bool _isShow)
-    // {
-    //     if (alwaysShowInGameUI == true) inGameUI.SetActive(true);
-    //     else inGameUI.SetActive(false);
-    // }
 
     private void CloseAllUI()
     {
+        characterUI.SetActive(false);
+        craftUI.SetActive(false);
         optionsUI.SetActive(false);
         isAnyUIScreenOpen = false;
     }
 
-    private void ToggleUI(GameObject ui)
+    public void ToggleUI(GameObject ui)
     {
         bool wasAnyUIScreenOpen = isAnyUIScreenOpen;
 
         CloseAllUI();
-        // SetInGameUIVisible(alwaysShowInGameUI);
 
         if (!wasAnyUIScreenOpen || ui != UIScreens[currentScreenIndex])
         {

@@ -22,6 +22,7 @@ public class UI_CraftSlot : UI_ItemSlot
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        ui.craftWindow.SetupCraftWindow(item.data as ItemData_Equipment);
+        if(PlayerManager.instance.player.isRed) level0UI.craftWindow.SetupCraftWindow(item.data as ItemData_Equipment);
+        else ui.craftWindow.SetupCraftWindow(item.data as ItemData_Equipment);
     }
 }

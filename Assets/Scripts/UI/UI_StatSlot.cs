@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private UI ui;
+    private Level0UI level0UI;
 
     [SerializeField] private string statName;
     [SerializeField] private StatType statType;
@@ -26,6 +27,7 @@ public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         UpdateStatValueUI();
 
         ui = GetComponentInParent<UI>();
+        level0UI = GetComponentInParent<Level0UI>();
     }
 
     public void UpdateStatValueUI()
@@ -49,11 +51,13 @@ public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.statToolTip.ShowStatToolTip(statDescription);
+        if(PlayerManager.instance.player.isRed) level0UI.statToolTip.ShowStatToolTip(statDescription);
+        else ui.statToolTip.ShowStatToolTip(statDescription);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ui.statToolTip.HideStatToolTip();
+        if(PlayerManager.instance.player.isRed) level0UI.statToolTip.HideStatToolTip();
+        else ui.statToolTip.HideStatToolTip();
     }
 }

@@ -257,6 +257,7 @@ MonoBehaviour:
   maxAttackCooldown: 0.8
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
   oozeType: 1
   oozeToCreate: 4
   oozePrefab: {fileID: 6897799485971338498, guid: be3a006ea4d8a47958bc2a3a9a44cf2c, type: 3}

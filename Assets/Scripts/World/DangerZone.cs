@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class DangerZone : MonoBehaviour
-{    
+{
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Player player = collision.collider.GetComponent<Player>();
@@ -13,6 +13,6 @@ public class DangerZone : MonoBehaviour
             this.GetComponent<EnemyStats>().DoMagicDamage(player.GetComponent<CharacterStats>());
         }
     }
-    
+
     private void DestroySelf() => Destroy(gameObject);
 }

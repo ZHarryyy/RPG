@@ -54,7 +54,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
         if (item.data.itemType == ItemType.Equipment) Inventory.instance.EquipItem(item.data);
 
-        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
+        if (PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
         else ui.itemToolTip.HideToolTip();
     }
 
@@ -62,7 +62,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     {
         if (item == null) return;
 
-        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
+        if (PlayerManager.instance.player.isRed) level0UI.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
         else ui.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
 
         Vector2 mousePosition = Input.mousePosition;
@@ -73,7 +73,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         if (mousePosition.y > Screen.height * .5f) yOffset = Screen.height * .1f * -1;
         else yOffset = Screen.height * .1f;
 
-        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+        if (PlayerManager.instance.player.isRed) level0UI.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
         else ui.itemToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
     }
 
@@ -81,7 +81,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     {
         if (item == null) return;
 
-        if(PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
+        if (PlayerManager.instance.player.isRed) level0UI.itemToolTip.HideToolTip();
         else ui.itemToolTip.HideToolTip();
     }
 }

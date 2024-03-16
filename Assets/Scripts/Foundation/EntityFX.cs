@@ -35,7 +35,8 @@ public class EntityFX : MonoBehaviour
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         player = PlayerManager.instance.player;
-        originalMat = sr.material;
+
+        if (sr != null) originalMat = sr.material;
 
         myHealthBar = GetComponentInChildren<UI_HealthBar>()?.gameObject;
     }

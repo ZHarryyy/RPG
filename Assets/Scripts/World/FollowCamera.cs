@@ -3,6 +3,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     private Transform cameraTransform;
+    [SerializeField] private float maxXPosition;
 
     private void Start()
     {
@@ -11,6 +12,8 @@ public class FollowCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (cameraTransform.position.x >= maxXPosition) return;
+
         Vector3 currentPosition = this.transform.position;
 
         currentPosition.x = cameraTransform.position.x;

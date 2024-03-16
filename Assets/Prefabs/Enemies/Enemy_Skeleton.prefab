@@ -298,6 +298,7 @@ MonoBehaviour:
   maxAttackCooldown: 0.55
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
 --- !u!50 &6665272060132966498
 Rigidbody2D:
   serializedVersion: 4
@@ -468,9 +469,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleItemDrop: 2
   possibleDrop:
-  - {fileID: 11400000, guid: f10fe8a984d2845f9901bb4e4c15b10c, type: 2}
-  - {fileID: 11400000, guid: 1659d14939dfe44bba6b528ecd265b18, type: 2}
-  - {fileID: 11400000, guid: 2d4ba7b421608495894ba799cf056be2, type: 2}
   - {fileID: 11400000, guid: d3ad74e67c5864a49b68b035937d3308, type: 2}
   - {fileID: 11400000, guid: 1baa0c23a5fe7458683dc358772d8562, type: 2}
   dropPrefab: {fileID: 8678008731740440193, guid: e2c362a157a8f4a638625de12c469aa3, type: 3}

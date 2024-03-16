@@ -38,7 +38,7 @@ public class UI_CraftList : MonoBehaviour, IPointerDownHandler
     {
         if (craftEquipment[0] != null)
         {
-            if(PlayerManager.instance.player.isRed) GetComponentInParent<Level0UI>().craftWindow.SetupCraftWindow(craftEquipment[0]);
+            if (PlayerManager.instance.player.isRed) GetComponentInParent<Level0UI>().craftWindow.SetupCraftWindow(craftEquipment[0]);
             else GetComponentInParent<UI>().craftWindow.SetupCraftWindow(craftEquipment[0]);
         }
     }

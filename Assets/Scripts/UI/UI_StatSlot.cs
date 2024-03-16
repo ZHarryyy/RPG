@@ -51,13 +51,13 @@ public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(PlayerManager.instance.player.isRed) level0UI.statToolTip.ShowStatToolTip(statDescription);
+        if (PlayerManager.instance.player.isRed) level0UI.statToolTip.ShowStatToolTip(statDescription);
         else ui.statToolTip.ShowStatToolTip(statDescription);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(PlayerManager.instance.player.isRed) level0UI.statToolTip.HideStatToolTip();
+        if (PlayerManager.instance.player.isRed) level0UI.statToolTip.HideStatToolTip();
         else ui.statToolTip.HideStatToolTip();
     }
 }

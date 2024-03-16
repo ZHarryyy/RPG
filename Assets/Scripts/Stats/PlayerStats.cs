@@ -69,13 +69,13 @@ public class PlayerStats : CharacterStats
     {
         base.DecreaseHealthBy(_damage);
 
-        if(!isIgnited && !isChilled && !isShocked)
+        if (!isIgnited && !isChilled && !isShocked)
         {
             player.SetupKnockbackPower(new Vector2(10, 6));
             AudioManager.instance.PlaySFX(36, null);
             player.fx.ScreenShake(player.fx.shakeHighDamage);
         }
-        
+
         InvincibleBlink();
         player.stats.MakeInvincible(true);
 

@@ -45,7 +45,7 @@ public class Checkpoint : MonoBehaviour
         {
             canActivate = true;
 
-            if(!activationStatus)
+            if (!activationStatus)
             {
                 StartCoroutine(FadeInKeyPrompt());
             }

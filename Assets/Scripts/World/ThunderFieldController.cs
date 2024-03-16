@@ -8,7 +8,7 @@ public class ThunderFieldController : MonoBehaviour
     private float lastTimeSpawn;
 
     private bool playerInArea = false;
-    
+
     private void Update()
     {
         if (playerInArea)

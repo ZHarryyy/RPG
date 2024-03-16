@@ -73,7 +73,7 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Start()
     {
-        if(critChance.GetValue() == 0) critPower.SetDefaultValue(0);
+        if (critChance.GetValue() == 0) critPower.SetDefaultValue(0);
         else critPower.SetDefaultValue(150);
 
         currentHealth = GetMaxHealthValue();

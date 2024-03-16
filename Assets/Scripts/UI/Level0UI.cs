@@ -7,7 +7,7 @@ public class Level0UI : MonoBehaviour, ISaveManager
 {
     [SerializeField] private GameObject[] UIScreens;
     private int currentScreenIndex;
-    
+
     public GameObject characterUI;
     public GameObject craftUI;
     public GameObject optionsUI;
@@ -16,6 +16,11 @@ public class Level0UI : MonoBehaviour, ISaveManager
     [SerializeField] private UI_FadeScreen fadeScreen;
     [SerializeField] private GameObject endText;
     [SerializeField] private GameObject restartButton;
+    [Space]
+
+    [Header("BonfireLit Screen")]
+    [SerializeField] private UI_FadeScreen transparentFadeScreen;
+    [SerializeField] private GameObject bonfireLitText;
     [Space]
 
     public UI_ItemToolTip itemToolTip;
@@ -159,6 +164,29 @@ public class Level0UI : MonoBehaviour, ISaveManager
         yield return new WaitForSeconds(1);
 
         restartButton.SetActive(true);
+    }
+
+    public void SwitchOnBonfireLitScreen()
+    {
+        CloseAllUI();
+        transparentFadeScreen.FadeOut();
+        StartCoroutine(BonfireLitScreenCoroutine());
+    }
+
+    IEnumerator BonfireLitScreenCoroutine()
+    {
+        bonfireLitText.SetActive(true);
+        AudioManager.instance.PlaySFX(10, null);
+
+        yield return new WaitForSeconds(2);
+
+        bonfireLitText.GetComponent<Animator>().SetTrigger("Litted");
+        transparentFadeScreen.FadeIn();
+
+        yield return new WaitForSeconds(1);
+
+        bonfireLitText.SetActive(false);
+        transparentFadeScreen.gameObject.SetActive(false);
     }
 
     public void RestartGameButton() => GameManager.instance.RestartScene();

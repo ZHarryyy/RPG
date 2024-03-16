@@ -14,7 +14,7 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
-        if(canInteract && Input.GetKeyDown(KeyCode.C) && !level0UI.craftUI.activeSelf && !level0UI.optionsUI.activeSelf) level0UI.ToggleUI(level0UI.craftUI);
+        if (canInteract && Input.GetKeyDown(KeyCode.C) && !level0UI.craftUI.activeSelf && !level0UI.optionsUI.activeSelf) level0UI.ToggleUI(level0UI.craftUI);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

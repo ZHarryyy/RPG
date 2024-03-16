@@ -37,6 +37,15 @@ public class PlayerAnimationTriggers : MonoBehaviour
                     if (weaponData != null) weaponData.Effect(_target.transform);
                 }
             }
+            else if (hit.GetComponent<Chest>() != null)
+            {
+                Chest chest = hit.GetComponent<Chest>();
+                if (!chest.isOpened)
+                {
+                    chest.StartShakeAndChange();
+                    player.fx.ScreenShake(player.fx.shakeNormalDamage);
+                }
+            }
             else
             {
                 AudioManager.instance.PlaySFX(34, null);

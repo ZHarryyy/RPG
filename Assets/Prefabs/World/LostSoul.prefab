@@ -359,8 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currency: 3213
   targetUI: {fileID: 0}
-  instruction: {fileID: 0}
-  inGame_UI: {fileID: 0}
+  instruction: {fileID: 2626912248855274395}
 --- !u!1 &6953468483603333431
 GameObject:
   m_ObjectHideFlags: 0

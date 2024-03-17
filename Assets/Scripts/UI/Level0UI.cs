@@ -11,6 +11,7 @@ public class Level0UI : MonoBehaviour, ISaveManager
     public GameObject characterUI;
     public GameObject craftUI;
     public GameObject optionsUI;
+    public GameObject inGameUI;
 
     [Header("End Screen")]
     [SerializeField] private UI_FadeScreen fadeScreen;
@@ -43,6 +44,7 @@ public class Level0UI : MonoBehaviour, ISaveManager
     {
         CloseAllUI();
         alwaysShowInGameUI = toggleInGameUI.isOn;
+        SetInGameUIVisible(alwaysShowInGameUI);
 
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
@@ -63,16 +65,27 @@ public class Level0UI : MonoBehaviour, ISaveManager
             else if (currentScreenIndex == 0 && optionsUI.activeSelf)
             {
                 CloseAllUI();
+                inGameUI.SetActive(true);
                 AudioManager.instance.PlaySFX(7, null);
+                SetInGameUIVisible(alwaysShowInGameUI);
                 if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
             else if (isAnyUIScreenOpen)
             {
                 CloseAllUI();
                 AudioManager.instance.PlaySFX(7, null);
+                SetInGameUIVisible(alwaysShowInGameUI);
                 if (GameManager.instance != null) GameManager.instance.PauseGame(false);
             }
         }
+
+        alwaysShowInGameUI = toggleInGameUI.isOn;
+    }
+
+    private void SetInGameUIVisible(bool _isShow)
+    {
+        if (alwaysShowInGameUI == true) inGameUI.SetActive(true);
+        else inGameUI.SetActive(false);
     }
 
     private void CloseAllUI()
@@ -88,6 +101,7 @@ public class Level0UI : MonoBehaviour, ISaveManager
         bool wasAnyUIScreenOpen = isAnyUIScreenOpen;
 
         CloseAllUI();
+        SetInGameUIVisible(alwaysShowInGameUI);
 
         if (!wasAnyUIScreenOpen || ui != UIScreens[currentScreenIndex])
         {

@@ -9,12 +9,16 @@ public class LostSoulController : MonoBehaviour
     private Animator animator;
     private bool isAnimationPlaying;
 
+    [SerializeField] private GameObject instruction;
+    private CanvasGroup canvasGroup;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
 
         isAnimationPlaying = true;
         targetUI = GameObject.FindGameObjectWithTag("SoulIcon").transform;
+        canvasGroup = GetComponentInChildren<CanvasGroup>();
     }
 
     private void Update()
@@ -22,6 +26,7 @@ public class LostSoulController : MonoBehaviour
         if (canCollect && Input.GetKeyDown(KeyCode.E))
         {
             isAnimationPlaying = true;
+            instruction.SetActive(false);
             StartCoroutine(PlayAndMove());
         }
 
@@ -34,12 +39,56 @@ public class LostSoulController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null) canCollect = true;
+        if (collision.GetComponent<Player>() != null)
+        {
+            canCollect = true;
+
+            StartCoroutine(FadeInKeyPrompt());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>() != null) canCollect = false;
+        if (collision.GetComponent<Player>() != null)
+        {
+            canCollect = false;
+
+            StartCoroutine(FadeOutKeyPrompt());
+        }
+    }
+
+    private IEnumerator FadeInKeyPrompt()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float targetAlpha = 1f;
+        float duration = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeOutKeyPrompt()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float targetAlpha = 0f;
+        float duration = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
     private IEnumerator PlayAndMove()

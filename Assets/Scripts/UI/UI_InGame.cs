@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class UI_InGame : MonoBehaviour
     [SerializeField] private Image flaskImage;
 
     [Header("Souls info")]
+    private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI currentSouls;
     [SerializeField] private float soulsAmount;
     [SerializeField] private float increaseRate = 100;
@@ -23,6 +25,8 @@ public class UI_InGame : MonoBehaviour
 
     private void Start()
     {
+        canvasGroup = GetComponentInChildren<CanvasGroup>();
+
         if (playerStats != null) playerStats.onHealthChanged += UpdateHealthUI;
 
         skills = SkillManager.instance;
@@ -30,9 +34,9 @@ public class UI_InGame : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.instance.player.isRed) return;
-
         UpdateSoulsUI();
+        
+        if (PlayerManager.instance.player.isRed) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked) SetCooldownOf(dashImage);
         if (Input.GetKeyDown(KeyCode.Q) && skills.parry.parryUnlocked) SetCooldownOf(parryImage);
@@ -51,8 +55,16 @@ public class UI_InGame : MonoBehaviour
 
     private void UpdateSoulsUI()
     {
-        if (soulsAmount < PlayerManager.instance.GetCurrency()) soulsAmount += Time.deltaTime * increaseRate;
-        else soulsAmount = PlayerManager.instance.GetCurrency();
+        if (soulsAmount < PlayerManager.instance.GetCurrency())
+        {
+            soulsAmount += Time.deltaTime * increaseRate;
+
+            StartCoroutine(fadeInAndOutSoul());
+        }
+        else
+        {
+            soulsAmount = PlayerManager.instance.GetCurrency();
+        }
 
         currentSouls.text = ((int)soulsAmount).ToString();
     }
@@ -71,5 +83,36 @@ public class UI_InGame : MonoBehaviour
     private void CheckCooldownOf(Image _image, float _cooldown)
     {
         if (_image.fillAmount > 0) _image.fillAmount -= 1 / _cooldown * Time.deltaTime;
+    }
+
+    public IEnumerator fadeInAndOutSoul()
+    {
+        float startAlpha = canvasGroup.alpha;
+        float targetAlpha = 1f;
+        float duration = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+        }
+
+        yield return new WaitForSeconds(5f);
+
+        startAlpha = canvasGroup.alpha;
+        targetAlpha = 0f;
+        
+        elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            canvasGroup.alpha = currentAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }

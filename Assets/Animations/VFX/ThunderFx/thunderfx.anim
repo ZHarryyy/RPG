@@ -33,15 +33,6 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.875
         value: 0.1
-        inSlope: 0.2
-        outSlope: 0.2
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2
-        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -49,8 +40,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 2.125
-        value: 1
+        time: 2
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -76,7 +67,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 2.875
+        time: 2.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.625
         value: 0
         inSlope: 0
         outSlope: 0
@@ -128,21 +128,25 @@ AnimationClip:
     - time: 1.875
       value: {fileID: 1369381451, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2
-      value: {fileID: 879441619, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: 2059816442, guid: e4265b667b9e1466a84dd4c4fe747c10, type: 3}
     - time: 2.125
-      value: {fileID: -933668038, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: 838974155, guid: e4265b667b9e1466a84dd4c4fe747c10, type: 3}
     - time: 2.25
-      value: {fileID: -282707539, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: -933668038, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2.375
-      value: {fileID: 1853463000, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: -282707539, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2.5
-      value: {fileID: 1269926109, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: 1853463000, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2.625
-      value: {fileID: -1433434566, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: 1269926109, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2.75
-      value: {fileID: 690687707, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+      value: {fileID: -1433434566, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - time: 2.875
+      value: {fileID: 690687707, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+    - time: 3
       value: {fileID: -1779972893, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+    - time: 3.125
+      value: {fileID: 1995394148, guid: 29fd89fd6657b8444b7c1b62563f0aa7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -190,7 +194,8 @@ AnimationClip:
     - {fileID: 676013897, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: 437957484, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: 1369381451, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
-    - {fileID: 879441619, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+    - {fileID: 2059816442, guid: e4265b667b9e1466a84dd4c4fe747c10, type: 3}
+    - {fileID: 838974155, guid: e4265b667b9e1466a84dd4c4fe747c10, type: 3}
     - {fileID: -933668038, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: -282707539, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: 1853463000, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
@@ -198,12 +203,13 @@ AnimationClip:
     - {fileID: -1433434566, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: 690687707, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
     - {fileID: -1779972893, guid: afe81f347eefa0a46b73aa061be8a8ca, type: 3}
+    - {fileID: 1995394148, guid: 29fd89fd6657b8444b7c1b62563f0aa7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3
+    m_StopTime: 4.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -235,15 +241,6 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.875
         value: 0.1
-        inSlope: 0.2
-        outSlope: 0.2
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2
-        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -251,8 +248,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 2.125
-        value: 1
+        time: 2
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -278,7 +275,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 2.875
+        time: 2.5
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.625
         value: 0
         inSlope: 0
         outSlope: 0
@@ -298,15 +304,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 2
-    functionName: PlayThunderSFX
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 2.125
-    functionName: AnimationTrigger
+    functionName: PlayThunderSFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -333,7 +332,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.875
+  - time: 2.625
+    functionName: AnimationTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.5
     functionName: DestroySelf
     data: 
     objectReferenceParameter: {fileID: 0}

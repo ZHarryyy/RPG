@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f322c6174998ee40b6a09b52b34917f
+guid: e4265b667b9e1466a84dd4c4fe747c10
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,110 +119,186 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat-5-Licking 1_0
+      name: Thunder_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 403bc2be367b58e4eb5eb7633615b8de
-      internalID: 1096203698
+      spriteID: 62eb85b2550e44bc886085de17e7a421
+      internalID: 2059816442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-5-Licking 1_1
+      name: Thunder_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 64
         y: 0
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f061bc7e4120e745a6165b0154dee93
-      internalID: -117825908
+      spriteID: ea729e08e2acc4ef28fa2ede9932933a
+      internalID: 838974155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-5-Licking 1_2
+      name: Thunder_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 128
         y: 0
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266f2e8e3781ec844ae46fafac087b75
-      internalID: 56450007
+      spriteID: 428dfaafbf3ea4e0d9d916f7892b1a65
+      internalID: 95132414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-5-Licking 1_3
+      name: Thunder_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 192
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 130b18098edc6f04fa9bb27985da3296
-      internalID: -1494124930
+      spriteID: f39411f28b7f949e08ee9eeedfe992da
+      internalID: 137474878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-5-Licking 1_4
+      name: Thunder_4
       rect:
         serializedVersion: 2
-        x: 200
+        x: 256
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4635e0bbac47ac84888624e6c1c0bfa6
-      internalID: -632776342
+      spriteID: b46f34cd5439a4fbda147c99af24a784
+      internalID: 997696281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5340de47a2b504882b9e8af15130fbb7
+      internalID: 544324380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f2358fe2f924e57b757d2b1a9a9926
+      internalID: -99481216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523a33f58a5c84638bc0af15325cd64b
+      internalID: 1099365642
       vertices: []
       indices: 
       edges: []
@@ -238,11 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-5-Licking 1_0: 1096203698
-      Cat-5-Licking 1_1: -117825908
-      Cat-5-Licking 1_2: 56450007
-      Cat-5-Licking 1_3: -1494124930
-      Cat-5-Licking 1_4: -632776342
+      Thunder_0: 2059816442
+      Thunder_1: 838974155
+      Thunder_2: 95132414
+      Thunder_3: 137474878
+      Thunder_4: 997696281
+      Thunder_5: 544324380
+      Thunder_6: -99481216
+      Thunder_7: 1099365642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

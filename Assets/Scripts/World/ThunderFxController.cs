@@ -9,6 +9,8 @@ public class ThunderFxController : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Vector2 surroundingCheckSize;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool hasDamaged = false;
 
     private void AnimationTrigger()
@@ -30,7 +32,7 @@ public class ThunderFxController : MonoBehaviour
 
     private void PlayThunderSFX()
     {
-        AudioManager.instance.PlaySFX(38, transform);
+        audioSource.Play();
     }
 
     public void FindPosition()

@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource[] sfx;
     [SerializeField] private AudioSource[] bgm;
 
+    [SerializeField] private Dictionary<string, int> bgmIndexByScene;
+
     public bool playBgm;
     private int bgmIndex;
 
@@ -16,6 +20,30 @@ public class AudioManager : MonoBehaviour
     {
         if (instance != null) Destroy(instance.gameObject);
         else instance = this;
+
+        bgmIndexByScene = new Dictionary<string, int>();
+        bgmIndexByScene.Add("Level0", 0);
+        bgmIndexByScene.Add("TestScene", 6);
+    }
+
+    private void Start()
+    {
+        PlayBGMByScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayBGMByScene(scene.name);
     }
 
     private void Update()
@@ -97,6 +125,20 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < bgm.Length; i++)
         {
             bgm[i].Stop();
+        }
+    }
+
+    private void PlayBGMByScene(string sceneName)
+    {
+        if (bgmIndexByScene.ContainsKey(sceneName))
+        {
+            int bgmIndex = bgmIndexByScene[sceneName];
+            PlayBGM(bgmIndex);
+        }
+        else
+        {
+            // 如果没有为当前场景指定 BGM 索引，则停止所有 BGM
+            StopAllBGM();
         }
     }
 }

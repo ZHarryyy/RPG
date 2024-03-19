@@ -76,7 +76,7 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 10, y: 12}
   counterImage: {fileID: 1762323177699215664}
-  moveSpeed: 3
+  moveSpeed: 4
   idleTime: 2
   battleTime: 7
   agroDistance: 2
@@ -86,6 +86,7 @@ MonoBehaviour:
   maxAttackCooldown: 1
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
 --- !u!50 &4919862057794029591
 Rigidbody2D:
   serializedVersion: 4

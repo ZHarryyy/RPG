@@ -278,7 +278,7 @@ MonoBehaviour:
   stunDuration: 2.5
   stunDirection: {x: 10, y: 12}
   counterImage: {fileID: 4900332126121124500}
-  moveSpeed: 1.5
+  moveSpeed: 2
   idleTime: 2
   battleTime: 5
   agroDistance: 3.5
@@ -288,6 +288,7 @@ MonoBehaviour:
   maxAttackCooldown: 1
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
   slimeType: 0
   slimesToCreate: 2
   slimePrefab: {fileID: 3644889574498337707, guid: 80325beab529a4191a26035b46cacbf7, type: 3}

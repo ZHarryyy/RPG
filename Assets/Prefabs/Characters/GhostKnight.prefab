@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 1758508603395201150}
   - component: {fileID: 2315414502511270959}
   - component: {fileID: 5734215161662358254}
+  - component: {fileID: 3929471306547103078}
   m_Layer: 6
   m_Name: GhostKnight
   m_TagString: Untagged
@@ -110,8 +111,8 @@ MonoBehaviour:
   - {x: 1, y: 2.5}
   - {x: 4, y: 1.5}
   counterAttackDuration: 0.2
-  moveSpeed: 8
-  jumpForce: 12
+  moveSpeed: 9
+  jumpForce: 15
   swordReturnImpact: 7
   dashSpeed: 25
   dashDuration: 0.2
@@ -223,7 +224,7 @@ MonoBehaviour:
     baseValue: 1
     modifiers: 
   fireDamage:
-    baseValue: 10
+    baseValue: 0
     modifiers: 
   iceDamage:
     baseValue: 0
@@ -339,13 +340,43 @@ MonoBehaviour:
   criticalHitFx: {fileID: 3010901169956494706, guid: 65c4da13acd80486295c7a0bba03028c, type: 3}
   shakeMultiplier: 0.2
   shakeSwordImpact: {x: 1, y: 0, z: 0}
-  shakeHighDamage: {x: 2, y: 2, z: 0}
+  shakeHighDamage: {x: 1, y: 1, z: 0}
   shakeNormalDamage: {x: 1, y: 1, z: 0}
   afterImagePrefab: {fileID: 7606418239256774149, guid: a00d3fd94bc4448a79a8aa0e93c8b210, type: 3}
   colorLooseRate: 1.5
   afterImageCooldown: 0.05
   dustFx: {fileID: 3849507534941751882}
   dashFx: {fileID: 4823751956790546909}
+--- !u!114 &3929471306547103078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593887837558377883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000083df1f9995f3e9b1254575772b5562bc4f31181c41214110c727ea90
+  m_ShapePath:
+  - {x: -0.4224224, y: -0.89217377, z: 0}
+  - {x: -0.4224224, y: 0.83152485, z: 0}
+  - {x: 0.25262165, y: 0.83152485, z: 0}
+  - {x: 0.25262165, y: -0.89217377, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -147152
+  m_LocalBounds:
+    m_Center: {x: -0.08490038, y: -0.03032446, z: 0}
+    m_Extent: {x: 0.33752203, y: 0.8618493, z: 0}
 --- !u!1 &2873875786016337989
 GameObject:
   m_ObjectHideFlags: 0

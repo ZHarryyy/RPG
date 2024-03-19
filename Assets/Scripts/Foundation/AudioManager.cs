@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
         bgmIndexByScene = new Dictionary<string, int>();
         bgmIndexByScene.Add("Level0", 0);
-        bgmIndexByScene.Add("TestScene", 6);
+        bgmIndexByScene.Add("LevelArena", 6);
     }
 
     private void Start()

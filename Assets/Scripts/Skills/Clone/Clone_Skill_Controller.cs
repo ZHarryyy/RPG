@@ -88,6 +88,11 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
+    private void AnimationStop()
+    {
+        
+    }
+
     private void FaceClosestTarget()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackCheckRadius * 2);

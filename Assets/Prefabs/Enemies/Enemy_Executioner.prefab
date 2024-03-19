@@ -278,7 +278,7 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 10, y: 12}
   counterImage: {fileID: 70748914264086330}
-  moveSpeed: 3
+  moveSpeed: 4
   idleTime: 0.5
   battleTime: 7
   agroDistance: 10
@@ -288,6 +288,7 @@ MonoBehaviour:
   maxAttackCooldown: 1
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
   bossFightBegun: 0
   summonPrefab: {fileID: 4908815052397461685, guid: 04504dfc3df6b43e190d63dd5e039de9, type: 3}
   amountOfSummons: 7

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
@@ -370,7 +370,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   counterAttackDuration: 0.2
   moveSpeed: 5
-  jumpForce: 12
+  jumpForce: 13
   swordReturnImpact: 0
   dashSpeed: 0
   dashDuration: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   - {x: 0.3047831, y: -0.78036785, z: 0}
   m_ShapePathHash: 1408530687
   m_Mesh: {fileID: 0}
-  m_InstanceId: -552950
+  m_InstanceId: -92440
   m_LocalBounds:
     m_Center: {x: -0.060057044, y: -0.0029740334, z: 0}
     m_Extent: {x: 0.36484015, y: 0.7773938, z: 0}

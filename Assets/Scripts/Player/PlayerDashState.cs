@@ -8,7 +8,7 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
 
-        player.skill.dash.CloneOnDash();
+        if (!player.isRed) player.skill.dash.CloneOnDash();
 
         stateTimer = player.dashDuration;
 
@@ -23,7 +23,7 @@ public class PlayerDashState : PlayerState
     {
         base.Exit();
 
-        player.skill.dash.CloneOnArrival();
+        if (!player.isRed) player.skill.dash.CloneOnArrival();
         player.SetVelocity(0, rb.velocity.y);
 
         player.stats.MakeInvincible(false);
@@ -39,6 +39,6 @@ public class PlayerDashState : PlayerState
 
         if (stateTimer < 0) stateMachine.ChangeState(player.idleState);
 
-        player.fx.CreateAfterImage();
+        if (!player.isRed) player.fx.CreateAfterImage();
     }
 }

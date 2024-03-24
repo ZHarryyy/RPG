@@ -5,6 +5,8 @@ public class Player : Entity
 {
     public bool isRed;
 
+    public bool isBirth = true;
+
     [Header("Attack details")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
@@ -47,6 +49,8 @@ public class Player : Entity
     public PlayerBlackholeState blackholeState { get; private set; }
 
     public PlayerDeadState deadState { get; private set; }
+
+    public PlayerBirthState birthState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -71,6 +75,8 @@ public class Player : Entity
         blackholeState = new PlayerBlackholeState(this, stateMachine, "Jump");
 
         deadState = new PlayerDeadState(this, stateMachine, "Die");
+
+        birthState = new PlayerBirthState(this, stateMachine, "Birth");
     }
 
     protected override void Start()
@@ -148,17 +154,29 @@ public class Player : Entity
     {
         if (IsWallDetected()) return;
 
-        if (isRed) return;
-
-        if (skill.dash.dashUnlocked == false) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
+        if (isRed)
         {
-            dashDir = Input.GetAxisRaw("Horizontal");
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                dashDir = Input.GetAxisRaw("Horizontal");
 
-            if (dashDir == 0) dashDir = facingDir;
+                if (dashDir == 0) dashDir = facingDir;
 
-            stateMachine.ChangeState(dashState);
+                stateMachine.ChangeState(dashState);
+            }
+        }
+        else if (!isRed)
+        {
+            if (skill.dash.dashUnlocked == false) return;
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
+            {
+                dashDir = Input.GetAxisRaw("Horizontal");
+
+                if (dashDir == 0) dashDir = facingDir;
+
+                stateMachine.ChangeState(dashState);
+            }
         }
     }
 

@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
         else instance = this;
 
         bgmIndexByScene = new Dictionary<string, int>();
+        bgmIndexByScene.Add("MainMenu", 8);
         bgmIndexByScene.Add("Level0", 0);
         bgmIndexByScene.Add("LevelArena", 6);
     }
@@ -116,16 +117,75 @@ public class AudioManager : MonoBehaviour
     {
         bgmIndex = _bgmIndex;
 
-        StopAllBGM();
+        // StopAllBGM();
         bgm[bgmIndex].Play();
+
+        StartCoroutine(FadeInAndPlay(SceneManager.GetActiveScene().name));
+    }
+
+    private IEnumerator FadeInAndPlay(string sceneName)
+    {
+        float fadeDuration = 1.5f; // 渐变时长
+
+        if (bgmIndexByScene.ContainsKey(sceneName))
+        {
+            int bgmIndex = bgmIndexByScene[sceneName];
+        }
+
+        AudioSource audioSource = bgm[bgmIndex]; // 获取音频源
+        audioSource.volume = 0f; // 将音量初始值设为 0
+        audioSource.Play(); // 开始播放音频源
+
+        float startTime = Time.time; // 记录渐变开始时间
+        float elapsedTime = 0f; // 记录已经过去的时间
+
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration; // 计算渐变进度
+            float volume = Mathf.Lerp(0f, 1f, t); // 使用Lerp函数进行渐变
+
+            audioSource.volume = volume; // 设置音量
+
+            elapsedTime = Time.time - startTime; // 更新已经过去的时间
+            yield return null; // 等待下一帧
+        }
+
+        audioSource.volume = 1f; // 将音量设为最大值
     }
 
     public void StopAllBGM()
     {
-        for (int i = 0; i < bgm.Length; i++)
+        StartCoroutine(FadeOutAndStop(SceneManager.GetActiveScene().name));
+    }
+
+    private IEnumerator FadeOutAndStop(string sceneName)
+    {
+        float fadeDuration = 1.5f; // 渐变时长
+
+        if (bgmIndexByScene.ContainsKey(sceneName))
         {
-            bgm[i].Stop();
+            int bgmIndex = bgmIndexByScene[sceneName];
         }
+        
+        AudioSource audioSource = bgm[bgmIndex]; // 获取音频源
+
+        float startVolume = audioSource.volume; // 初始音量
+        float startTime = Time.time; // 记录渐变开始时间
+        float elapsedTime = 0f; // 记录已经过去的时间
+
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration; // 计算渐变进度
+            float volume = Mathf.Lerp(startVolume, 0f, t); // 使用Lerp函数进行渐变
+
+            audioSource.volume = volume; // 设置音量
+
+            elapsedTime = Time.time - startTime; // 更新已经过去的时间
+            yield return null; // 等待下一帧
+        }
+
+        audioSource.Stop(); // 停止音频源
+        audioSource.volume = startVolume; // 恢复初始音量
     }
 
     private void PlayBGMByScene(string sceneName)

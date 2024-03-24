@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class UI_MainMenu : MonoBehaviour
@@ -7,6 +8,7 @@ public class UI_MainMenu : MonoBehaviour
     private string sceneName;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private UI_FadeScreen fadeScreen;
+    [SerializeField] private PlayableDirector timeline;
 
     private void Start()
     {
@@ -16,14 +18,16 @@ public class UI_MainMenu : MonoBehaviour
     public void Continue()
     {
         if (GameManager.instance.currentSceneName != null) sceneName = GameManager.instance.currentSceneName;
-        StartCoroutine(LoadSceneWithFadeEffect(1.5f));
+        StartCoroutine(LoadSceneWithFadeEffect());
     }
 
     public void NewGame()
     {
         SaveManager.instance.DeleteSaveData();
         sceneName = "Level0";
-        StartCoroutine(LoadSceneWithFadeEffect(1.5f));
+        AudioManager.instance.StopAllBGM();
+        fadeScreen.FadeOut();
+        StartCoroutine(LoadSceneWithFadeEffect());
     }
 
     public void ExitGame()
@@ -31,12 +35,23 @@ public class UI_MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator LoadSceneWithFadeEffect(float _delay)
-    {
-        fadeScreen.FadeOut();
+    IEnumerator LoadSceneWithFadeEffect()
+    {       
+        timeline.Play();
 
-        yield return new WaitForSeconds(_delay);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
-        SceneManager.LoadScene(sceneName);
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds((float)timeline.duration);
+                asyncLoad.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
     }
 }

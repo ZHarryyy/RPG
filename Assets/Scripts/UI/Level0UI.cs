@@ -190,7 +190,7 @@ public class Level0UI : MonoBehaviour, ISaveManager
     IEnumerator BonfireLitScreenCoroutine()
     {
         bonfireLitText.SetActive(true);
-        AudioManager.instance.PlaySFX(10, null);
+        AudioManager.instance.PlaySFX(39, null);
 
         yield return new WaitForSeconds(2);
 

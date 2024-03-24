@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, ISaveManager
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour, ISaveManager
     [SerializeField] private Checkpoint[] checkpoints;
     [SerializeField] private string closestCheckpointId;
     public string currentSceneName;
+    [SerializeField] private PlayableDirector timeline;
 
     [Header("Lost currency")]
     [SerializeField] private GameObject lostSoulPrefab;
@@ -135,5 +137,28 @@ public class GameManager : MonoBehaviour, ISaveManager
     {
         if (_pause) Time.timeScale = 0;
         else Time.timeScale = 1;
+    }
+
+    public void LoadNextSceneAfterTimeline()
+    {
+        StartCoroutine(LoadSceneWithFadeEffect("Level1"));
+    }
+
+    private IEnumerator LoadSceneWithFadeEffect(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(7.7f);
+                asyncLoad.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
     }
 }

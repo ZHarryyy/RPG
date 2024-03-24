@@ -9,6 +9,8 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        if (player.isBirth) stateMachine.ChangeState(player.birthState);
     }
 
     public override void Exit()
@@ -35,7 +37,7 @@ public class PlayerGroundedState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.Q) && player.skill.parry.parryUnlocked) stateMachine.ChangeState(player.counterAttackState);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) stateMachine.ChangeState(player.primaryAttackState);
+        if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
 
         if (!player.IsGroundDetected()) stateMachine.ChangeState(player.airState);
 

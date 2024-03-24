@@ -56,8 +56,11 @@ public class PlayerFX : EntityFX
     {
         if (_isActive)
         {
-            dashFx.SetActive(true);
-            Invoke("DestroyDashFX", 1f);
+            if (dashFx != null)
+            {
+                dashFx.SetActive(true);
+                Invoke("DestroyDashFX", 1f);
+            }
         }
     }
 

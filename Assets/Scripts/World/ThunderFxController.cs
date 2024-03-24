@@ -52,4 +52,6 @@ public class ThunderFxController : MonoBehaviour
     }
 
     private void DestroySelf() => Destroy(gameObject);
+
+    public void DisableSelf() => gameObject.SetActive(false);
 }

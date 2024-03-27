@@ -106,6 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isRed: 0
+  isBirth: 1
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
@@ -203,7 +204,7 @@ MonoBehaviour:
     baseValue: 5
     modifiers: 
   damage:
-    baseValue: 10
+    baseValue: 20
     modifiers: 
   critChance:
     baseValue: 70
@@ -373,7 +374,7 @@ MonoBehaviour:
   - {x: 0.25262165, y: -0.89217377, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -147152
+  m_InstanceId: -228404
   m_LocalBounds:
     m_Center: {x: -0.08490038, y: -0.03032446, z: 0}
     m_Extent: {x: 0.33752203, y: 0.8618493, z: 0}

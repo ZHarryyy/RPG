@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.00034999847, y: -0.00034999847, z: 0}
-    m_Extent: {x: 1.00035, y: 1.00025, z: 0}
+    m_Center: {x: 0.000100016594, y: -0.00049999356, z: 0}
+    m_Extent: {x: 1.0007, y: 1, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 20
+    baseValue: 10
     modifiers: 
   critChance:
     baseValue: 0

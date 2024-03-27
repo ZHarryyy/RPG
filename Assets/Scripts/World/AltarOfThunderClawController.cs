@@ -1,12 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class AltarOfThunderClawController : MonoBehaviour
 {   
+    [SerializeField] private Player player;
+
     private bool canActivate;
     private bool isActivate;
     private CanvasGroup canvasGroup;
+    [SerializeField] private PlayableDirector timeline;
 
     private bool isLoading = false;
     public string sceneName;
@@ -18,12 +22,37 @@ public class AltarOfThunderClawController : MonoBehaviour
 
     private void Update()
     {
-        if (canActivate && Input.GetKeyDown(KeyCode.E) && !isActivate && !isLoading) ActivateThunderClaw();
+        if (canActivate && Input.GetKeyDown(KeyCode.E) && !isActivate && !isLoading)
+        {
+            StartCoroutine(MovePlayerToPosition(player.transform, transform.position));
+            StartCoroutine(FadeOutKeyPrompt());
+        }
+    }
+
+    private IEnumerator MovePlayerToPosition(Transform playerTransform, Vector3 targetPosition)
+    {
+        isActivate = true;
+
+        float direction = Mathf.Sign(targetPosition.x - playerTransform.position.x);
+        player.stateMachine.ChangeState(player.moveState);
+        player.GetComponent<Player>().enabled = false;
+        StartCoroutine(player.BusyFor(Mathf.Abs(playerTransform.position.x - targetPosition.x) / player.moveSpeed));
+        player.SetVelocity(player.moveSpeed * direction, player.rb.velocity.y);
+
+        while (Mathf.Abs(playerTransform.position.x - targetPosition.x) > 0.1f)
+        {
+            yield return null;
+        }
+
+        player.SetVelocity(0f, player.rb.velocity.y);
+        player.stateMachine.ChangeState(player.idleState);
+
+        ActivateThunderClaw();
+        StartCoroutine(player.BusyFor((float)timeline.duration));
     }
 
     private void ActivateThunderClaw()
     {
-        isActivate = true;
         StartCoroutine(LoadSceneAsync());
     }
 
@@ -87,6 +116,9 @@ public class AltarOfThunderClawController : MonoBehaviour
     private IEnumerator LoadSceneAsync()
     {
         isLoading = true;
+
+        timeline.Play();
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         asyncLoad.allowSceneActivation = false;
@@ -97,7 +129,8 @@ public class AltarOfThunderClawController : MonoBehaviour
 
             if (progress >= 0.9f)
             {
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds((float)timeline.duration);
+                AudioManager.instance.StopAllBGM();
                 asyncLoad.allowSceneActivation = true;
             }
 

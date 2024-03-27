@@ -101,7 +101,8 @@ public class UI : MonoBehaviour, ISaveManager
         bool wasAnyUIScreenOpen = isAnyUIScreenOpen;
 
         CloseAllUI();
-        SetInGameUIVisible(alwaysShowInGameUI);
+        inGameUI.SetActive(false);
+        // SetInGameUIVisible(alwaysShowInGameUI);
 
         if (!wasAnyUIScreenOpen || ui != UIScreens[currentScreenIndex])
         {

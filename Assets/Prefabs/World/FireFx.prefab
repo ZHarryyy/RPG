@@ -202,7 +202,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 5
+    baseValue: 10
     modifiers: 
   iceDamage:
     baseValue: 0

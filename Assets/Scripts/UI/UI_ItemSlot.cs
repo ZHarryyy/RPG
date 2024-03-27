@@ -7,6 +7,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 {
     [SerializeField] protected Image itemImage;
     [SerializeField] protected TextMeshProUGUI itemText;
+    [SerializeField] protected GameObject itemAmountBackground;
 
     protected UI ui;
     protected Level0UI level0UI;
@@ -28,8 +29,16 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         {
             itemImage.sprite = item.data.itemIcon;
 
-            if (item.stackSize > 1) itemText.text = item.stackSize.ToString();
-            else itemText.text = "";
+            if (item.stackSize > 1)
+            {
+                itemText.text = item.stackSize.ToString();
+                itemAmountBackground.SetActive(true);
+            }
+            else
+            {
+                itemText.text = "";
+                itemAmountBackground.SetActive(false);
+            }
         }
     }
 

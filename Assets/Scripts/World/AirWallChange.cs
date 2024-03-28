@@ -21,12 +21,12 @@ public class AirWallChange : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            if(isChange)
+            if (isChange)
             {
                 cd.SetPath(0, positionToChange);
                 cinemachineConfiner.InvalidateCache();
             }
-            else if(isDefault)
+            else if (isDefault)
             {
                 cd.SetPath(0, defaultPosition);
                 cinemachineConfiner.InvalidateCache();

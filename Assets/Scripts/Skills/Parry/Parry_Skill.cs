@@ -5,13 +5,13 @@ public class Parry_Skill : Skill
 {
     [Header("Parry")]
     [SerializeField] private UI_SkillTreeSlot parryUnlockButton;
-    public bool parryUnlocked { get; private set; }
+    public bool parryUnlocked { get; private set; } = true;
 
     [Header("Parry restore")]
     [SerializeField] private UI_SkillTreeSlot restoreUnlockButton;
     [Range(0f, 1f)]
     [SerializeField] private float restoreHealthPercentage;
-    public bool restoreUnlocked { get; private set; }
+    public bool restoreUnlocked { get; private set; } = true;
 
     [Header("Parry with mirage")]
     [SerializeField] private UI_SkillTreeSlot parryWithMirageUnlockButton;

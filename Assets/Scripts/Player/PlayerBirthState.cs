@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlayerBirthState : PlayerState
 {
+    private AltarOfThunderClawDestroyController altar;
+
+    private bool isDelayedStateChangeStarted = false;
+    private float delayTimer = 0f;
+    private float delayDuration = 2f;
+
     public PlayerBirthState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -23,11 +29,31 @@ public class PlayerBirthState : PlayerState
     public override void Update()
     {
         base.Update();
-        
-        if(stateTimer <= 0)
+
+        if (stateTimer <= 0 && player.isRed)
         {
             player.isBirth = false;
             stateMachine.ChangeState(player.idleState);
+        }
+        else if (!player.isRed && player.altar.isActivate)
+        {
+            player.anim.speed = 1;
+
+            if (!isDelayedStateChangeStarted)
+            {
+                isDelayedStateChangeStarted = true;
+                delayTimer = delayDuration;
+            }
+
+            if (isDelayedStateChangeStarted)
+            {
+                delayTimer -= Time.deltaTime;
+                if (delayTimer <= 0f)
+                {
+                    player.isBirth = false;
+                    stateMachine.ChangeState(player.idleState);
+                }
+            }
         }
     }
 }

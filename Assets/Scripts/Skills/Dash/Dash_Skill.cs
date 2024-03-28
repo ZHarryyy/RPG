@@ -5,7 +5,7 @@ public class Dash_Skill : Skill
 {
     [Header("Dash")]
     [SerializeField] private UI_SkillTreeSlot dashUnlockButton;
-    public bool dashUnlocked { get; private set; }
+    public bool dashUnlocked { get; private set; } = true;
 
     [Header("Clone on dash")]
     [SerializeField] private UI_SkillTreeSlot cloneOnDashUnlockButton;

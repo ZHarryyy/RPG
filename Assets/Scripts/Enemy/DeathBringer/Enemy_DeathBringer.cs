@@ -39,6 +39,8 @@ public class Enemy_DeathBringer : Enemy
         castState = new DeathBringerCastState(this, stateMachine, "Cast", this);
         teleportState = new DeathBringerTeleportState(this, stateMachine, "Teleport", this);
         deadState = new DeathBringerDeadState(this, stateMachine, "Idle", this);
+
+        arena = GameObject.Find("ArenaCollider").GetComponent<BoxCollider2D>();
     }
 
     protected override void Start()

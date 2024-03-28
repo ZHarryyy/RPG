@@ -102,7 +102,7 @@ public class UI_MainMenu : MonoBehaviour
     }
 
     IEnumerator LoadSceneWithTimeline()
-    {       
+    {
         timeline.Play();
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);

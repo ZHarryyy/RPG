@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class AltarOfThunderClawController : MonoBehaviour
-{   
+{
     [SerializeField] private Player player;
 
     private bool canActivate;
@@ -130,6 +130,7 @@ public class AltarOfThunderClawController : MonoBehaviour
             if (progress >= 0.9f)
             {
                 yield return new WaitForSeconds((float)timeline.duration);
+                SaveManager.instance.DeleteSaveData();
                 AudioManager.instance.StopAllBGM();
                 asyncLoad.allowSceneActivation = true;
             }

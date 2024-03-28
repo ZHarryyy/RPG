@@ -59,7 +59,6 @@ public class CharacterStats : MonoBehaviour
     private float igniteDamageCooldown = .3f;
     private float igniteDamageTimer;
     private int igniteDamage;
-    private int chillDamage;
     [SerializeField] private GameObject shockStrikePrefab;
     private int shockDamage;
 
@@ -67,7 +66,7 @@ public class CharacterStats : MonoBehaviour
 
     public Action onHealthChanged;
 
-    public bool isDead { get; private set; }
+    public bool isDead;
     public bool isInvincible { get; private set; }
     private bool isVulnerable;
 

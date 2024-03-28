@@ -166,7 +166,7 @@ public class AudioManager : MonoBehaviour
         {
             int bgmIndex = bgmIndexByScene[sceneName];
         }
-        
+
         AudioSource audioSource = bgm[bgmIndex]; // 获取音频源
 
         float startVolume = audioSource.volume; // 初始音量

@@ -15,8 +15,21 @@ public class PlayerDeadState : PlayerState
     {
         base.Enter();
 
-        if (player.isRed) GameObject.Find("Canvas").GetComponent<Level0UI>().SwitchOnEndScreen();
-        else GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
+        if (player.isRed)
+        {
+            GameObject.Find("Canvas").GetComponent<Level0UI>().SwitchOnEndScreen();
+        }
+        else if (!player.isRed && player.isDieFirstTime)
+        {
+            player.isDieFirstTime = false;
+            player.blackholeTrigger.SetActive(true);
+            player.canTriggerBlackhole = true;
+            player.stats.currentHealth = player.stats.maxHealth.GetValue();
+        }
+        else if (!player.isRed && !player.isDieFirstTime)
+        {
+            GameObject.Find("Canvas").GetComponent<UI>().SwitchOnEndScreen();
+        }
     }
 
     public override void Update()
@@ -24,10 +37,19 @@ public class PlayerDeadState : PlayerState
         base.Update();
 
         player.SetZeroVelocity();
+
+        player.rb.isKinematic = true;
+
+        if (player.canTriggerBlackhole && Input.GetKeyDown(KeyCode.R))
+        {
+            stateMachine.ChangeState(player.blackholeState);
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        player.rb.isKinematic = false;
     }
 }

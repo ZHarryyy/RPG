@@ -35,7 +35,7 @@ public class UI_InGame : MonoBehaviour
     private void Update()
     {
         UpdateSoulsUI();
-        
+
         if (PlayerManager.instance.player.isRed) return;
 
         // if (Input.GetKeyDown(KeyCode.LeftShift) && skills.dash.dashUnlocked) SetCooldownOf(dashImage);
@@ -69,7 +69,7 @@ public class UI_InGame : MonoBehaviour
         currentSouls.text = ((int)soulsAmount).ToString();
     }
 
-    private void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         slider.maxValue = playerStats.GetMaxHealthValue();
         slider.value = playerStats.currentHealth;
@@ -104,7 +104,7 @@ public class UI_InGame : MonoBehaviour
 
         startAlpha = canvasGroup.alpha;
         targetAlpha = 0f;
-        
+
         elapsedTime = 0f;
         while (elapsedTime < duration)
         {

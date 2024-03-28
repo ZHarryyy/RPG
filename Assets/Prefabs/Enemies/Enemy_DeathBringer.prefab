@@ -173,7 +173,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 500
+    baseValue: 2000
     modifiers: 
   armor:
     baseValue: 0
@@ -197,8 +197,9 @@ MonoBehaviour:
   isChilled: 0
   isShocked: 0
   ailmentsDuration: 4
-  shockStrikePrefab: {fileID: 0}
+  shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  isDead: 0
   soulsDropAmount:
     baseValue: 0
     modifiers: 
@@ -282,7 +283,7 @@ MonoBehaviour:
   idleTime: 0.5
   battleTime: 7
   agroDistance: 10
-  attackDistance: 2
+  attackDistance: 4
   attackCooldown: 0
   minAttackCooldown: 0.5
   maxAttackCooldown: 1

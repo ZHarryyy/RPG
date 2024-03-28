@@ -14,7 +14,7 @@ public class Clone_Skill : Skill
     [Header("Clone attack")]
     [SerializeField] private UI_SkillTreeSlot cloneAttackUnlockButton;
     [SerializeField] private float cloneAttackMultiplier;
-    [SerializeField] private bool canAttack;
+    [SerializeField] private bool canAttack = true;
 
     [Header("Aggressive clone")]
     [SerializeField] private UI_SkillTreeSlot aggressiveCloneUnlockButton;

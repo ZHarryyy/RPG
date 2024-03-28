@@ -59,6 +59,8 @@ public class PlayerStats : CharacterStats
 
         player.Die();
 
+        if (player.canTriggerBlackhole) player.stats.isDead = false;
+
         GameManager.instance.lostSoulAmount = PlayerManager.instance.currency;
         PlayerManager.instance.currency = 0;
 

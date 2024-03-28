@@ -4,8 +4,12 @@ using UnityEngine;
 public class Player : Entity
 {
     public bool isRed;
+    public AltarOfThunderClawDestroyController altar;
 
     public bool isBirth = true;
+    public bool isDieFirstTime = true;
+    public bool canTriggerBlackhole = false;
+    public GameObject blackholeTrigger;
 
     [Header("Attack details")]
     public Vector2[] attackMovement;
@@ -106,7 +110,7 @@ public class Player : Entity
 
         if (Input.GetKeyDown(KeyCode.F) && skill.crystal.crystalUnlocked) skill.crystal.CanUseSkill();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) Inventory.instance.UseFlask();
+        if (Input.GetKeyDown(KeyCode.H)) Inventory.instance.UseFlask();
     }
 
     public override void SlowEntityBy(float _slowPercentage, float _slowDuration)

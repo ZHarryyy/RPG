@@ -18,10 +18,20 @@ public class Spawner : MonoBehaviour
     private int currentWaveIndex;
     private List<GameObject> spawnedEnemies;
 
+    private bool shouldSpawn = false;
+
     private void Start()
     {
         spawnedEnemies = new List<GameObject>();
-        StartCoroutine(SpawnWave());
+    }
+
+    private void Update()
+    {
+        if (!shouldSpawn && PlayerManager.instance.player.altar.isActivate)
+        {
+            shouldSpawn = true;
+            StartCoroutine(SpawnWave());
+        }
     }
 
     private IEnumerator SpawnWave()
@@ -52,6 +62,8 @@ public class Spawner : MonoBehaviour
 
             currentWaveIndex++;
         }
+
+        shouldSpawn = false; // 重置条件
     }
 
     private bool AllEnemiesDead()

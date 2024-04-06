@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStats : CharacterStats
@@ -72,5 +73,18 @@ public class EnemyStats : CharacterStats
         myDropSystem.GenerateDrop();
 
         Destroy(gameObject, 5f);
+    }
+
+
+    public override void InvincibaleDoDamage(CharacterStats _targetStats)
+    {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _targetStats.GetComponent<Collider2D>(), true);
+        StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+    }
+
+    private IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
+    {
+        yield return new WaitForSeconds(1f);
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
     }
 }

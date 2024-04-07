@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.000100016594, y: -0.00049999356, z: 0}
-    m_Extent: {x: 1.0007, y: 1, z: 0}
+    m_Center: {x: 0.00045001507, y: -0.00015002489, z: 0}
+    m_Extent: {x: 0.99965, y: 1.00015, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -253,6 +253,7 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 0}
   currentHealth: 0
+  isDead: 0
   soulsDropAmount:
     baseValue: 0
     modifiers: 
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   check: {fileID: 9113749289189913825}
-  boxSize: {x: 5, y: 6}
+  boxSize: {x: 3, y: 6}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64

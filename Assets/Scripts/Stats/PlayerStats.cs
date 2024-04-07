@@ -22,30 +22,32 @@ public class PlayerStats : CharacterStats
     {
         base.Update();
 
-        if (isInvincible)
-        {
-            elapsedTime += Time.deltaTime;
+        InvincibleBlink();
 
-            if (elapsedTime >= blinkDuration)
-            {
-                if (isFadingOut)
-                {
-                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-                    isFadingOut = false;
-                }
-                else
-                {
-                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
-                    isFadingOut = true;
-                }
+        //if (isInvincible)
+        //{
+        //    elapsedTime += Time.deltaTime;
 
-                elapsedTime = 0f;
-            }
-        }
-        else
-        {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-        }
+        //    if (elapsedTime >= blinkDuration)
+        //    {
+        //        if (isFadingOut)
+        //        {
+        //            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+        //            isFadingOut = false;
+        //        }
+        //        else
+        //        {
+        //            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
+        //            isFadingOut = true;
+        //        }
+
+        //        elapsedTime = 0f;
+        //    }
+        //}
+        //else
+        //{
+        //    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+        //}
     }
 
     public override void TakeDamage(int _damage)

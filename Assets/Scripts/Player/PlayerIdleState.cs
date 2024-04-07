@@ -7,8 +7,9 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-
+        
         player.SetZeroVelocity();
+        //player.jumpState.Jumping = false;//落地后重置可跳跃
     }
 
     public override void Exit()

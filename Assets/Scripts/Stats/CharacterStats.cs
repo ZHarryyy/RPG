@@ -119,15 +119,21 @@ public class CharacterStats : MonoBehaviour
         _statToModify.RemoveModifier(_modifier);
     }
 
+    public virtual void InvincibaleDoDamage(CharacterStats _targetStats)
+    {
+        //StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+    }
+
     public virtual void DoDamage(CharacterStats _targetStats)
     {
         bool criticalStrike = false;
 
         if (_targetStats.isInvincible)
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _targetStats.GetComponent<Collider2D>(), true);
+            //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _targetStats.GetComponent<Collider2D>(), true);
 
-            StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+            //StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+            InvincibaleDoDamage(_targetStats);
 
             return;
         }
@@ -153,12 +159,12 @@ public class CharacterStats : MonoBehaviour
         DoMagicDamage(_targetStats);
     }
 
-    private IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
-    {
-        yield return new WaitForSeconds(1f);
+    //public virtual IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
+    //{
+    //    //yield return new WaitForSeconds(1f);
 
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
-    }
+    //    //Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
+    //}
 
     #region Magical damage and ailments
     public virtual void DoMagicDamage(CharacterStats _targetStats)

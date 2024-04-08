@@ -1,3 +1,4 @@
+using UnityEngine;
 public class PlayerAirState : PlayerState
 {
     public PlayerAirState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -21,6 +22,8 @@ public class PlayerAirState : PlayerState
         if (player.IsWallDetected() && !player.isRed) stateMachine.ChangeState(player.wallSlideState);
 
         if (player.IsGroundDetected()) stateMachine.ChangeState(player.idleState);
+
+        if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
 
         if (xInput != 0 && !player.IsWallDetected()) player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);
     }

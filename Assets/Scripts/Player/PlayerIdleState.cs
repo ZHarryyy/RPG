@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlayerIdleState : PlayerGroundedState
 {
     public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -7,13 +9,18 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-
+        
         player.SetZeroVelocity();
+        //player.jumpState.Jumping = false;//落地后重置可跳跃
+        player.gameObject.GetComponent<Rigidbody2D>().bodyType =  RigidbodyType2D.Kinematic;
+
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
     }
 
     public override void Update()

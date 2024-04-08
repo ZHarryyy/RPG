@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
+    //public bool Jumping = false;//ÌøÔ¾µÄÉÏÉı×´Ì¬
     public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -24,6 +25,11 @@ public class PlayerJumpState : PlayerState
 
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        if (rb.velocity.y < 0) stateMachine.ChangeState(player.airState);
+        if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
+
+        if (rb.velocity.y < 0)//ÏÂ½µ×´Ì¬
+        {
+            stateMachine.ChangeState(player.airState);
+        }
     }
 }

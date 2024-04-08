@@ -598,9 +598,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5517339796170501411}
-  - component: {fileID: 3983836491049221971}
   - component: {fileID: 3193446193164890552}
   - component: {fileID: 6642391180171800548}
+  - component: {fileID: 3983836491049221971}
   - component: {fileID: 5050461441619188199}
   - component: {fileID: 1990245966448174705}
   - component: {fileID: 1519178255277202487}
@@ -637,41 +637,6 @@ Transform:
   - {fileID: 7937689680499284861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3983836491049221971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8900919590030358395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f95b4208c92e429f850b27dad2a1e07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackPower: {x: 0, y: 0}
-  knockbackOffset: {x: 0.5, y: 2}
-  knockbackDuration: 0.3
-  attackCheck: {fileID: 3127697600501987042}
-  attackCheckRadius: 1
-  groundCheck: {fileID: 8496513207025335806}
-  groundCheckDistance: 0.2
-  wallCheck: {fileID: 5713992498561613565}
-  wallCheckDistance: 0.3
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  isRed: 1
-  isBirth: 1
-  attackMovement:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  counterAttackDuration: 0.2
-  moveSpeed: 5
-  jumpForce: 13
-  swordReturnImpact: 0
-  dashSpeed: 5
-  dashDuration: 0.8
 --- !u!70 &3193446193164890552
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -734,6 +699,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3983836491049221971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900919590030358395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f95b4208c92e429f850b27dad2a1e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackPower: {x: 0, y: 0}
+  knockbackOffset: {x: 0.5, y: 2}
+  knockbackDuration: 0.3
+  attackCheck: {fileID: 3127697600501987042}
+  attackCheckRadius: 1
+  groundCheck: {fileID: 8496513207025335806}
+  groundCheckDistance: 0.2
+  wallCheck: {fileID: 5713992498561613565}
+  wallCheckDistance: 0.3
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  isRed: 1
+  altar: {fileID: 0}
+  isBirth: 1
+  isDieFirstTime: 1
+  canTriggerBlackhole: 0
+  blackholeTrigger: {fileID: 0}
+  attackMovement:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  counterAttackDuration: 0.2
+  moveSpeed: 5
+  jumpForce: 13
+  swordReturnImpact: 0
+  dashSpeed: 5
+  dashDuration: 0.8
 --- !u!114 &5050461441619188199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,6 +798,7 @@ MonoBehaviour:
   ailmentsDuration: 1.5
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  isDead: 0
   spriteRenderer: {fileID: 2976004725869069696}
 --- !u!114 &1990245966448174705
 MonoBehaviour:
@@ -913,7 +918,7 @@ MonoBehaviour:
   - {x: 0.3047831, y: -0.78036785, z: 0}
   m_ShapePathHash: 1408530687
   m_Mesh: {fileID: 0}
-  m_InstanceId: -214684
+  m_InstanceId: 130190
   m_LocalBounds:
     m_Center: {x: -0.060057044, y: -0.0029740334, z: 0}
     m_Extent: {x: 0.36484015, y: 0.7773938, z: 0}

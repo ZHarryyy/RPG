@@ -22,30 +22,32 @@ public class PlayerStats : CharacterStats
     {
         base.Update();
 
-        if (isInvincible)
-        {
-            elapsedTime += Time.deltaTime;
+        InvincibleBlink();
 
-            if (elapsedTime >= blinkDuration)
-            {
-                if (isFadingOut)
-                {
-                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-                    isFadingOut = false;
-                }
-                else
-                {
-                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
-                    isFadingOut = true;
-                }
+        //if (isInvincible)
+        //{
+        //    elapsedTime += Time.deltaTime;
 
-                elapsedTime = 0f;
-            }
-        }
-        else
-        {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-        }
+        //    if (elapsedTime >= blinkDuration)
+        //    {
+        //        if (isFadingOut)
+        //        {
+        //            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+        //            isFadingOut = false;
+        //        }
+        //        else
+        //        {
+        //            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, minAlpha);
+        //            isFadingOut = true;
+        //        }
+
+        //        elapsedTime = 0f;
+        //    }
+        //}
+        //else
+        //{
+        //    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+        //}
     }
 
     public override void TakeDamage(int _damage)
@@ -112,10 +114,10 @@ public class PlayerStats : CharacterStats
 
                 elapsedTime = 0f;
             }
-            else
-            {
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-            }
+            //else
+            //{
+            //    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
+            //}
         }
     }
 
@@ -129,6 +131,20 @@ public class PlayerStats : CharacterStats
     public override void OnEvasion()
     {
         player.skill.dodge.CreateMirageOnDodge();
+    }
+
+    public override void InvincibaleDoDamage(CharacterStats _targetStats)
+    {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _targetStats.GetComponent<Collider2D>(), true);
+        //base.InvincibaleDoDamage(_targetStats);
+        StartCoroutine(ReenableCollisionAfterDelay(_targetStats.GetComponent<Collider2D>()));
+    }
+
+    private IEnumerator ReenableCollisionAfterDelay(Collider2D targetCollider)
+    {
+        yield return new WaitForSeconds(1f);
+
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), targetCollider, false);
     }
 
     public void CloneDoDamage(CharacterStats _targetStats, float _multiplier)

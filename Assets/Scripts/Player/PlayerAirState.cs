@@ -23,7 +23,14 @@ public class PlayerAirState : PlayerState
 
         if (player.IsGroundDetected()) stateMachine.ChangeState(player.idleState);
 
-        if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && Input.GetKeyDown(KeyCode.J))
+        {
+            stateMachine.ChangeState(player.downAttackState);
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            stateMachine.ChangeState(player.primaryAttackState);
+        }
 
         if (xInput != 0 && !player.IsWallDetected()) player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);
     }

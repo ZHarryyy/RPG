@@ -126,6 +126,7 @@ public class PlayerStats : CharacterStats
         yield return new WaitForSeconds(1.5f);
 
         player.stats.MakeInvincible(false);
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
     }
 
     public override void OnEvasion()

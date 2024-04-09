@@ -25,11 +25,21 @@ public class PlayerJumpState : PlayerState
 
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
-
         if (rb.velocity.y < 0)//ÏÂ½µ×´Ì¬
         {
             stateMachine.ChangeState(player.airState);
         }
+
+        //¿ÕÖÐÏÂÅü
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && Input.GetKeyDown(KeyCode.J))
+        {
+            stateMachine.ChangeState(player.downAttackState);
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            //¿ÕÖÐ¹¥»÷
+            stateMachine.ChangeState(player.primaryAttackState);
+        }
+
     }
 }

@@ -22,20 +22,21 @@ public class PlayerGroundedState : PlayerState
     {
         base.Update();
 
-        //if (Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackholeUnlocked)
-        //{
-        //    if (player.skill.blackhole.cooldownTimer > 0)
-        //    {
-        //        player.fx.CreatePopUpText("Skill is on Cooldown");
-        //        return;
-        //    }
 
-        //    stateMachine.ChangeState(player.blackholeState);
-        //}
+        if (!player.isRed && Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackholeUnlocked)
+        {
+            if (player.skill.blackhole.cooldownTimer > 0)
+            {
+                player.fx.CreatePopUpText("Skill is on Cooldown");
+                return;
+            }
 
-        //if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked && !player.isBusy) stateMachine.ChangeState(player.aimSwordState);
+            stateMachine.ChangeState(player.blackholeState);
+        }
 
-        //if (Input.GetKeyDown(KeyCode.Q) && player.skill.parry.parryUnlocked) stateMachine.ChangeState(player.counterAttackState);
+        if (!player.isRed && Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.swordUnlocked && !player.isBusy) stateMachine.ChangeState(player.aimSwordState);
+
+        if (!player.isRed && Input.GetKeyDown(KeyCode.Q) && player.skill.parry.parryUnlocked) stateMachine.ChangeState(player.counterAttackState);
 
         if (Input.GetKeyDown(KeyCode.J)) stateMachine.ChangeState(player.primaryAttackState);
 

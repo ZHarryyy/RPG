@@ -123,3 +123,6 @@ crashlytics-build.properties
 # Ignore all local history of files
 .history
 .ionide
+
+#Packages Directory
+Packages/

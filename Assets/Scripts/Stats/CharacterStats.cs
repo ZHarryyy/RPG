@@ -138,7 +138,7 @@ public class CharacterStats : MonoBehaviour
             return;
         }
 
-        if (TargetCanAvoidAttack(_targetStats)) return;
+        if (TargetCanAvoidAttack(_targetStats) || isDead) return;//防止死亡后尸体造成伤害
 
         _targetStats.GetComponent<Entity>().SetupKnockbackDir(transform);
 

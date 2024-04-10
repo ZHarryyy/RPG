@@ -47,6 +47,7 @@ public class Player : Entity
 
     public PlayerPrimaryAttackState primaryAttackState { get; private set; }
     public PlayerCounterAttackState counterAttackState { get; private set; }
+    public PlayerDownAttackState downAttackState { get; private set; }
 
     public PlayerAimSwordState aimSwordState { get; private set; }
     public PlayerCatchSwordState catchSwordState { get; private set; }
@@ -73,6 +74,7 @@ public class Player : Entity
 
         primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+        downAttackState = new PlayerDownAttackState(this, stateMachine, "AttackDownward");
 
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
         catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
@@ -169,7 +171,7 @@ public class Player : Entity
                 stateMachine.ChangeState(dashState);
             }
         }
-        else if (!isRed)
+        else
         {
             if (skill.dash.dashUnlocked == false) return;
 

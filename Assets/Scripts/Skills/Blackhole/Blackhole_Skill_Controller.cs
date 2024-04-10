@@ -117,7 +117,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
             amountOfAttacks--;
 
-            if (amountOfAttacks <= 0)
+            if (amountOfAttacks <= 0 || targets.Count == 0)
             {
                 Invoke("FinishBlackHoleAbility", 1f);
             }

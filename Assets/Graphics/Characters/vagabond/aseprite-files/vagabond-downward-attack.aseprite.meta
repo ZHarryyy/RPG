@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1760d4a2bea8f45729f0a0c9c94df2cf
+guid: aec6d2b9f3716f048b211329dfab5dc8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 1
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -88,7 +88,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 1
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638483124468443755
+  platformSettingsDirtyTick: 638483125585900853
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,38 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: vagabond-heavy-attack_Frame_0
+  - name: vagabond-downward-attack_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 129
-      width: 26
-      height: 19
-    spriteID: 28fd11a6456394c7190ba2c57cda684c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 129}
-  - name: vagabond-heavy-attack_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 182
+      x: 38
+      y: 102
       width: 26
       height: 17
-    spriteID: 23f8d9f1e12ef42738f86e7687627538
+    spriteID: b51c91cabaf092f49b6c9c125283a874
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,179 +140,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 182}
-  - name: vagabond-heavy-attack_Frame_2
+    uvTransform: {x: 38, y: 102}
+  - name: vagabond-downward-attack_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 207
-      width: 26
-      height: 17
-    spriteID: ef0250c01d11442daba7b1bcbcb5cbd3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 207}
-  - name: vagabond-heavy-attack_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 232
-      width: 26
-      height: 17
-    spriteID: 0c4927ce848704d0980f7207613f6e44
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 232}
-  - name: vagabond-heavy-attack_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 63
-      y: 67
-      width: 26
-      height: 17
-    spriteID: a4e72fff56ac24b3297b7b11d1a1a2e6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 63, y: 67}
-  - name: vagabond-heavy-attack_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 63
-      y: 92
-      width: 26
-      height: 17
-    spriteID: 352f5f689094b4c00a6e039a34b9a2dd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 63, y: 92}
-  - name: vagabond-heavy-attack_Frame_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 63
-      y: 117
-      width: 26
-      height: 17
-    spriteID: 3875b2ddc91c0403d9d490f92208e9fb
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 63, y: 117}
-  - name: vagabond-heavy-attack_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 156
-      width: 26
-      height: 18
-    spriteID: 72a165d9cc635436ebd57288833c705e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 156}
-  - name: vagabond-heavy-attack_Frame_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 68
-      height: 55
-    spriteID: da788461b2489460b8163f205e1bd548
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: vagabond-heavy-attack_Frame_9
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 67
-      width: 51
-      height: 27
-    spriteID: 8718cfbcec2ed4bf8a67cf339dfe87e2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 67}
-  - name: vagabond-heavy-attack_Frame_10
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 102
-      width: 46
-      height: 19
-    spriteID: 63bd17e47e4984f5ebb7a4920367ffee
+      width: 26
+      height: 18
+    spriteID: 83c011645679815489bdf949a7c5c9e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,10 +161,70 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 102}
-  - name: vagabond-heavy-attack_Frame_11
+  - name: vagabond-downward-attack_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 68
+      height: 55
+    spriteID: b802d4d5866357e4a80d48a8a42399fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: vagabond-downward-attack_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 67
+      width: 51
+      height: 27
+    spriteID: 572b68a2e09b274459bd3afc41bd4cfa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 67}
+  - name: vagabond-downward-attack_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 67
+      width: 46
+      height: 19
+    spriteID: 93049907d7d7cd044be135d6f903f721
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 63, y: 67}
+  - name: vagabond-downward-attack_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -352,7 +232,7 @@ ScriptedImporter:
       y: 4
       width: 36
       height: 17
-    spriteID: b3590bbc4616a47a6982192de0c67f29
+    spriteID: 8d6e383725af8924c97ce8d4113fb5e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,10 +241,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 80, y: 4}
-  - name: vagabond-heavy-attack_Frame_12
+  - name: vagabond-downward-attack_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -372,7 +252,7 @@ ScriptedImporter:
       y: 29
       width: 35
       height: 17
-    spriteID: 305f7a768d76646368e7584ff7d151ef
+    spriteID: bac58b1b9ccc87c43b4ed253cac97606
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -384,116 +264,68 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 482090297
-    name: vagabond-heavy-attack
+    guid: 514273350
+    name: vagabond-downward-attack
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: vagabond-heavy-attack_Frame_0
+    - name: vagabond-downward-attack_Frame_0
       frameIndex: 0
       cellRect:
         x: 16
         y: 0
         width: 26
-        height: 19
-      spriteId: 28fd11a6456394c7190ba2c57cda684c
-    - name: vagabond-heavy-attack_Frame_1
+        height: 17
+      spriteId: b51c91cabaf092f49b6c9c125283a874
+    - name: vagabond-downward-attack_Frame_1
       frameIndex: 1
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: 23f8d9f1e12ef42738f86e7687627538
-    - name: vagabond-heavy-attack_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: ef0250c01d11442daba7b1bcbcb5cbd3
-    - name: vagabond-heavy-attack_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: 0c4927ce848704d0980f7207613f6e44
-    - name: vagabond-heavy-attack_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: a4e72fff56ac24b3297b7b11d1a1a2e6
-    - name: vagabond-heavy-attack_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: 352f5f689094b4c00a6e039a34b9a2dd
-    - name: vagabond-heavy-attack_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 16
-        y: 0
-        width: 26
-        height: 17
-      spriteId: 3875b2ddc91c0403d9d490f92208e9fb
-    - name: vagabond-heavy-attack_Frame_7
-      frameIndex: 7
       cellRect:
         x: 15
         y: 0
         width: 26
         height: 18
-      spriteId: 72a165d9cc635436ebd57288833c705e
-    - name: vagabond-heavy-attack_Frame_8
-      frameIndex: 8
+      spriteId: 83c011645679815489bdf949a7c5c9e2
+    - name: vagabond-downward-attack_Frame_2
+      frameIndex: 2
       cellRect:
         x: 15
         y: 0
         width: 68
         height: 55
-      spriteId: da788461b2489460b8163f205e1bd548
-    - name: vagabond-heavy-attack_Frame_9
-      frameIndex: 9
+      spriteId: b802d4d5866357e4a80d48a8a42399fc
+    - name: vagabond-downward-attack_Frame_3
+      frameIndex: 3
       cellRect:
         x: 29
         y: 0
         width: 51
         height: 27
-      spriteId: 8718cfbcec2ed4bf8a67cf339dfe87e2
-    - name: vagabond-heavy-attack_Frame_10
-      frameIndex: 10
+      spriteId: 572b68a2e09b274459bd3afc41bd4cfa
+    - name: vagabond-downward-attack_Frame_4
+      frameIndex: 4
       cellRect:
         x: 29
         y: 0
         width: 46
         height: 19
-      spriteId: 63bd17e47e4984f5ebb7a4920367ffee
-    - name: vagabond-heavy-attack_Frame_11
-      frameIndex: 11
+      spriteId: 93049907d7d7cd044be135d6f903f721
+    - name: vagabond-downward-attack_Frame_5
+      frameIndex: 5
       cellRect:
         x: 32
         y: 0
         width: 36
         height: 17
-      spriteId: b3590bbc4616a47a6982192de0c67f29
-    - name: vagabond-heavy-attack_Frame_12
-      frameIndex: 12
+      spriteId: 8d6e383725af8924c97ce8d4113fb5e2
+    - name: vagabond-downward-attack_Frame_6
+      frameIndex: 6
       cellRect:
         x: 33
         y: 0
         width: 35
         height: 17
-      spriteId: 305f7a768d76646368e7584ff7d151ef
+      spriteId: bac58b1b9ccc87c43b4ed253cac97606
     linkedCells: []
     parentIndex: -1
   platformSettings:

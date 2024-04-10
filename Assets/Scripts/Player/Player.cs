@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public bool AirComboFinished = false; //判断空中连段是否已完成
     public bool isRed;
     public AltarOfThunderClawDestroyController altar;
 
@@ -13,6 +14,7 @@ public class Player : Entity
 
     [Header("Attack details")]
     public Vector2[] attackMovement;
+    public Vector2[] airAttackMovement;
     public float counterAttackDuration = .2f;
 
     public bool isBusy { get; private set; }
@@ -47,6 +49,8 @@ public class Player : Entity
 
     public PlayerPrimaryAttackState primaryAttackState { get; private set; }
     public PlayerCounterAttackState counterAttackState { get; private set; }
+    public PlayerJumpAttackState jumpAttackState { get; private set; }
+
     public PlayerDownAttackState downAttackState { get; private set; }
 
     public PlayerAimSwordState aimSwordState { get; private set; }
@@ -74,6 +78,7 @@ public class Player : Entity
 
         primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+        jumpAttackState = new PlayerJumpAttackState(this, stateMachine, "JumpAttack");
         downAttackState = new PlayerDownAttackState(this, stateMachine, "AttackDownward");
 
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
@@ -109,8 +114,8 @@ public class Player : Entity
         stateMachine.currentState.Update();
 
         CheckForDashInput();
-
-        //if (Input.GetKeyDown(KeyCode.F) && skill.crystal.crystalUnlocked) skill.crystal.CanUseSkill();
+        
+        if (!isRed && Input.GetKeyDown(KeyCode.F) && skill.crystal.crystalUnlocked) skill.crystal.CanUseSkill();
 
         if (Input.GetKeyDown(KeyCode.H)) Inventory.instance.UseFlask();
     }
@@ -155,7 +160,7 @@ public class Player : Entity
     }
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
-
+    
     private void CheckForDashInput()
     {
         if (IsWallDetected()) return;
@@ -173,7 +178,9 @@ public class Player : Entity
         }
         else
         {
-            if (skill.dash.dashUnlocked == false) return;
+            if (skill.dash.dashUnlocked == false || 
+                stateMachine.currentState == birthState ||
+                stateMachine.currentState == deadState) return;//在某些状态不能dash，比如躺在地上
 
             if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
             {

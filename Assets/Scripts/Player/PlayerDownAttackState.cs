@@ -11,6 +11,7 @@ public class PlayerDownAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        attackCharged = false;
     }
 
     public override void Exit()
@@ -22,7 +23,14 @@ public class PlayerDownAttackState : PlayerState
     {
         base.Update();
 
-        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);//继续上一帧的速度进行运动 
+        if(attackCharged)
+        {
+            player.SetVelocity(xInput * player.moveSpeed, -10);//继续上一帧的速度进行运动 
+        }
+        else
+        {
+            player.SetZeroVelocity();
+        }
 
         if (triggerCalled)
         {

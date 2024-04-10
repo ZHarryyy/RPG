@@ -13,6 +13,8 @@ public class PlayerState
 
     protected float stateTimer;
     protected bool triggerCalled;
+    protected bool attackCharged;
+
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
     {
@@ -45,5 +47,10 @@ public class PlayerState
     public virtual void AnimationFinishTrigger()
     {
         triggerCalled = true;
+    }
+
+    public virtual void AttackCharged()//ÅÐ¶Ï¹¥»÷ÐîÁ¦Íê³É
+    {
+        attackCharged = true;
     }
 }

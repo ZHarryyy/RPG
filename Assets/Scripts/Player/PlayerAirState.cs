@@ -19,7 +19,11 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
-        if (player.IsWallDetected() && !player.isRed) stateMachine.ChangeState(player.wallSlideState);
+        if (player.IsWallDetected() && !player.isRed)
+        {
+            player.AirComboFinished = false;
+            stateMachine.ChangeState(player.wallSlideState);
+        }
 
         if (player.IsGroundDetected()) stateMachine.ChangeState(player.idleState);
 
@@ -29,7 +33,17 @@ public class PlayerAirState : PlayerState
         }
         else if (Input.GetKeyDown(KeyCode.J))
         {
-            stateMachine.ChangeState(player.primaryAttackState);
+            if(player.isRed)
+            {
+                stateMachine.ChangeState(player.primaryAttackState);
+            }
+            else
+            {
+                if (!player.AirComboFinished)
+                {
+                    stateMachine.ChangeState(player.jumpAttackState);
+                }
+            }
         }
 
         if (xInput != 0 && !player.IsWallDetected()) player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);

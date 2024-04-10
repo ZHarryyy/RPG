@@ -37,8 +37,19 @@ public class PlayerJumpState : PlayerState
         }
         else if (Input.GetKeyDown(KeyCode.J))
         {
-            //¿ÕÖÐ¹¥»÷
-            stateMachine.ChangeState(player.primaryAttackState);
+            if(player.isRed)
+            {
+                //¿ÕÖÐ¹¥»÷
+                stateMachine.ChangeState(player.primaryAttackState);
+            }
+            else
+            {
+                if(!player.AirComboFinished)
+                {
+                    stateMachine.ChangeState(player.jumpAttackState);
+                }
+            }
+
         }
 
     }

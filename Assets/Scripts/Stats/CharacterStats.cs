@@ -69,7 +69,7 @@ public class CharacterStats : MonoBehaviour
     public bool isDead;
     public bool isInvincible { get; private set; }
     private bool isVulnerable;
-
+    public bool isSuperArmor = false;
     protected virtual void Start()
     {
         if (critChance.GetValue() == 0) critPower.SetDefaultValue(0);
@@ -321,8 +321,12 @@ public class CharacterStats : MonoBehaviour
 
         DecreaseHealthBy(_damage);
 
-        GetComponent<Entity>().DamageImpact();
-        fx.StartCoroutine("FlashFX");
+        if(!isSuperArmor)//没霸体的时候才会击退
+        {
+            GetComponent<Entity>().DamageImpact();
+        }
+
+        fx.StartCoroutine("FlashFX");//受击特效，白色闪烁
 
         if (currentHealth <= 0 && !isDead) Die();
     }

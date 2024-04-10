@@ -108,6 +108,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
         }
     }
 
+    private void AttackChargedTrigger()
+    {
+        player.stateMachine.currentState.AttackCharged();
+    }
 
     private void ThrowSword()
     {
@@ -122,6 +126,11 @@ public class PlayerAnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null && !hit.GetComponent<Enemy>().isDead) StartCoroutine(StopAnimation());
         }
+    }
+
+    private void SuperArmorTrigger()//霸体触发和关闭
+    {
+        player.stats.isSuperArmor = !player.stats.isSuperArmor;
     }
 
     private IEnumerator StopAnimation()

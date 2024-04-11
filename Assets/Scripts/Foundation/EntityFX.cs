@@ -127,10 +127,11 @@ public class EntityFX : MonoBehaviour
     {
         shockFx.Play();
 
-        InvokeRepeating("ShockColorFx", 0, .3f);
+        InvokeRepeating("ShockColorFx", 0, .3f);//每隔0.3调用一次
         Invoke("CancelColorChange", _seconds);
     }
 
+    //交替变换颜色
     private void ShockColorFx()
     {
         if (sr.color != shockColor[0]) sr.color = shockColor[0];

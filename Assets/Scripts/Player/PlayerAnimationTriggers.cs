@@ -55,7 +55,7 @@ public class PlayerAnimationTriggers : MonoBehaviour
         }
     }
 
-    private void DownwardAttackTrigger()
+    private void DownwardAttackTrigger()//小红帽
     {
         ContactFilter2D cf2D = new ContactFilter2D
         {
@@ -108,6 +108,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
         }
     }
 
+    private void DownwardAttackChargedTrigger()
+    {
+        player.stateMachine.currentState.DownwardAttackCharged();
+    }
 
     private void ThrowSword()
     {
@@ -122,6 +126,11 @@ public class PlayerAnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null && !hit.GetComponent<Enemy>().isDead) StartCoroutine(StopAnimation());
         }
+    }
+
+    private void SuperArmorTrigger()//霸体触发和关闭
+    {
+        player.stats.isSuperArmor = !player.stats.isSuperArmor;
     }
 
     private IEnumerator StopAnimation()

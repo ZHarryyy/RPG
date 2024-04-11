@@ -22,7 +22,6 @@ public class PlayerGroundedState : PlayerState
     {
         base.Update();
 
-
         if (!player.isRed && Input.GetKeyDown(KeyCode.R) && player.skill.blackhole.blackholeUnlocked)
         {
             if (player.skill.blackhole.cooldownTimer > 0)

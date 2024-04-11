@@ -22,7 +22,7 @@ public class PlayerStats : CharacterStats
     {
         base.Update();
 
-        InvincibleBlink();
+        InvincibleBlinkHandle();
 
         //if (isInvincible)
         //{
@@ -80,8 +80,8 @@ public class PlayerStats : CharacterStats
             player.fx.ScreenShake(player.fx.shakeHighDamage);
         }
 
-        InvincibleBlink();
         player.stats.MakeInvincible(true);
+        InvincibleBlinkHandle();
 
         if (Inventory.instance != null)
         {
@@ -93,7 +93,7 @@ public class PlayerStats : CharacterStats
         StartCoroutine(DisableInvincibilityAfterDuration());
     }
 
-    private void InvincibleBlink()
+    private void InvincibleBlinkHandle()
     {
         if (isInvincible)
         {
@@ -114,10 +114,10 @@ public class PlayerStats : CharacterStats
 
                 elapsedTime = 0f;
             }
-            //else
-            //{
-            //    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
-            //}
+        }
+        else
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
         }
     }
 
@@ -126,7 +126,6 @@ public class PlayerStats : CharacterStats
         yield return new WaitForSeconds(1.5f);
 
         player.stats.MakeInvincible(false);
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, maxAlpha);
     }
 
     public override void OnEvasion()

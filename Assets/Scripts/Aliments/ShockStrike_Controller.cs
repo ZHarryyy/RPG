@@ -37,7 +37,7 @@ public class ShockStrike_Controller : MonoBehaviour
             transform.localRotation = Quaternion.identity;
             transform.localScale = new Vector3(3, 3);
 
-            Invoke("DamageAndSelfDestroy", .2f);
+            Invoke("DamageAndSelfDestroy", .2f);//—”≥Ÿ÷¥––
             triggered = true;
             anim.SetTrigger("Hit");
         }

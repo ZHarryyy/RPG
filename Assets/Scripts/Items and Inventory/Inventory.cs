@@ -306,7 +306,7 @@ public class Inventory : MonoBehaviour, ISaveManager
         if (canUseFlask)
         {
             flaskCooldown = currentFlask.itemCooldown;
-            currentFlask.Effect(null);
+            currentFlask.Effect(null);//暂时是打印信息
             lastTimeUsedFlask = Time.time;
         }
         else

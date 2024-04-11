@@ -55,7 +55,7 @@ public class PlayerAnimationTriggers : MonoBehaviour
         }
     }
 
-    private void DownwardAttackTrigger()
+    private void DownwardAttackTrigger()//–°∫Ï√±
     {
         ContactFilter2D cf2D = new ContactFilter2D
         {
@@ -108,9 +108,9 @@ public class PlayerAnimationTriggers : MonoBehaviour
         }
     }
 
-    private void AttackChargedTrigger()
+    private void DownwardAttackChargedTrigger()
     {
-        player.stateMachine.currentState.AttackCharged();
+        player.stateMachine.currentState.DownwardAttackCharged();
     }
 
     private void ThrowSword()

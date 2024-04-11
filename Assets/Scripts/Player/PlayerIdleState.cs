@@ -9,7 +9,8 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-        
+
+
         player.SetZeroVelocity();
         player.AirComboFinished = false;//重置空中连段
         //player.jumpState.Jumping = false;//落地后重置可跳跃

@@ -13,7 +13,7 @@ public class PlayerState
 
     protected float stateTimer;
     protected bool triggerCalled;
-    protected bool attackCharged;
+    protected bool downwardAttackCharged;
 
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
@@ -49,8 +49,8 @@ public class PlayerState
         triggerCalled = true;
     }
 
-    public virtual void AttackCharged()//判断攻击蓄力完成
+    public virtual void DownwardAttackCharged()//判断攻击蓄力完成
     {
-        attackCharged = true;
+        downwardAttackCharged = true;
     }
 }

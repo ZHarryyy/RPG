@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerBirthState : PlayerState
 {
-    private AltarOfThunderClawDestroyController altar;
-
     private bool isDelayedStateChangeStarted = false;
     private float delayTimer = 0f;
     private float delayDuration = 2f;
@@ -35,7 +33,7 @@ public class PlayerBirthState : PlayerState
             player.isBirth = false;
             stateMachine.ChangeState(player.idleState);
         }
-        else if (!player.isRed && player.altar.isActivate)
+        else if (!player.isRed && player.altar.isActivate && player.altar.enable)
         {
             player.anim.speed = 1;
 
@@ -54,6 +52,11 @@ public class PlayerBirthState : PlayerState
                     stateMachine.ChangeState(player.idleState);
                 }
             }
+        }
+        else if(stateTimer <= 0 && !player.isRed && !player.altar.enable)
+        {
+            player.isBirth = false;
+            stateMachine.ChangeState(player.idleState);
         }
     }
 }

@@ -12,6 +12,8 @@ public class AltarOfThunderClawDestroyController : MonoBehaviour
     [SerializeField] private UI_InGame uI_HealthBar;
     [SerializeField] private UI_Instruction uI_Instruction;
 
+    public bool enable = true;
+
     private void Start()
     {
         canvasGroup = GetComponentInChildren<CanvasGroup>();
@@ -54,7 +56,8 @@ public class AltarOfThunderClawDestroyController : MonoBehaviour
         {
             canActivate = false;
             StopCoroutine(FadeInAndOutCanvasGroup());
-            canvasGroup.alpha = 0f;
+
+            if(canvasGroup != null) canvasGroup.alpha = 0f;
         }
     }
 

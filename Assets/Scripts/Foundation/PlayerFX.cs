@@ -19,8 +19,6 @@ public class PlayerFX : EntityFX
     [Space]
     [SerializeField] private ParticleSystem dustFx;
     [SerializeField] private GameObject dashFx;
-    [SerializeField] private ParticleSystem cureFx;
-
 
     protected override void Start()
     {
@@ -54,9 +52,9 @@ public class PlayerFX : EntityFX
         if (dustFx != null) dustFx.Play();
     }
 
-    public void PlayCureFx()
+    public void PlayHealFx()
     {
-        if (cureFx != null) cureFx.Play();
+        HealFx();
     }
 
     public void PlayDashFX(bool _isActive)

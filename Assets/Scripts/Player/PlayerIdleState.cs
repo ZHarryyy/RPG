@@ -13,6 +13,8 @@ public class PlayerIdleState : PlayerGroundedState
 
         player.SetZeroVelocity();
         player.AirComboFinished = false;//重置空中连段
+        player.jumpAttackState.comboCounter = 0;//重置空中连段数
+
         //player.jumpState.Jumping = false;//落地后重置可跳跃
         player.gameObject.GetComponent<Rigidbody2D>().bodyType =  RigidbodyType2D.Kinematic;
 

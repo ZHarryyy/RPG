@@ -224,6 +224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 575790284598407310}
     m_Modifications:
+    - target: {fileID: 5240655229625040551, guid: 8ca02e0ecdaf84b6d87accf2d518ae9b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 8184803302919314798, guid: 8ca02e0ecdaf84b6d87accf2d518ae9b, type: 3}
       propertyPath: m_Name
       value: DuskFX

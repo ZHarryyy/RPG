@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerJumpAttackState : PlayerState
 {
-    public int comboCounter { get; private set; }
+    public int comboCounter = 0;
 
     private float lastTimeAttacked;
-    private float comboWindow = 2;
+    private float comboWindow = 0.5f;
 
     // Start is called before the first frame update
     public PlayerJumpAttackState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -21,14 +21,14 @@ public class PlayerJumpAttackState : PlayerState
         xInput = 0;
         if (comboCounter == 2)
         {
-            player.AirComboFinished = true;
+            player.AirComboFinished = true;//完成combo则air和jump状态不会再跳转到空中攻击
         }
         else if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow)
         {
             comboCounter = 0;
         }
 
-            player.anim.SetInteger("AirComboCounter", comboCounter);
+        player.anim.SetInteger("AirComboCounter", comboCounter);
 
         float attackDir = player.facingDir;
         if (xInput != 0) attackDir = xInput;

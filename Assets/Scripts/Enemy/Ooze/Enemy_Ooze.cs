@@ -63,8 +63,7 @@ public class Enemy_Ooze : Enemy
         stateMachine.ChangeState(deadState);
 
         if (oozeType == OozeType.small) return;
-
-        CreateOozes(oozeToCreate, oozePrefab);
+        else CreateOozes(oozeToCreate, oozePrefab);
     }
 
     private void CreateOozes(int _amountOfOoze, GameObject _oozePrefab)

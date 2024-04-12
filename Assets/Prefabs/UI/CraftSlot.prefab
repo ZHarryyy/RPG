@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 7487174197738248072}
   itemText: {fileID: 5745631240387157506}
+  itemAmountBackground: {fileID: 0}
   item:
     data: {fileID: 11400000, guid: 1659d14939dfe44bba6b528ecd265b18, type: 2}
     stackSize: 0

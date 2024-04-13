@@ -22,6 +22,13 @@ public class PlayerBirthState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
+        Transform childTransform = player.transform.Find("Container");
+        GameObject childContainerObject = childTransform.gameObject;
+        if(childContainerObject != null)
+        {
+            childContainerObject.SetActive(true);
+        }
     }
 
     public override void Update()

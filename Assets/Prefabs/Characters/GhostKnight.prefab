@@ -168,6 +168,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  AirComboFinished: 0
   isRed: 0
   altar: {fileID: 0}
   isBirth: 1
@@ -178,6 +179,7 @@ MonoBehaviour:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
   - {x: 4, y: 1.5}
+  airAttackMovement: []
   counterAttackDuration: 0.2
   moveSpeed: 9
   jumpForce: 15
@@ -245,6 +247,7 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
   isDead: 0
+  isSuperArmor: 0
   spriteRenderer: {fileID: 9117257959313248452}
 --- !u!114 &1758508603395201150
 MonoBehaviour:
@@ -343,6 +346,7 @@ MonoBehaviour:
   igniteFx: {fileID: 7612617678242025172}
   chillFx: {fileID: 6463968639190841814}
   shockFx: {fileID: 1352690377771321117}
+  healFx: {fileID: 0}
   hitFx: {fileID: 3393682328534863098, guid: 12047fb300ab44843bf985fb498b82f4, type: 3}
   criticalHitFx: {fileID: 3010901169956494706, guid: 65c4da13acd80486295c7a0bba03028c, type: 3}
   shakeMultiplier: 0.2
@@ -887,6 +891,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4247189251925205885}
     m_Modifications:
+    - target: {fileID: 5240655229625040551, guid: 8ca02e0ecdaf84b6d87accf2d518ae9b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 8184803302919314798, guid: 8ca02e0ecdaf84b6d87accf2d518ae9b, type: 3}
       propertyPath: m_Name
       value: DuskFX

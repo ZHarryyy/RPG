@@ -410,9 +410,10 @@ MonoBehaviour:
   isChilled: 0
   isShocked: 0
   ailmentsDuration: 4
-  shockStrikePrefab: {fileID: 0}
+  shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
   isDead: 0
+  isSuperArmor: 0
   soulsDropAmount:
     baseValue: 0
     modifiers: 
@@ -445,6 +446,7 @@ MonoBehaviour:
   igniteFx: {fileID: 4037183849115800207}
   chillFx: {fileID: 4759765747174709984}
   shockFx: {fileID: 1399554738889848534}
+  healFx: {fileID: 0}
   hitFx: {fileID: 3393682328534863098, guid: 12047fb300ab44843bf985fb498b82f4, type: 3}
   criticalHitFx: {fileID: 3010901169956494706, guid: 65c4da13acd80486295c7a0bba03028c, type: 3}
 --- !u!114 &3734432767353506321
@@ -479,6 +481,7 @@ MonoBehaviour:
   knockbackDuration: 0.07
   attackCheck: {fileID: 6916206748643678189}
   attackCheckRadius: 0.5
+  downwardAttackCheck: {fileID: 0}
   groundCheck: {fileID: 3177798681493747610}
   groundCheckDistance: 1
   wallCheck: {fileID: 6893814920442491693}

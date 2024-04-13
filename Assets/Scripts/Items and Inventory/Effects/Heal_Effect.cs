@@ -11,7 +11,7 @@ public class Heal_Effect : ItemEffect
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 
         int healAmount = Mathf.RoundToInt(playerStats.GetMaxHealthValue() * healPercent);
-
+        PlayerManager.instance.player.fx.PlayHealFx();
         playerStats.IncreaseHealthBy(healAmount);
     }
 }

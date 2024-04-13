@@ -267,6 +267,7 @@ MonoBehaviour:
   knockbackDuration: 0
   attackCheck: {fileID: 4745818633736105722}
   attackCheckRadius: 0.6
+  downwardAttackCheck: {fileID: 0}
   groundCheck: {fileID: 8126198435024113074}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 5010287692208309250}
@@ -274,11 +275,18 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  AirComboFinished: 0
   isRed: 0
+  altar: {fileID: 0}
+  isBirth: 1
+  isDieFirstTime: 1
+  canTriggerBlackhole: 0
+  blackholeTrigger: {fileID: 0}
   attackMovement:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
   - {x: 4, y: 1.5}
+  airAttackMovement: []
   counterAttackDuration: 0.2
   moveSpeed: 8
   jumpForce: 12
@@ -374,6 +382,7 @@ MonoBehaviour:
   igniteFx: {fileID: 0}
   chillFx: {fileID: 0}
   shockFx: {fileID: 0}
+  healFx: {fileID: 0}
   hitFx: {fileID: 0}
   criticalHitFx: {fileID: 0}
 --- !u!114 &3649864891493582642
@@ -436,6 +445,8 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  isDead: 0
+  isSuperArmor: 0
   spriteRenderer: {fileID: 0}
 --- !u!1 &3395341853223824802
 GameObject:

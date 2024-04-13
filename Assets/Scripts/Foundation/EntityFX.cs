@@ -24,10 +24,12 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private ParticleSystem igniteFx;
     [SerializeField] private ParticleSystem chillFx;
     [SerializeField] private ParticleSystem shockFx;
+    [SerializeField] private ParticleSystem healFx;
 
     [Header("Hit FX")]
     [SerializeField] private GameObject hitFx;
     [SerializeField] private GameObject criticalHitFx;
+
 
     private GameObject myHealthBar;
 
@@ -129,6 +131,11 @@ public class EntityFX : MonoBehaviour
 
         InvokeRepeating("ShockColorFx", 0, .3f);//每隔0.3调用一次
         Invoke("CancelColorChange", _seconds);
+    }
+
+    public void HealFx()
+    {
+        healFx.Play();
     }
 
     //交替变换颜色

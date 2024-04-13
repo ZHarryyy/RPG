@@ -380,6 +380,8 @@ MonoBehaviour:
   ailmentsDuration: 4
   shockStrikePrefab: {fileID: 4425208869297801504, guid: c4327f80572ce44738af3aa3d6e886d4, type: 3}
   currentHealth: 0
+  isDead: 0
+  isSuperArmor: 0
   soulsDropAmount:
     baseValue: 0
     modifiers: 
@@ -412,6 +414,7 @@ MonoBehaviour:
   igniteFx: {fileID: 147217530616584076}
   chillFx: {fileID: 5562017474606081720}
   shockFx: {fileID: 6059952897489738193}
+  healFx: {fileID: 0}
   hitFx: {fileID: 3393682328534863098, guid: 12047fb300ab44843bf985fb498b82f4, type: 3}
   criticalHitFx: {fileID: 3010901169956494706, guid: 65c4da13acd80486295c7a0bba03028c, type: 3}
 --- !u!114 &357457613612408491
@@ -446,6 +449,7 @@ MonoBehaviour:
   knockbackDuration: 0.07
   attackCheck: {fileID: 5428253041405320500}
   attackCheckRadius: 0.4
+  downwardAttackCheck: {fileID: 0}
   groundCheck: {fileID: 789558528741942929}
   groundCheckDistance: 0.7
   wallCheck: {fileID: 610734370712208284}
@@ -469,6 +473,7 @@ MonoBehaviour:
   maxAttackCooldown: 0.5
   lastTimeAttacked: 0
   isDead: 0
+  getHitted: 0
   slimeType: 2
   slimesToCreate: 0
   slimePrefab: {fileID: 0}

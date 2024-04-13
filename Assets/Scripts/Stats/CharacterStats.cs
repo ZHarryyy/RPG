@@ -338,6 +338,7 @@ public class CharacterStats : MonoBehaviour
         if (currentHealth > GetMaxHealthValue()) currentHealth = GetMaxHealthValue();
 
         if (onHealthChanged != null) onHealthChanged();
+        
     }
 
     public virtual void DecreaseHealthBy(int _damage)

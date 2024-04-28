@@ -135,7 +135,10 @@ public class EntityFX : MonoBehaviour
 
     public void HealFx()
     {
-        healFx.Play();
+        if(healFx != null)
+        {
+            healFx.Play();
+        }
     }
 
     //½»Ìæ±ä»»ÑÕÉ«

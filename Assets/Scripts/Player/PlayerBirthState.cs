@@ -23,8 +23,11 @@ public class PlayerBirthState : PlayerState
     {
         base.Exit();
 
+
         Transform childTransform = player.transform.Find("Container");
-        GameObject childContainerObject = childTransform.gameObject;
+        GameObject childContainerObject = null;
+        if (childTransform != null) childContainerObject = childTransform.gameObject;
+
         if(childContainerObject != null)
         {
             childContainerObject.SetActive(true);

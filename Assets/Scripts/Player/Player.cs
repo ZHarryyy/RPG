@@ -6,6 +6,7 @@ public class Player : Entity
     public bool AirComboFinished = false; //判断空中连段是否已完成
     public bool isRed;
     public AltarOfThunderClawDestroyController altar;
+    public float attackPressTime = 0.0f;
 
     public bool isBirth = true;
     public bool isDieFirstTime = true;
@@ -50,6 +51,8 @@ public class Player : Entity
     public PlayerPrimaryAttackState primaryAttackState { get; private set; }
     public PlayerCounterAttackState counterAttackState { get; private set; }
     public PlayerJumpAttackState jumpAttackState { get; private set; }
+    public PlayerAttackChargeState attackChargeState { get; private set; }
+    public PlayerHeavyAttackState heavyAttackState { get; private set; }
 
     public PlayerDownAttackState downAttackState { get; private set; }
 
@@ -80,6 +83,8 @@ public class Player : Entity
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         jumpAttackState = new PlayerJumpAttackState(this, stateMachine, "JumpAttack");
         downAttackState = new PlayerDownAttackState(this, stateMachine, "AttackDownward");
+        attackChargeState = new PlayerAttackChargeState(this, stateMachine, "AttackCharge");
+        heavyAttackState = new PlayerHeavyAttackState(this, stateMachine, "HeavyAttack");
 
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
         catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");

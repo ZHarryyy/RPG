@@ -161,6 +161,7 @@ MonoBehaviour:
   attackCheck: {fileID: 416600411764925761}
   attackCheckRadius: 1.7
   downwardAttackCheck: {fileID: 0}
+  heavyAttackCheck: {fileID: 0}
   groundCheck: {fileID: 2209470974123346673}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 2944664465736262738}
@@ -384,7 +385,7 @@ MonoBehaviour:
   - {x: 0.25262165, y: -0.89217377, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 371242
+  m_InstanceId: 51800
   m_LocalBounds:
     m_Center: {x: -0.08490038, y: -0.03032446, z: 0}
     m_Extent: {x: 0.33752203, y: 0.8618493, z: 0}

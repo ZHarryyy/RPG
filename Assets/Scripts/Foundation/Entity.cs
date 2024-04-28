@@ -23,6 +23,8 @@ public class Entity : MonoBehaviour
     public Transform attackCheck;
     public float attackCheckRadius = 1.2f;
     public Collider2D downwardAttackCheck;
+    public Collider2D heavyAttackCheck1;
+    public Collider2D heavyAttackCheck2;
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance = 1;
     [SerializeField] protected Transform wallCheck;

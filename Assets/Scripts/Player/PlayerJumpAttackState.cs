@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerJumpAttackState : PlayerState
@@ -21,7 +20,7 @@ public class PlayerJumpAttackState : PlayerState
         xInput = 0;
         if (comboCounter == 2)
         {
-            player.AirComboFinished = true;//Íê³ÉcomboÔòairºÍjump×´Ì¬²»»áÔÙÌø×ªµ½¿ÕÖÐ¹¥»÷
+            player.AirComboFinished = true;//ï¿½ï¿½ï¿½comboï¿½ï¿½airï¿½ï¿½jump×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½
         }
         else if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow)
         {
@@ -33,7 +32,11 @@ public class PlayerJumpAttackState : PlayerState
         float attackDir = player.facingDir;
         if (xInput != 0) attackDir = xInput;
 
-        player.SetVelocity(player.airAttackMovement[comboCounter].x * attackDir, rb.velocity.y + player.airAttackMovement[comboCounter].y);
+        if (comboCounter < player.airAttackMovement.Count()) {
+            player.SetVelocity(player.airAttackMovement[comboCounter].x * attackDir, rb.velocity.y + player.airAttackMovement[comboCounter].y);
+        } else {
+            Debug.LogFormat("[error] comboCounter out of index. index: " + comboCounter + ", array count " + player.airAttackMovement.Count());
+        }
 
         stateTimer = .1f;
     }
@@ -63,7 +66,7 @@ public class PlayerJumpAttackState : PlayerState
             }
             else
             {
-                //ÎªÁË¼æÈÝ¿ÕÖÐ¹¥»÷×´Ì¬£¬Èç¹ûÔÚµØÃæ»áÔÙ×ª×´Ì¬
+                //Îªï¿½Ë¼ï¿½ï¿½Ý¿ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª×´Ì¬
                 stateMachine.ChangeState(player.airState);
             }
         }

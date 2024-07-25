@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RevolveController : MonoBehaviour
@@ -11,8 +9,8 @@ public class RevolveController : MonoBehaviour
     public float pOmega = 180;
 
     public float radius = 2;
-    public float angle = 0;//³õÊ¼½Ç¶È·½ÏòÎª-xÖá
-    public float omega = 360;//Ðý×ª½ÇËÙ¶È
+    public float angle = 0;//ï¿½ï¿½Ê¼ï¿½Ç¶È·ï¿½ï¿½ï¿½Îª-xï¿½ï¿½
+    public float omega = 360;//ï¿½ï¿½×ªï¿½ï¿½ï¿½Ù¶ï¿½
 
     public TrailRenderer trail;
 

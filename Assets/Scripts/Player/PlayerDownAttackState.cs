@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerDownAttackState : PlayerState
 {
     private bool alreadyDown;
@@ -11,7 +9,7 @@ public class PlayerDownAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        downwardAttackCharged = false;//ÖØÅüÊ±£¬¿ÕÖÐÓÐÒ»¶ÎÐîÁ¦£¬ÐîÁ¦Íê³Éºó»áÏÂ×¹
+        downwardAttackCharged = false;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½×¹
         alreadyDown = false;
     }
 
@@ -28,7 +26,7 @@ public class PlayerDownAttackState : PlayerState
         {
             player.SetVelocity(xInput * player.moveSpeed, -10);
 
-            //ÎªÁËÂäµØ²»ÖØ¸´²¥·Å¶¯»­£¬ÒýÈëalreadyDownÅÐ¶Ï
+            //Îªï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½alreadyDownï¿½Ð¶ï¿½
             if (!alreadyDown && player.IsGroundDetected())
             {
                 player.fx.PlayDustFX();
